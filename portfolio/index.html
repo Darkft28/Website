@@ -679,8 +679,8 @@
             const typewriterElement = document.querySelector('.typewriter');
             if (typewriterElement) {
                 setTimeout(() => {
-                    typewriterElement.style.borderRight = 'none';
-                }, 3500); // 500ms délai + 2500ms animation + 500ms marge
+                    typewriterElement.classList.add('typing-complete');
+                }, 3000); // 500ms délai + 2500ms animation
             }
 
             // Menu hamburger

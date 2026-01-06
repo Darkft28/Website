@@ -664,41 +664,64 @@ nav {
 
 /* Effet machine à écrire (typewriter effect) */
 .typewriter {
-    overflow: hidden;
-    border-right: 3px solid var(--color-accent-start);
+    position: relative;
     white-space: nowrap;
     font-family: 'Courier New', Courier, monospace;
     font-weight: 400;
-    animation:
-        typing 2.5s steps(16, end) 0.5s 1 normal both,
-        blink-caret 0.75s step-end infinite;
-    padding-right: 4px;
     display: inline-block;
     letter-spacing: 0;
+    /* Largeur fixe pour garder l'image stable */
+    width: 16ch;
+    /* Masquer le texte au départ avec clip-path */
+    clip-path: inset(0 100% 0 0);
+    animation: typeReveal 2.5s steps(16, end) 0.5s 1 normal forwards;
 }
 
-@keyframes typing {
+/* Animation de révélation du texte */
+@keyframes typeReveal {
     from {
-        width: 0;
+        clip-path: inset(0 100% 0 0);
     }
     to {
-        width: 16ch;
+        clip-path: inset(0 0% 0 0);
+    }
+}
+
+/* Curseur clignotant */
+.typewriter::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 3px;
+    background: var(--color-accent-start);
+    animation: 
+        moveCursor 2.5s steps(16, end) 0.5s 1 normal forwards,
+        blink-caret 0.75s step-end infinite;
+}
+
+@keyframes moveCursor {
+    from {
+        right: 100%;
+    }
+    to {
+        right: 0%;
     }
 }
 
 @keyframes blink-caret {
     from, to {
-        border-color: transparent;
+        opacity: 0;
     }
     50% {
-        border-color: var(--color-accent-start);
+        opacity: 1;
     }
 }
 
 /* Arrêter le clignotement après l'animation */
-.typewriter.typing-complete {
-    border-right: none;
-    animation: none;
+.typewriter.typing-complete::after {
+    display: none;
 }
 
 .subtitle {
