@@ -1248,6 +1248,15 @@
         margin-right: auto;
     }
 
+    /* Désactiver le scale sur tablette/mobile pour éviter le débordement */
+    .solution-card.featured {
+        transform: none;
+    }
+
+    .solution-card.featured:hover {
+        transform: translateY(-8px);
+    }
+
     .hosting-grid {
         grid-template-columns: 1fr;
         max-width: 600px;
@@ -1362,6 +1371,126 @@
         margin: 0 auto;
     }
 
+    /* Solutions Cards Mobile */
+    .solutions-section {
+        padding: var(--spacing-16) 0;
+    }
+
+    .solutions-header {
+        margin-bottom: var(--spacing-10);
+    }
+
+    .solutions-grid {
+        max-width: 100%;
+        padding: 0 var(--spacing-4);
+        gap: var(--spacing-6);
+        margin-bottom: var(--spacing-10);
+    }
+
+    .solution-card {
+        padding: var(--spacing-6);
+    }
+
+    .solution-card.featured {
+        transform: none;
+        margin: var(--spacing-4) 0;
+    }
+
+    .solution-card.featured:hover {
+        transform: translateY(-4px);
+    }
+
+    .solution-badge {
+        top: -10px;
+        right: var(--spacing-4);
+        padding: var(--spacing-1) var(--spacing-3);
+        font-size: 0.65rem;
+    }
+
+    .solution-top {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: var(--spacing-3);
+    }
+
+    .solution-icon-wrapper {
+        width: 56px;
+        height: 56px;
+        font-size: 1.75rem;
+    }
+
+    .solution-header {
+        text-align: center;
+    }
+
+    .solution-header h3 {
+        font-size: var(--font-size-xl);
+    }
+
+    .price-value {
+        font-size: var(--font-size-base);
+    }
+
+    .solution-description {
+        font-size: var(--font-size-sm);
+        text-align: center;
+    }
+
+    .solution-for {
+        font-size: var(--font-size-xs);
+        text-align: center;
+        padding: var(--spacing-2) var(--spacing-3);
+    }
+
+    .solution-details {
+        margin-bottom: var(--spacing-6);
+    }
+
+    .solution-details h4 {
+        font-size: var(--font-size-sm);
+        margin-top: var(--spacing-4);
+        margin-bottom: var(--spacing-2);
+    }
+
+    .solution-features li {
+        font-size: var(--font-size-xs);
+        padding: var(--spacing-1) 0;
+        padding-left: var(--spacing-4);
+    }
+
+    .solution-btn {
+        padding: var(--spacing-3);
+        font-size: var(--font-size-sm);
+    }
+
+    /* Hosting section mobile */
+    .hosting-section {
+        margin-bottom: var(--spacing-10);
+    }
+
+    .hosting-section h3 {
+        font-size: var(--font-size-2xl);
+    }
+
+    .hosting-intro {
+        font-size: var(--font-size-base);
+        margin-bottom: var(--spacing-8);
+    }
+
+    .hosting-card {
+        padding: var(--spacing-6);
+    }
+
+    .hosting-features li {
+        font-size: var(--font-size-sm);
+    }
+
+    /* Hourly rate mobile */
+    .hourly-rate-section {
+        margin-bottom: var(--spacing-10);
+    }
+
     .included-grid {
         grid-template-columns: 1fr;
     }
@@ -1418,6 +1547,110 @@
 
     .stat-label {
         font-size: var(--font-size-sm);
+    }
+
+    /* Solutions Cards Small Mobile */
+    .solutions-section {
+        padding: var(--spacing-12) 0;
+    }
+
+    .solutions-header h2 {
+        font-size: var(--font-size-2xl);
+    }
+
+    .solutions-grid {
+        padding: 0 var(--spacing-2);
+        gap: var(--spacing-5);
+    }
+
+    .solution-card {
+        padding: var(--spacing-5);
+    }
+
+    .solution-icon-wrapper {
+        width: 48px;
+        height: 48px;
+        font-size: 1.5rem;
+    }
+
+    .solution-header h3 {
+        font-size: var(--font-size-lg);
+    }
+
+    .solution-description {
+        font-size: var(--font-size-xs);
+        margin-bottom: var(--spacing-4);
+    }
+
+    .solution-for {
+        margin-bottom: var(--spacing-4);
+    }
+
+    .solution-details h4 {
+        font-size: var(--font-size-xs);
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+    }
+
+    .solution-features li {
+        font-size: 0.7rem;
+    }
+
+    .solution-btn {
+        padding: var(--spacing-3);
+        font-size: var(--font-size-xs);
+    }
+
+    /* Hosting small mobile */
+    .hosting-section h3 {
+        font-size: var(--font-size-xl);
+    }
+
+    .hosting-intro {
+        font-size: var(--font-size-sm);
+    }
+
+    .hosting-card {
+        padding: var(--spacing-5);
+    }
+
+    .hosting-card .hosting-header h4 {
+        font-size: var(--font-size-base);
+    }
+
+    .hosting-features li {
+        font-size: var(--font-size-xs);
+    }
+
+    /* Hourly rate small mobile */
+    .hourly-content {
+        padding: var(--spacing-4);
+    }
+
+    .hourly-icon {
+        width: 50px;
+        height: 50px;
+    }
+
+    .hourly-text h3 {
+        font-size: var(--font-size-base);
+    }
+
+    .hourly-amount {
+        font-size: var(--font-size-2xl);
+    }
+
+    /* Included services small mobile */
+    .included-services h3 {
+        font-size: var(--font-size-xl);
+    }
+
+    .included-item h4 {
+        font-size: var(--font-size-base);
+    }
+
+    .included-item p {
+        font-size: var(--font-size-xs);
     }
 
     .workflow-step {
