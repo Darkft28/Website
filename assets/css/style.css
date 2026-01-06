@@ -2077,8 +2077,14 @@ footer {
 
     /* Ajustement typewriter pour mobile */
     .typewriter {
-        animation:
-            typing 2.5s steps(17, end) 0.5s 1 normal both,
+        width: 16ch;
+        clip-path: inset(0 100% 0 0);
+        animation: typeReveal 2.5s steps(16, end) 0.5s 1 normal forwards;
+    }
+
+    .typewriter::after {
+        animation: 
+            moveCursor 2.5s steps(16, end) 0.5s 1 normal forwards,
             blink-caret 0.75s step-end infinite;
     }
 
@@ -2224,9 +2230,13 @@ footer {
     /* Désactiver l'effet typewriter pour accessibilité */
     .typewriter {
         animation: none !important;
-        border-right: none !important;
+        clip-path: none !important;
         overflow: visible !important;
         white-space: normal !important;
+    }
+
+    .typewriter::after {
+        display: none !important;
     }
 
     /* Désactiver le défilement automatique des compétences */
