@@ -5,7 +5,7 @@
   <!-- Page d'accueil - Services Freelance -->
   <url>
     <loc>https://baptistenuytten.fr/</loc>
-    <lastmod>2025-02-01</lastmod>
+    <lastmod>2026-01-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -13,7 +13,7 @@
   <!-- Page Portfolio -->
   <url>
     <loc>https://baptistenuytten.fr/portfolio/</loc>
-    <lastmod>2025-02-01</lastmod>
+    <lastmod>2026-01-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -21,42 +21,42 @@
   <!-- Projets Portfolio -->
   <url>
     <loc>https://baptistenuytten.fr/portfolio/projets/pim.html</loc>
-    <lastmod>2025-02-01</lastmod>
+    <lastmod>2026-01-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://baptistenuytten.fr/portfolio/projets/streaming.html</loc>
-    <lastmod>2025-02-01</lastmod>
+    <lastmod>2026-01-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://baptistenuytten.fr/portfolio/projets/strategium-demo.html</loc>
-    <lastmod>2025-02-01</lastmod>
+    <lastmod>2026-01-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://baptistenuytten.fr/portfolio/projets/solartracker.html</loc>
-    <lastmod>2025-02-01</lastmod>
+    <lastmod>2026-01-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://baptistenuytten.fr/portfolio/projets/supemon.html</loc>
-    <lastmod>2025-02-01</lastmod>
+    <lastmod>2026-01-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://baptistenuytten.fr/portfolio/projets/autoGarden.html</loc>
-    <lastmod>2025-02-01</lastmod>
+    <lastmod>2026-01-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
