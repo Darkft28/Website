@@ -1192,6 +1192,337 @@
 }
 
 /* ===================================================================
+   NOUVEAU WORKFLOW SECTION - DESIGN CARDS
+   ================================================================= */
+.workflow-section-new {
+    padding: var(--spacing-section) 0;
+    background: var(--color-bg-secondary);
+    overflow: hidden;
+}
+
+.workflow-header-new {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto var(--spacing-16);
+}
+
+.workflow-badge-label {
+    display: inline-block;
+    padding: var(--spacing-2) var(--spacing-5);
+    background: var(--gradient-accent);
+    color: white;
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: var(--spacing-5);
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+}
+
+.workflow-header-new h2 {
+    font-size: clamp(2.2rem, 5vw, var(--font-size-5xl));
+    font-weight: var(--font-weight-black);
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-4);
+    letter-spacing: -0.03em;
+}
+
+.workflow-subtitle {
+    font-size: var(--font-size-xl);
+    line-height: var(--line-height-relaxed);
+    color: var(--color-text-secondary);
+}
+
+/* Cards Grid */
+.workflow-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-6);
+    max-width: 1200px;
+    margin: 0 auto var(--spacing-16);
+    position: relative;
+}
+
+.workflow-card {
+    background: var(--color-bg-primary);
+    border-radius: var(--radius-2xl);
+    padding: var(--spacing-8);
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid transparent;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    display: flex;
+    flex-direction: column;
+    overflow: visible;
+}
+
+[data-theme="dark"] .workflow-card {
+    background: rgba(30, 30, 40, 0.6);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.workflow-card:hover {
+    transform: translateY(-12px);
+    border-color: var(--color-accent-start);
+    box-shadow: 0 20px 40px rgba(99, 102, 241, 0.15);
+}
+
+.workflow-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-6);
+}
+
+.workflow-number {
+    font-size: var(--font-size-4xl);
+    font-weight: var(--font-weight-black);
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1;
+    letter-spacing: -0.02em;
+}
+
+.workflow-icon-box {
+    width: 56px;
+    height: 56px;
+    background: var(--gradient-accent);
+    border-radius: var(--radius-xl);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: var(--font-size-xl);
+    box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.workflow-card:hover .workflow-icon-box {
+    transform: scale(1.1) rotate(-5deg);
+}
+
+.workflow-card-body {
+    flex: 1;
+}
+
+.workflow-card-body h3 {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-3);
+    letter-spacing: -0.01em;
+}
+
+.workflow-card-body p {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    line-height: var(--line-height-relaxed);
+    margin: 0;
+}
+
+.workflow-card-footer {
+    margin-top: var(--spacing-6);
+    padding-top: var(--spacing-4);
+    border-top: 1px solid var(--color-border);
+}
+
+.workflow-time {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-2);
+    padding: var(--spacing-2) var(--spacing-4);
+    background: rgba(99, 102, 241, 0.1);
+    color: var(--color-accent-start);
+    border-radius: var(--radius-lg);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+}
+
+.workflow-time i {
+    font-size: var(--font-size-xs);
+}
+
+/* Ligne de connexion entre les cartes */
+.workflow-card-line {
+    position: absolute;
+    top: 50%;
+    right: -24px;
+    width: 24px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-accent-start), var(--color-accent-end));
+    transform: translateY(-50%);
+    border-radius: 2px;
+    opacity: 0.5;
+}
+
+.workflow-card:last-child .workflow-card-line {
+    display: none;
+}
+
+/* Nouveau CTA */
+.workflow-cta-new {
+    background: var(--gradient-accent);
+    border-radius: var(--radius-2xl);
+    padding: var(--spacing-10) var(--spacing-12);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1000px;
+    margin: 0 auto;
+    box-shadow: 0 20px 40px rgba(99, 102, 241, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.workflow-cta-new::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 400px;
+    height: 400px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.workflow-cta-new::after {
+    content: '';
+    position: absolute;
+    bottom: -60%;
+    left: -10%;
+    width: 300px;
+    height: 300px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.workflow-cta-content {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-6);
+    position: relative;
+    z-index: 1;
+}
+
+.workflow-cta-icon {
+    width: 64px;
+    height: 64px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-xl);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-2xl);
+    color: white;
+    flex-shrink: 0;
+}
+
+.workflow-cta-text h3 {
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
+    color: white;
+    margin-bottom: var(--spacing-2);
+    letter-spacing: -0.01em;
+}
+
+.workflow-cta-text p {
+    font-size: var(--font-size-base);
+    color: rgba(255, 255, 255, 0.85);
+    margin: 0;
+}
+
+.btn-cta-large {
+    background: white;
+    color: var(--color-accent-start);
+    padding: var(--spacing-5) var(--spacing-8);
+    border-radius: var(--radius-xl);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-3);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0;
+}
+
+.btn-cta-large:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.btn-cta-large i {
+    transition: transform 0.3s ease;
+}
+
+.btn-cta-large:hover i {
+    transform: translateX(5px);
+}
+
+/* Responsive Workflow New */
+@media (max-width: 1100px) {
+    .workflow-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-8);
+    }
+
+    .workflow-card-line {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .workflow-cards-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+    }
+
+    .workflow-cta-new {
+        flex-direction: column;
+        text-align: center;
+        gap: var(--spacing-6);
+        padding: var(--spacing-8) var(--spacing-6);
+    }
+
+    .workflow-cta-content {
+        flex-direction: column;
+    }
+
+    .workflow-cta-text h3 {
+        font-size: var(--font-size-xl);
+    }
+
+    .btn-cta-large {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .workflow-card {
+        padding: var(--spacing-6);
+    }
+
+    .workflow-number {
+        font-size: var(--font-size-3xl);
+    }
+
+    .workflow-icon-box {
+        width: 48px;
+        height: 48px;
+        font-size: var(--font-size-lg);
+    }
+}
+
+/* ===================================================================
    CONTACT SECTION - SERVICES PAGE
    ================================================================= */
 .contact-section {
