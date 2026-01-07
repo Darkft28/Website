@@ -50,6 +50,13 @@
       "image": "https://baptistenuytten.fr/assets/images/og-services.jpg",
       "priceRange": "€€",
       "telephone": "",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "reviewCount": "1",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
       "address": {
         "@type": "PostalAddress",
                 "addressLocality": "Caen",
@@ -82,7 +89,7 @@
             },
             "price": "800",
             "priceCurrency": "EUR",
-            "priceValidUntil": "2025-12-31",
+            "priceValidUntil": "2026-12-31",
             "availability": "https://schema.org/InStock"
           },
           {
@@ -98,7 +105,7 @@
             },
             "price": "1800",
             "priceCurrency": "EUR",
-            "priceValidUntil": "2025-12-31",
+            "priceValidUntil": "2026-12-31",
             "availability": "https://schema.org/InStock"
           },
           {
@@ -162,9 +169,60 @@
     }
     </script>
 
+    <!-- FAQ Schema (PAA targeting) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Combien coûte la création d'un site internet à Caen ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Le tarif pour la création d'un site internet à Caen démarre à 800€ pour un site vitrine professionnel. Un site complet avec fonctionnalités avancées (blog, réservation, paiement) commence à 1800€. Le devis est gratuit et personnalisé selon vos besoins."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quel est le délai pour créer un site web ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Le délai de création d'un site web varie selon la complexité : 2 à 3 semaines pour un site vitrine, 4 à 8 semaines pour un site complet avec fonctionnalités avancées. Un planning précis est établi dès le début du projet."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Le référencement SEO est-il inclus ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui, l'optimisation SEO de base est incluse dans tous les projets : structure technique optimisée, balises meta, sitemap, vitesse de chargement. Des prestations SEO avancées (rédaction, netlinking) sont disponibles en option."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Proposez-vous l'hébergement et la maintenance ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui, je propose des formules d'hébergement à partir de 20€/mois et des forfaits hébergement + maintenance à 50€/mois incluant les mises à jour de sécurité, sauvegardes et 1h de modifications mensuelles. La première année est offerte pour tout nouveau projet."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Travaillez-vous uniquement à Caen ou dans toute la Normandie ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Basé à Caen, j'interviens dans toute la Normandie et partout en France. Les échanges se font par visioconférence, téléphone ou en présentiel selon votre préférence. La distance n'est pas un frein à la qualité du projet."
+          }
+        }
+      ]
+    }
+    </script>
+
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/services.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
 </head>
 <body>
     <header>
@@ -247,7 +305,7 @@
         <div class="container">
             <div class="solutions-header">
                 <span class="solutions-label">Ce que je développe</span>
-                <h2>Solutions digitales sur mesure</h2>
+                <h2>Tarifs et prestations web sur mesure</h2>
             </div>
 
             <div class="solutions-grid">
@@ -548,7 +606,7 @@
             <div class="testimonials-grid">
                 <div class="testimonial-card">
                     <div class="testimonial-header">
-                        <img src="assets/img/avis/Jean-Philippe_Casoni.png" alt="Jean-Philippe Casoni - Responsable applications Groupe Niort" class="testimonial-avatar">
+                        <img src="assets/img/avis/Jean-Philippe_Casoni.png" alt="Jean-Philippe Casoni - Responsable applications Groupe Niort" class="testimonial-avatar" loading="lazy" width="80" height="80">
                         <div class="testimonial-info">
                             <h3 class="testimonial-name">
                                 Jean-Philippe Casoni
@@ -574,11 +632,74 @@
         </div>
     </section>
 
+    <!-- FAQ Section (PAA targeting) -->
+    <section id="faq" class="faq-section">
+        <div class="container">
+            <div class="faq-header">
+                <span class="faq-label">Questions fréquentes</span>
+                <h2>Tarifs, délais et accompagnement</h2>
+                <p class="faq-intro">Tout ce que vous devez savoir avant de lancer votre projet web</p>
+            </div>
+
+            <div class="faq-grid">
+                <details class="faq-item" open>
+                    <summary class="faq-question">
+                        <h3>Combien coûte la création d'un site internet à Caen ?</h3>
+                        <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </summary>
+                    <div class="faq-answer">
+                        <p>Le tarif pour la création d'un site internet à Caen démarre à <strong>800€ pour un site vitrine</strong> professionnel. Un site complet avec fonctionnalités avancées (blog, réservation, paiement) commence à <strong>1800€</strong>. Le devis est gratuit et personnalisé selon vos besoins.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary class="faq-question">
+                        <h3>Quel est le délai pour créer un site web ?</h3>
+                        <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </summary>
+                    <div class="faq-answer">
+                        <p>Le délai de création d'un site web varie selon la complexité : <strong>2 à 3 semaines</strong> pour un site vitrine, <strong>4 à 8 semaines</strong> pour un site complet avec fonctionnalités avancées. Un planning précis est établi dès le début du projet.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary class="faq-question">
+                        <h3>Le référencement SEO est-il inclus ?</h3>
+                        <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </summary>
+                    <div class="faq-answer">
+                        <p>Oui, l'<strong>optimisation SEO de base</strong> est incluse dans tous les projets : structure technique optimisée, balises meta, sitemap, vitesse de chargement. Des prestations SEO avancées (rédaction, netlinking) sont disponibles en option.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary class="faq-question">
+                        <h3>Proposez-vous l'hébergement et la maintenance ?</h3>
+                        <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </summary>
+                    <div class="faq-answer">
+                        <p>Oui, je propose des formules d'<strong>hébergement à partir de 20€/mois</strong> et des forfaits hébergement + maintenance à <strong>50€/mois</strong> incluant les mises à jour de sécurité, sauvegardes et 1h de modifications mensuelles. La première année est offerte pour tout nouveau projet.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary class="faq-question">
+                        <h3>Travaillez-vous uniquement à Caen ou dans toute la Normandie ?</h3>
+                        <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </summary>
+                    <div class="faq-answer">
+                        <p>Basé à Caen, j'interviens dans <strong>toute la Normandie et partout en France</strong>. Les échanges se font par visioconférence, téléphone ou en présentiel selon votre préférence. La distance n'est pas un frein à la qualité du projet.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section id="contact" class="contact-section">
         <div class="container">
-            <h2>Parlons de votre projet</h2>
-            <p class="section-subtitle">Basé à Caen (Normandie), je vous accompagne pour discuter de vos besoins et obtenir un devis personnalisé.</p>
+            <h2>Demandez votre devis gratuit</h2>
+            <p class="section-subtitle">Basé à Caen (Normandie), je vous accompagne pour discuter de vos besoins et obtenir un devis personnalisé sous 48h.</p>
 
             <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
                 <input type="hidden" name="apikey" value="9fdbc500-0363-4f8e-b8a5-835d2d7220b4">
@@ -632,10 +753,39 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <p>&copy; 2025 Baptiste Nuytten. Tous droits réservés.</p>
-                <div class="footer-links">
-                    <a href="mentions-legales.html">Mentions Légales</a>
-                    <a href="cgv.html">CGV</a>
+                <div class="footer-brand">
+                    <p><strong>Baptiste Nuytten</strong> — Développeur Web Freelance à Caen (Normandie)</p>
+                    <p>Création de sites vitrine, e-commerce et applications web sur mesure.</p>
+                </div>
+                <nav class="footer-nav" aria-label="Liens du site">
+                    <div class="footer-col">
+                        <h4>Services</h4>
+                        <ul>
+                            <li><a href="index.html#tarifs">Création site vitrine Caen</a></li>
+                            <li><a href="index.html#tarifs">Création site e-commerce Caen</a></li>
+                            <li><a href="index.html#tarifs">Application web sur mesure</a></li>
+                            <li><a href="index.html#tarifs">Tarifs développeur web</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Portfolio</h4>
+                        <ul>
+                            <li><a href="portfolio/">Projets réalisés</a></li>
+                            <li><a href="portfolio/#skills">Compétences techniques</a></li>
+                            <li><a href="portfolio/#experience">Expérience professionnelle</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Informations</h4>
+                        <ul>
+                            <li><a href="index.html#contact">Devis gratuit sous 48h</a></li>
+                            <li><a href="mentions-legales.html">Mentions légales</a></li>
+                            <li><a href="cgv.html">CGV</a></li>
+                        </ul>
+                    </div>
+                </nav>
+                <div class="footer-bottom">
+                    <p>&copy; 2026 Baptiste Nuytten. Tous droits réservés. SIREN 991 703 851</p>
                 </div>
             </div>
         </div>

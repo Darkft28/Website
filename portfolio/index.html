@@ -121,8 +121,12 @@
     <link rel="stylesheet" href="../assets/css/scroll-animations.css">
     <link rel="stylesheet" href="../assets/css/carousel-3d.css">
     <link rel="stylesheet" href="../assets/css/timeline-horizontal.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    </noscript>
 </head>
 <body>
     <header>
@@ -392,7 +396,7 @@
             <div class="carousel-wrapper">
                 <div class="carousel-track">
                 <div class="project-card" data-project-index="0">
-                    <img src="../assets/img/pim-4bus/pimWlcm.png" alt="Application web PIM - Product Information Management PHP MySQL" class="project-img">
+                    <img src="../assets/img/pim-4bus/pimWlcm.png" alt="Application web PIM - Product Information Management PHP MySQL" class="project-img" loading="lazy" width="400" height="225">
                     <div class="project-content">
                         <h3 class="project-title">Système PIM</h3>
                         <p>Application web professionnelle de gestion centralisée des informations produits. Import Excel, filtres avancés, gestion des équivalences et administration complète des référentiels pour optimiser la gestion de catalogues produits.</p>
@@ -411,7 +415,7 @@
                 </div>
 
                 <div class="project-card" data-project-index="1">
-                    <img src="../assets/img/FilmShop.png" alt="Site de streaming films PHP MySQL avec API TMDB" class="project-img">
+                    <img src="../assets/img/FilmShop.png" alt="Site de streaming films PHP MySQL avec API TMDB" class="project-img" loading="lazy" width="400" height="225">
                     <div class="project-content">
                         <h3 class="project-title">Site de streaming</h3>
                         <p>Un site de streaming permettant l'inscription, la connexion, l'ajout au panier et la récupération des films depuis l'API TMDB pour les stocker dans une base de données MySQL, gérée via phpMyAdmin.</p>
@@ -431,7 +435,7 @@
                 </div>
 
                 <div class="project-card" data-project-index="2">
-                    <img src="../assets/img/Strategium.png" alt="Jeu de plateau Strategium développé en Python Tkinter" class="project-img">
+                    <img src="../assets/img/Strategium.png" alt="Jeu de plateau Strategium développé en Python Tkinter" class="project-img" loading="lazy" width="400" height="225">
                     <div class="project-content">
                         <h3 class="project-title">Jeu de plateau Strategium</h3>
                         <p>Deux joueurs s'affrontent pour capturer les pièces adverses sur un plateau dynamique. Le jeu mélange des règles inspirées des échecs ♟️ avec une mécanique unique de capture.</p>
@@ -449,7 +453,7 @@
                 </div>
 
                 <div class="project-card" data-project-index="3">
-                    <img src="../assets/img/arduino/finalProject.jpg" alt="Tracker solaire automatique Arduino C++ avec photorésistances" class="project-img">
+                    <img src="../assets/img/arduino/finalProject.jpg" alt="Tracker solaire automatique Arduino C++ avec photorésistances" class="project-img" loading="lazy" width="400" height="225">
                     <div class="project-content">
                         <h3 class="project-title">Tracker Solaire</h3>
                         <p>Un projet Arduino conçu pour suivre la position du soleil et maximiser l'exposition solaire. Ce tracker solaire utilise des photoresistances pour ajuster automatiquement l'orientation d'un panneau solaire, optimisant ainsi la collecte d'énergie.</p>
@@ -467,7 +471,7 @@
                 </div>
 
                 <div class="project-card" data-project-index="4">
-                    <img src="../assets/img/Supemon.png" alt="Jeu Pokémon en ligne de commande développé en langage C" class="project-img">
+                    <img src="../assets/img/Supemon.png" alt="Jeu Pokémon en ligne de commande développé en langage C" class="project-img" loading="lazy" width="400" height="225">
                     <div class="project-content">
                         <h3 class="project-title">Jeu Pokémon en CLI</h3>
                         <p>Un jeu Pokémon fonctionnel développé en C, intégrant un système de sauvegarde, de capture, de gain d'expérience et de gestion des attaques. Ce projet met en œuvre des mécaniques de jeu captivantes pour une expérience immersive.</p>
@@ -485,7 +489,7 @@
                 </div>
 
                 <div class="project-card" data-project-index="5">
-                    <img src="../assets/img/autoGarden/Microbit.png" alt="Système d'arrosage automatique jardin Arduino avec capteurs humidité sol" class="project-img">
+                    <img src="../assets/img/autoGarden/Microbit.png" alt="Système d'arrosage automatique jardin Arduino avec capteurs humidité sol" class="project-img" loading="lazy" width="400" height="225">
                     <div class="project-content">
                         <h3 class="project-title">Jardin Automatique</h3>
                         <p>Un système automatisé utilisant une carte Arduino pour arroser un jardin en fonction de l'humidité du sol. Le projet intègre une pompe à eau et des capteurs d'humidité placés directement dans le sol pour un arrosage optimal.</p>
@@ -532,7 +536,7 @@
             <div class="testimonials-grid">
                 <div class="testimonial-card">
                     <div class="testimonial-header">
-                        <img src="../assets/img/avis/Jean-Philippe_Casoni.png" alt="Jean-Philippe Casoni" class="testimonial-avatar">
+                        <img src="../assets/img/avis/Jean-Philippe_Casoni.png" alt="Jean-Philippe Casoni" class="testimonial-avatar" loading="lazy" width="80" height="80">
                         <div class="testimonial-info">
                             <h3 class="testimonial-name">
                                 Jean-Philippe Casoni
@@ -679,10 +683,40 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <p>&copy; 2025 Baptiste Nuytten. Tous droits réservés.</p>
-                <div class="footer-links">
-                    <a href="../mentions-legales.html">Mentions Légales</a>
-                    <a href="../cgv.html">CGV</a>
+                <div class="footer-brand">
+                    <p><strong>Baptiste Nuytten</strong> — Développeur Web Freelance à Caen (Normandie)</p>
+                    <p>Portfolio de projets : React, Next.js, Python, Arduino, PHP/MySQL.</p>
+                </div>
+                <nav class="footer-nav" aria-label="Liens du site">
+                    <div class="footer-col">
+                        <h4>Services</h4>
+                        <ul>
+                            <li><a href="../index.html#tarifs">Création site vitrine Caen</a></li>
+                            <li><a href="../index.html#tarifs">Création site e-commerce Caen</a></li>
+                            <li><a href="../index.html#tarifs">Tarifs développeur web</a></li>
+                            <li><a href="../index.html#faq">Questions fréquentes</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Portfolio</h4>
+                        <ul>
+                            <li><a href="index.html#projects">Projets réalisés</a></li>
+                            <li><a href="index.html#skills">Compétences techniques</a></li>
+                            <li><a href="index.html#experience">Expérience professionnelle</a></li>
+                            <li><a href="index.html#testimonials">Recommandations</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Informations</h4>
+                        <ul>
+                            <li><a href="../index.html#contact">Devis gratuit sous 48h</a></li>
+                            <li><a href="../mentions-legales.html">Mentions légales</a></li>
+                            <li><a href="../cgv.html">CGV</a></li>
+                        </ul>
+                    </div>
+                </nav>
+                <div class="footer-bottom">
+                    <p>&copy; 2026 Baptiste Nuytten. Tous droits réservés. SIREN 991 703 851</p>
                 </div>
             </div>
         </div>
