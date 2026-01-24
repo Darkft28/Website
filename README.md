@@ -34,8 +34,9 @@ Développeur web passionné basé en Normandie, je crée des sites web sur mesur
 ```
 portfolio/
 ├── index.html              # Page d'accueil
-├── mentions-legales.html   # Mentions légales
-├── cgv.html               # Conditions générales de vente
+├── legal/
+│   ├── mentions-legales.html   # Mentions légales
+│   └── cgv.html               # Conditions générales de vente
 ├── sitemap.xml            # Plan du site
 ├── assets/
 │   ├── css/

@@ -1,0 +1,275 @@
+/* ===================================================================
+   TIMELINE VERTICALE MODERNE & COMPACTE
+   ================================================================= */
+
+/* Wrapper de la timeline */
+.timeline-v-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: var(--spacing-12) var(--spacing-8);
+}
+
+/* Timeline container */
+.timeline-v {
+    position: relative;
+    padding: var(--spacing-4) 0;
+}
+
+/* Ligne verticale centrale - fine et moderne */
+.timeline-v::before {
+    content: '';
+    position: absolute;
+    width: 2px;
+    background: linear-gradient(to bottom, transparent, var(--color-accent-start) 10%, var(--color-accent-end) 90%, transparent);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -1px;
+    border-radius: var(--radius-full);
+}
+
+/* Track contenant les éléments */
+.timeline-v-track {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-8);
+    position: relative;
+}
+
+/* Item de la timeline */
+.timeline-v-item {
+    position: relative;
+    width: calc(50% - var(--spacing-6));
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s var(--ease-custom);
+}
+
+.timeline-v-item.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Alternance gauche/droite */
+.timeline-v-item:nth-child(odd) {
+    left: 0;
+    text-align: right;
+}
+
+.timeline-v-item:nth-child(even) {
+    left: calc(50% + var(--spacing-6));
+    text-align: left;
+}
+
+/* Point sur la timeline */
+.timeline-v-item::before {
+    content: '';
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    background: var(--color-bg-primary);
+    border: 2.5px solid var(--color-accent-start);
+    border-radius: 50%;
+    top: var(--spacing-5);
+    z-index: 2;
+    transition: all 0.3s var(--ease-custom);
+}
+
+.timeline-v-item:nth-child(odd)::before {
+    right: calc(-1 * var(--spacing-6) - 7px);
+}
+
+.timeline-v-item:nth-child(even)::before {
+    left: calc(-1 * var(--spacing-6) - 7px);
+}
+
+.timeline-v-item:hover::before {
+    background: var(--color-accent-start);
+    transform: scale(1.4);
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15), 0 0 16px rgba(99, 102, 241, 0.3);
+}
+
+/* Icône cachée */
+.timeline-icon {
+    display: none;
+}
+
+/* Card de contenu */
+.timeline-v-content {
+    background: var(--color-bg-primary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-8) var(--spacing-10);
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s var(--ease-custom);
+    position: relative;
+}
+
+.timeline-v-item:hover .timeline-v-content {
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-accent-start);
+    transform: translateY(-3px);
+}
+
+/* Accent bar au hover */
+.timeline-v-content::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: var(--spacing-6);
+    right: var(--spacing-6);
+    height: 2px;
+    background: var(--gradient-accent);
+    border-radius: var(--radius-full);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.timeline-v-item:hover .timeline-v-content::after {
+    opacity: 1;
+}
+
+/* Badge date */
+.timeline-v-date {
+    display: inline-block;
+    background: rgba(99, 102, 241, 0.1);
+    color: var(--color-accent-start);
+    padding: var(--spacing-2) var(--spacing-5);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--spacing-4);
+    letter-spacing: 0.02em;
+}
+
+[data-theme="dark"] .timeline-v-date {
+    background: rgba(99, 102, 241, 0.15);
+}
+
+/* Titre */
+.timeline-v-content h3 {
+    color: var(--color-text-primary);
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--spacing-2);
+    letter-spacing: -0.01em;
+}
+
+/* Lieu/Entreprise */
+.timeline-v-location {
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-medium);
+    margin-bottom: var(--spacing-3);
+    font-style: normal;
+}
+
+/* Description */
+.timeline-v-content > p:last-child {
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-relaxed);
+    margin: 0;
+}
+
+/* ===================================================================
+   RESPONSIVE TIMELINE
+   ================================================================= */
+
+/* Tablette */
+@media (max-width: 991px) {
+    .timeline-v-wrapper {
+        max-width: 800px;
+    }
+
+    .timeline-v-track {
+        gap: var(--spacing-5);
+    }
+}
+
+/* Mobile - colonne simple */
+@media (max-width: 768px) {
+    .timeline-v-wrapper {
+        padding: var(--spacing-8) var(--spacing-4);
+    }
+
+    /* Ligne à gauche */
+    .timeline-v::before {
+        left: 20px;
+        margin-left: 0;
+    }
+
+    .timeline-v-track {
+        gap: var(--spacing-4);
+    }
+
+    /* Tous les items à droite */
+    .timeline-v-item {
+        width: 100%;
+        left: 0 !important;
+        padding-left: var(--spacing-12);
+        text-align: left !important;
+    }
+
+    .timeline-v-item:nth-child(odd),
+    .timeline-v-item:nth-child(even) {
+        left: 0 !important;
+        padding-left: var(--spacing-12);
+        text-align: left !important;
+    }
+
+    /* Point toujours à gauche */
+    .timeline-v-item::before {
+        left: 13px !important;
+        right: auto !important;
+        width: 12px;
+        height: 12px;
+    }
+
+    .timeline-v-content {
+        padding: var(--spacing-4) var(--spacing-5);
+    }
+
+    .timeline-v-content h3 {
+        font-size: var(--font-size-sm);
+    }
+}
+
+/* Très petits écrans */
+@media (max-width: 575px) {
+    .timeline-v-wrapper {
+        padding: var(--spacing-6) var(--spacing-3);
+    }
+
+    .timeline-v-item {
+        padding-left: var(--spacing-10);
+    }
+
+    .timeline-v-item:nth-child(odd),
+    .timeline-v-item:nth-child(even) {
+        padding-left: var(--spacing-10);
+    }
+
+    .timeline-v-content {
+        padding: var(--spacing-3) var(--spacing-4);
+    }
+
+    .timeline-v-date {
+        font-size: 0.7rem;
+        padding: 2px var(--spacing-2);
+    }
+
+    .timeline-v-content h3 {
+        font-size: var(--font-size-xs);
+    }
+
+    .timeline-v-location {
+        font-size: 0.7rem;
+    }
+
+    .timeline-v-content > p:last-child {
+        font-size: 0.7rem;
+    }
+}

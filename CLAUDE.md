@@ -14,8 +14,6 @@ Le site comprend une page de services/tarifs (index.html) et un portfolio (portf
 ```
 Website/
 ├── index.html                    # Page principale (services, tarifs, contact)
-├── cgv.html                      # Conditions Générales de Vente
-├── mentions-legales.html         # Mentions légales
 ├── robots.txt
 ├── sitemap.xml
 ├── assets/
@@ -26,14 +24,17 @@ Website/
 │   │   ├── carousel-3d.css       # Carrousel 3D du portfolio
 │   │   ├── scroll-animations.css # Animations au scroll
 │   │   ├── strategium.css        # Page démo Strategium
-│   │   └── timeline-horizontal.css # Timeline expérience
+│   │   └── timeline.css          # Timeline verticale expérience
 │   ├── img/                      # Images du site (projets, avatar, avis)
 │   ├── images/                   # Images Open Graph (og-portfolio.jpg, og-services.jpg)
 │   └── js/
 │       ├── carousel-3d.js        # Logique du carrousel projets
 │       ├── scroll-animations.js  # Animations au défilement
 │       ├── strategium.js         # Démo interactive Strategium
-│       └── timeline-horizontal.js # Timeline horizontale
+│       └── timeline.js           # Timeline verticale animation
+├── legal/
+│   ├── cgv.html                  # Conditions Générales de Vente
+│   └── mentions-legales.html     # Mentions légales
 ├── portfolio/
 │   ├── Portfolio.html            # Page portfolio (about, skills, projets, expérience)
 │   ├── index.html                # Redirection 301 vers Portfolio.html
