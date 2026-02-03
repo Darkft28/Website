@@ -25,6 +25,31 @@
                     <li><a href="../index.html">Accueil</a></li>
                     <li><a href="../portfolio/Portfolio.html">Portfolio</a></li>
                     <li><a href="../index.html#contact">Contact</a></li>
+                    <li>
+                        <div class="color-picker-wrapper">
+                            <button class="color-picker-toggle" id="colorPickerToggle" aria-label="Choisir la couleur">🎨</button>
+                            <div class="color-picker-menu" id="colorPickerMenu">
+                                <div class="color-option" data-color="emerald" title="Émeraude">
+                                    <span class="color-swatch" style="background: linear-gradient(135deg, #10B981, #34D399);"></span>
+                                </div>
+                                <div class="color-option" data-color="violet" title="Violet">
+                                    <span class="color-swatch" style="background: linear-gradient(135deg, #6366F1, #8B5CF6);"></span>
+                                </div>
+                                <div class="color-option" data-color="cyan" title="Cyan">
+                                    <span class="color-swatch" style="background: linear-gradient(135deg, #06B6D4, #22D3EE);"></span>
+                                </div>
+                                <div class="color-option" data-color="rose" title="Rose">
+                                    <span class="color-swatch" style="background: linear-gradient(135deg, #EC4899, #F472B6);"></span>
+                                </div>
+                                <div class="color-option" data-color="orange" title="Orange">
+                                    <span class="color-swatch" style="background: linear-gradient(135deg, #F97316, #FB923C);"></span>
+                                </div>
+                                <div class="color-option" data-color="red" title="Rouge">
+                                    <span class="color-swatch" style="background: linear-gradient(135deg, #EF4444, #F87171);"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
                     <li><button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">☀️</button></li>
                 </ul>
             </nav>
@@ -127,5 +152,6 @@
             });
         });
     </script>
+    <script src="../assets/js/color-picker.js"></script>
 </body>
 </html>

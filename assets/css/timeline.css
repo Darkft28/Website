@@ -88,7 +88,7 @@
 .timeline-v-item:hover::before {
     background: var(--color-accent-start);
     transform: scale(1.4);
-    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15), 0 0 16px rgba(99, 102, 241, 0.3);
+    box-shadow: 0 0 0 4px rgba(var(--color-accent-rgb), 0.15), 0 0 16px rgba(var(--color-accent-rgb), 0.3);
 }
 
 /* Icône cachée */
@@ -134,7 +134,7 @@
 /* Badge date */
 .timeline-v-date {
     display: inline-block;
-    background: rgba(99, 102, 241, 0.1);
+    background: rgba(var(--color-accent-rgb), 0.1);
     color: var(--color-accent-start);
     padding: var(--spacing-2) var(--spacing-5);
     border-radius: var(--radius-md);
@@ -145,7 +145,7 @@
 }
 
 [data-theme="dark"] .timeline-v-date {
-    background: rgba(99, 102, 241, 0.15);
+    background: rgba(var(--color-accent-rgb), 0.15);
 }
 
 /* Titre */

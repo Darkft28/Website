@@ -154,6 +154,31 @@
                         </div>
                     </li>
                     <li><a href="#contact">Contact</a></li>
+                    <li>
+                        <div class="color-picker-wrapper">
+                            <button class="color-picker-toggle" id="colorPickerToggle" aria-label="Choisir la couleur">🎨</button>
+                            <div class="color-picker-menu" id="colorPickerMenu">
+                                <div class="color-option" data-color="emerald" title="Émeraude">
+                                    <span class="color-swatch" style="background: linear-gradient(135deg, #10B981, #34D399);"></span>
+                                </div>
+                                <div class="color-option" data-color="violet" title="Violet">
+                                    <span class="color-swatch" style="background: linear-gradient(135deg, #6366F1, #8B5CF6);"></span>
+                                </div>
+                                <div class="color-option" data-color="cyan" title="Cyan">
+                                    <span class="color-swatch" style="background: linear-gradient(135deg, #06B6D4, #22D3EE);"></span>
+                                </div>
+                                <div class="color-option" data-color="rose" title="Rose">
+                                    <span class="color-swatch" style="background: linear-gradient(135deg, #EC4899, #F472B6);"></span>
+                                </div>
+                                <div class="color-option" data-color="orange" title="Orange">
+                                    <span class="color-swatch" style="background: linear-gradient(135deg, #F97316, #FB923C);"></span>
+                                </div>
+                                <div class="color-option" data-color="red" title="Rouge">
+                                    <span class="color-swatch" style="background: linear-gradient(135deg, #EF4444, #F87171);"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
                     <li><button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌙</button></li>
                 </ul>
             </nav>
@@ -759,6 +784,112 @@
                 localStorage.setItem('theme', newTheme);
                 themeToggle.textContent = newTheme === 'dark' ? '☀️' : '🌙';
             });
+
+            // Color Picker
+            const colorPalettes = {
+                emerald: {
+                    start: '#10B981',
+                    end: '#34D399',
+                    hoverStart: '#059669',
+                    hoverEnd: '#10B981',
+                    rgb: '16, 185, 129',
+                    rgbLight: '52, 211, 153'
+                },
+                violet: {
+                    start: '#6366F1',
+                    end: '#8B5CF6',
+                    hoverStart: '#4F46E5',
+                    hoverEnd: '#7C3AED',
+                    rgb: '99, 102, 241',
+                    rgbLight: '139, 92, 246'
+                },
+                cyan: {
+                    start: '#06B6D4',
+                    end: '#22D3EE',
+                    hoverStart: '#0891B2',
+                    hoverEnd: '#06B6D4',
+                    rgb: '6, 182, 212',
+                    rgbLight: '34, 211, 238'
+                },
+                rose: {
+                    start: '#EC4899',
+                    end: '#F472B6',
+                    hoverStart: '#DB2777',
+                    hoverEnd: '#EC4899',
+                    rgb: '236, 72, 153',
+                    rgbLight: '244, 114, 182'
+                },
+                orange: {
+                    start: '#F97316',
+                    end: '#FB923C',
+                    hoverStart: '#EA580C',
+                    hoverEnd: '#F97316',
+                    rgb: '249, 115, 22',
+                    rgbLight: '251, 146, 60'
+                },
+                red: {
+                    start: '#EF4444',
+                    end: '#F87171',
+                    hoverStart: '#DC2626',
+                    hoverEnd: '#EF4444',
+                    rgb: '239, 68, 68',
+                    rgbLight: '248, 113, 113'
+                }
+            };
+
+            const colorPickerToggle = document.getElementById('colorPickerToggle');
+            const colorPickerMenu = document.getElementById('colorPickerMenu');
+            const colorOptions = document.querySelectorAll('.color-option');
+
+            // Appliquer la couleur sauvegardée
+            const savedColor = localStorage.getItem('accentColor') || 'emerald';
+            applyColor(savedColor);
+            updateActiveColor(savedColor);
+
+            // Toggle du menu
+            colorPickerToggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                colorPickerMenu.classList.toggle('active');
+            });
+
+            // Fermer le menu si on clique ailleurs
+            document.addEventListener('click', (e) => {
+                if (!colorPickerMenu.contains(e.target) && e.target !== colorPickerToggle) {
+                    colorPickerMenu.classList.remove('active');
+                }
+            });
+
+            // Sélection d'une couleur
+            colorOptions.forEach(option => {
+                option.addEventListener('click', () => {
+                    const color = option.dataset.color;
+                    applyColor(color);
+                    updateActiveColor(color);
+                    localStorage.setItem('accentColor', color);
+                    colorPickerMenu.classList.remove('active');
+                });
+            });
+
+            function applyColor(colorName) {
+                const palette = colorPalettes[colorName];
+                if (!palette) return;
+
+                const root = document.documentElement;
+                root.style.setProperty('--color-accent-start', palette.start);
+                root.style.setProperty('--color-accent-end', palette.end);
+                root.style.setProperty('--color-accent-rgb', palette.rgb);
+                root.style.setProperty('--color-accent-rgb-light', palette.rgbLight);
+                root.style.setProperty('--gradient-accent', `linear-gradient(135deg, ${palette.start} 0%, ${palette.end} 100%)`);
+                root.style.setProperty('--gradient-accent-hover', `linear-gradient(135deg, ${palette.hoverStart} 0%, ${palette.hoverEnd} 100%)`);
+                root.style.setProperty('--shadow-accent', `0 8px 32px rgba(${palette.rgb}, 0.25)`);
+                root.style.setProperty('--shadow-accent-lg', `0 20px 40px rgba(${palette.rgb}, 0.3)`);
+            }
+
+            function updateActiveColor(colorName) {
+                colorOptions.forEach(opt => {
+                    opt.classList.toggle('active', opt.dataset.color === colorName);
+                });
+            }
 
             // Animations au scroll
             const observerOptions = {

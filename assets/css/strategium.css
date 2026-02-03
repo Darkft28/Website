@@ -69,7 +69,7 @@
 .size-selection select:focus {
     outline: none;
     border-color: var(--color-accent-start);
-    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+    box-shadow: 0 0 0 4px rgba(var(--color-accent-rgb), 0.1);
 }
 
 /* ===================================================================

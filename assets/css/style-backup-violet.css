@@ -12,13 +12,11 @@
     --color-primary: #0A0A0A;
     --color-secondary: #1A1A1A;
 
-    /* Gradient moderne émeraude */
-    --color-accent-start: #10B981;
-    --color-accent-end: #34D399;
-    --color-accent-rgb: 16, 185, 129;
-    --color-accent-rgb-light: 52, 211, 153;
+    /* Gradient moderne indigo-violet */
+    --color-accent-start: #6366F1;
+    --color-accent-end: #8B5CF6;
     --gradient-accent: linear-gradient(135deg, var(--color-accent-start) 0%, var(--color-accent-end) 100%);
-    --gradient-accent-hover: linear-gradient(135deg, #059669 0%, #10B981 100%);
+    --gradient-accent-hover: linear-gradient(135deg, #7C3AED 0%, #A855F7 100%);
 
     /* Backgrounds */
     --color-bg-primary: #FFFFFF;
@@ -43,8 +41,8 @@
     --shadow-2xl: 0 25px 50px rgba(0, 0, 0, 0.15);
 
     /* Ombres colorées pour l'accent */
-    --shadow-accent: 0 8px 32px rgba(var(--color-accent-rgb), 0.25);
-    --shadow-accent-lg: 0 20px 40px rgba(var(--color-accent-rgb), 0.3);
+    --shadow-accent: 0 8px 32px rgba(99, 102, 241, 0.25);
+    --shadow-accent-lg: 0 20px 40px rgba(99, 102, 241, 0.3);
 
     /* Typographie moderne */
     --font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -163,8 +161,8 @@
     --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.8);
     --shadow-2xl: 0 25px 50px rgba(0, 0, 0, 0.9);
 
-    --shadow-accent: 0 8px 32px rgba(var(--color-accent-rgb), 0.35);
-    --shadow-accent-lg: 0 20px 40px rgba(var(--color-accent-rgb), 0.4);
+    --shadow-accent: 0 8px 32px rgba(139, 92, 246, 0.35);
+    --shadow-accent-lg: 0 20px 40px rgba(139, 92, 246, 0.4);
 }
 
 /* ===================================================================
@@ -555,88 +553,6 @@ nav {
     border-color: transparent;
 }
 
-/* Color Picker */
-.color-picker-wrapper {
-    position: relative;
-}
-
-.color-picker-toggle {
-    width: 40px;
-    height: 40px;
-    border-radius: var(--radius-full);
-    background: var(--color-bg-secondary);
-    border: 1px solid var(--color-border);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: var(--font-size-lg);
-    transition: all var(--transition-normal) var(--ease-bounce);
-    cursor: pointer;
-}
-
-.color-picker-toggle:hover {
-    transform: scale(1.1);
-    background: var(--gradient-accent);
-    border-color: transparent;
-}
-
-.color-picker-menu {
-    position: absolute;
-    top: calc(100% + 10px);
-    right: 0;
-    background: var(--color-bg-primary);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-xl);
-    padding: var(--spacing-3);
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--spacing-2);
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-10px);
-    transition: all var(--transition-normal) var(--ease-out);
-    box-shadow: var(--shadow-xl);
-    z-index: 1000;
-}
-
-[data-theme="dark"] .color-picker-menu {
-    background: var(--color-bg-secondary);
-    border-color: rgba(255, 255, 255, 0.1);
-}
-
-.color-picker-menu.active {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
-.color-option {
-    cursor: pointer;
-    padding: var(--spacing-1);
-    border-radius: var(--radius-lg);
-    transition: all var(--transition-fast) var(--ease-out);
-}
-
-.color-option:hover {
-    transform: scale(1.15);
-}
-
-.color-option.active .color-swatch {
-    box-shadow: 0 0 0 3px var(--color-bg-primary), 0 0 0 5px var(--color-accent-start);
-}
-
-.color-swatch {
-    display: block;
-    width: 32px;
-    height: 32px;
-    border-radius: var(--radius-full);
-    transition: all var(--transition-fast) var(--ease-out);
-}
-
-.color-swatch:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
-
 /* Hamburger ultra-moderne */
 .hamburger {
     display: none;
@@ -678,8 +594,8 @@ nav {
     justify-content: center;
     padding: calc(var(--header-height) + var(--spacing-20)) var(--spacing-8) var(--spacing-20);
     background:
-        radial-gradient(circle at 20% 50%, rgba(var(--color-accent-rgb), 0.08) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(var(--color-accent-rgb-light), 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.08) 0%, transparent 50%),
         var(--color-bg-primary);
     position: relative;
     overflow: hidden;
@@ -869,15 +785,14 @@ nav {
 .avatar {
     width: 500px;
     height: 500px;
-    /* border-radius: 40%; */
+    border-radius: 40%;
     object-fit: cover;
-    border-radius: 50%;
     position: relative;
     border: 6px solid var(--color-bg-primary);
     box-shadow:
         var(--shadow-2xl),
         0 0 0 1px rgba(0, 0, 0, 0.05),
-        0 0 80px rgba(var(--color-accent-rgb), 0.25);
+        0 0 80px rgba(99, 102, 241, 0.25);
     transition: all var(--transition-slow) var(--ease-custom);
 }
 
@@ -898,7 +813,7 @@ nav {
     box-shadow:
         var(--shadow-2xl),
         0 0 0 1px rgba(0, 0, 0, 0.05),
-        0 0 80px rgba(var(--color-accent-rgb), 0.3);
+        0 0 80px rgba(99, 102, 241, 0.3);
 }
 
 /* ===================================================================
@@ -1432,7 +1347,7 @@ section h2::after {
     background: var(--gradient-accent);
     border-radius: var(--radius-full);
     border: 3px solid var(--color-bg-primary);
-    box-shadow: var(--shadow-md), 0 0 0 4px rgba(var(--color-accent-rgb), 0.1);
+    box-shadow: var(--shadow-md), 0 0 0 4px rgba(99, 102, 241, 0.1);
     z-index: 2;
     top: 0;
 }
@@ -1706,7 +1621,7 @@ section h2::after {
 .form-group input:focus,
 .form-group textarea:focus {
     border-color: var(--color-accent-start);
-    box-shadow: 0 0 0 4px rgba(var(--color-accent-rgb), 0.1);
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
     outline: none;
 }
 
@@ -1725,7 +1640,7 @@ section h2::after {
 /* Validation moderne */
 .form-group input:valid,
 .form-group textarea:valid {
-    border-color: var(--color-accent-start);
+    border-color: #10B981;
 }
 
 .form-group input:invalid:not(:placeholder-shown),
