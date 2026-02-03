@@ -276,13 +276,18 @@
     <!-- Hero Section -->
     <section class="services-hero">
         <div class="container">
-            <div class="services-hero-content">
-                <h1>Développeur Web Freelance</h1>
-                <p class="services-hero-subtitle">Basé à Caen (Normandie) — transformez vos idées en solutions digitales performantes</p>
-                <p class="services-hero-tagline">Développement web moderne, applications desktop et solutions sur mesure pour propulser votre activité.</p>
-                <div class="services-hero-buttons">
-                    <a href="#tarifs" class="btn">Voir les tarifs</a>
-                    <a href="#contact" class="btn btn-secondary">Demander un devis</a>
+            <div class="services-hero-wrapper">
+                <div class="services-hero-content">
+                    <h1><span class="services-typewriter">Développeur Web Freelance</span></h1>
+                    <p class="services-hero-subtitle">Basé à Caen (Normandie) — transformez vos idées en solutions digitales performantes</p>
+                    <p class="services-hero-tagline">Développement web moderne, applications desktop et solutions sur mesure pour propulser votre activité.</p>
+                    <div class="services-hero-buttons">
+                        <a href="#tarifs" class="btn">Voir les tarifs</a>
+                        <a href="#contact" class="btn btn-secondary">Demander un devis</a>
+                    </div>
+                </div>
+                <div class="services-hero-image">
+                    <img src="assets/img/baptiste.jpg" alt="Baptiste Nuytten - Développeur Web Freelance" class="services-avatar">
                 </div>
             </div>
         </div>
@@ -776,6 +781,14 @@
                     header.classList.remove('scrolled');
                 }
             });
+
+            // Typewriter effect - Arrêter le clignotement après l'animation
+            const typewriterElement = document.querySelector('.services-typewriter');
+            if (typewriterElement) {
+                setTimeout(() => {
+                    typewriterElement.classList.add('typing-complete');
+                }, 3000); // 500ms délai + 2500ms animation
+            }
 
             // Menu hamburger
             const hamburger = document.querySelector('.hamburger');
