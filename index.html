@@ -276,18 +276,13 @@
     <!-- Hero Section -->
     <section class="services-hero">
         <div class="container">
-            <div class="services-hero-wrapper">
-                <div class="services-hero-content">
-                    <h1><span id="typewriter"></span><span class="typewriter-cursor">|</span></h1>
-                    <p class="services-hero-subtitle">Basé à Caen (Normandie) — transformez vos idées en solutions digitales performantes</p>
-                    <p class="services-hero-tagline">Développement web moderne, applications desktop et solutions sur mesure pour propulser votre activité.</p>
-                    <div class="services-hero-buttons">
-                        <a href="#tarifs" class="btn">Voir les tarifs</a>
-                        <a href="#contact" class="btn btn-secondary">Demander un devis</a>
-                    </div>
-                </div>
-                <div class="services-hero-image">
-                    <img src="assets/img/baptiste.jpg" alt="Baptiste Nuytten - Développeur Web Freelance" class="services-avatar">
+            <div class="services-hero-content">
+                <h1>Développeur Web Freelance</h1>
+                <p class="services-hero-subtitle">Basé à Caen (Normandie) — transformez vos idées en solutions digitales performantes</p>
+                <p class="services-hero-tagline">Développement web moderne, applications desktop et solutions sur mesure pour propulser votre activité.</p>
+                <div class="services-hero-buttons">
+                    <a href="#tarifs" class="btn">Voir les tarifs</a>
+                    <a href="#contact" class="btn btn-secondary">Demander un devis</a>
                 </div>
             </div>
         </div>
@@ -781,21 +776,6 @@
                     header.classList.remove('scrolled');
                 }
             });
-
-            // Typewriter effect
-            const typewriterElement = document.getElementById('typewriter');
-            const text = 'Développeur Web Freelance';
-            let index = 0;
-
-            function typeWriter() {
-                if (index < text.length) {
-                    typewriterElement.textContent += text.charAt(index);
-                    index++;
-                    setTimeout(typeWriter, 80);
-                }
-            }
-
-            typeWriter();
 
             // Menu hamburger
             const hamburger = document.querySelector('.hamburger');
