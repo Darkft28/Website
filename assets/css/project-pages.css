@@ -7,22 +7,6 @@
 /* Hérite de toutes les variables CSS du fichier style.css */
 
 /* ===================================================================
-   HEADER TOUJOURS VISIBLE SUR LES PAGES PROJET
-   ================================================================= */
-header {
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(20px) saturate(180%);
-    -webkit-backdrop-filter: blur(20px) saturate(180%);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
-
-[data-theme="dark"] header {
-    background: rgba(10, 10, 10, 0.85);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-/* ===================================================================
    LAYOUT GÉNÉRAL DE LA PAGE PROJET
    ================================================================= */
 body {
