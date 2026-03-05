@@ -4,6 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Supemon - Jeu Pokémon en CLI | Portfolio Baptiste Nuytten</title>
+    <meta name="description" content="Supemon — jeu Pokémon en ligne de commande développé en C. Combat au tour par tour, évolution, boutique et inventaire. Projet universitaire de Baptiste Nuytten.">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Baptiste Nuytten">
+    <link rel="canonical" href="https://baptistenuytten.fr/portfolio/projets/supemon.html">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Supemon",
+      "description": "Jeu Pokémon en ligne de commande développé en C, avec combat au tour par tour, évolution et gestion d'inventaire.",
+      "applicationCategory": "Game",
+      "operatingSystem": "Linux, macOS, Windows",
+      "programmingLanguage": ["C"],
+      "author": {
+        "@type": "Person",
+        "name": "Baptiste Nuytten",
+        "url": "https://baptistenuytten.fr"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://baptistenuytten.fr/"},
+        {"@type": "ListItem", "position": 2, "name": "Portfolio", "item": "https://baptistenuytten.fr/portfolio/Portfolio.html"},
+        {"@type": "ListItem", "position": 3, "name": "Supemon", "item": "https://baptistenuytten.fr/portfolio/projets/supemon.html"}
+      ]
+    }
+    </script>
     <link rel="stylesheet" href="../../assets/css/style.css">
     <link rel="stylesheet" href="../../assets/css/project-pages.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -88,7 +119,7 @@
                 <h2>Captures d'écran du jeu</h2>
                 <div class="screenshot-container">
                     <div class="screenshot-card">
-                        <img src="../../assets/img/supemon/Starter.png" alt="Écran de démarrage Supemon" class="screenshot-img">
+                        <img src="../../assets/img/supemon/Starter.png" alt="Écran de démarrage Supemon" loading="lazy" class="screenshot-img">
                         <div class="screenshot-content">
                             <h3 class="screenshot-title">Écran de démarrage et sélection du starter</h3>
                             <p class="screenshot-desc">Au lancement du jeu, le joueur peut choisir entre démarrer une nouvelle partie ou charger une sauvegarde existante. Après avoir saisi son nom d'utilisateur, il doit choisir son premier Supemon parmi trois options : Supmander (Feu), Supirtle (Eau) ou Supasaur (Plante).</p>
@@ -96,7 +127,7 @@
                     </div>
                     
                     <div class="screenshot-card">
-                        <img src="../../assets/img/supemon/Combat.png" alt="Combat contre un Supemon sauvage" class="screenshot-img">
+                        <img src="../../assets/img/supemon/Combat.png" alt="Combat contre un Supemon sauvage" loading="lazy" class="screenshot-img">
                         <div class="screenshot-content">
                             <h3 class="screenshot-title">Système de combat</h3>
                             <p class="screenshot-desc">Les combats se déroulent au tour par tour contre des Supemons sauvages. L'interface affiche les statistiques des deux combattants, y compris leur niveau, points de vie (représentés graphiquement), et les différentes actions possibles (attaquer, changer de Supemon, utiliser un objet, capturer ou fuir).</p>
@@ -104,7 +135,7 @@
                     </div>
                     
                     <div class="screenshot-card">
-                        <img src="../../assets/img/supemon/Combat_result.png" alt="Défaite en combat" class="screenshot-img">
+                        <img src="../../assets/img/supemon/Combat_result.png" alt="Défaite en combat" loading="lazy" class="screenshot-img">
                         <div class="screenshot-content">
                             <h3 class="screenshot-title">Résultats de combat</h3>
                             <p class="screenshot-desc">À la fin d'un combat, le jeu affiche le résultat (victoire ou défaite). En cas de défaite, le Supemon perdant perd tous ses points de vie, mais peut être soigné au Centre Supemon. En cas de victoire, le Supemon gagne de l'expérience et peut augmenter son attaque.</p>
@@ -112,7 +143,7 @@
                     </div>
                     
                     <div class="screenshot-card">
-                        <img src="../../assets/img/supemon/menu.png" alt="Menu principal" class="screenshot-img">
+                        <img src="../../assets/img/supemon/menu.png" alt="Menu principal" loading="lazy" class="screenshot-img">
                         <div class="screenshot-content">
                             <h3 class="screenshot-title">Menu principal</h3>
                             <p class="screenshot-desc">Le menu principal permet d'accéder aux différentes fonctionnalités du jeu : explorer la nature pour rencontrer des Supemons sauvages, accéder à la boutique pour acheter des objets, consulter l'inventaire, voir la liste des Supemons capturés, soigner ses Supemons au Centre, ou quitter le jeu.</p>
@@ -120,7 +151,7 @@
                     </div>
                     
                     <div class="screenshot-card">
-                        <img src="../../assets/img/supemon/Shop.png" alt="Boutique et inventaire" class="screenshot-img">
+                        <img src="../../assets/img/supemon/Shop.png" alt="Boutique et inventaire" loading="lazy" class="screenshot-img">
                         <div class="screenshot-content">
                             <h3 class="screenshot-title">Boutique et inventaire</h3>
                             <p class="screenshot-desc">Le joueur peut acheter différents objets dans la boutique, comme des Potions, Super Potions et Rare Candy, en utilisant la monnaie du jeu (Supcoins). L'inventaire permet de consulter les objets possédés et de les utiliser sur ses Supemons actifs.</p>
@@ -128,7 +159,7 @@
                     </div>
                     
                     <div class="screenshot-card">
-                        <img src="../../assets/img/supemon/lvlup.png" alt="Gain de niveau" class="screenshot-img">
+                        <img src="../../assets/img/supemon/lvlup.png" alt="Gain de niveau" loading="lazy" class="screenshot-img">
                         <div class="screenshot-content">
                             <h3 class="screenshot-title">Système d'évolution</h3>
                             <p class="screenshot-desc">Les Supemons peuvent gagner des niveaux en accumulant de l'expérience durant les combats ou en utilisant des objets spéciaux comme les Rare Candy. Lorsqu'un Supemon passe au niveau supérieur, ses statistiques augmentent, le rendant plus puissant pour les combats futurs.</p>
@@ -186,7 +217,7 @@
             </section>
             
             <div class="project-code-link" style="text-align: center; margin-top: 3rem;">
-                <a href="download/PokeGame.zip" class="btn" target="_blank">Télécharger le jeu</a>
+                <a href="../../download/PokeGame.zip" class="btn" target="_blank">Télécharger le jeu</a>
             </div>
         </div>
         

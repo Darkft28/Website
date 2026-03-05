@@ -4,6 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FilmShop - Plateforme de Streaming | Portfolio Baptiste Nuytten</title>
+    <meta name="description" content="FilmShop, plateforme de streaming full-stack développée par Baptiste Nuytten. Catalogue TMDB, panier, paiement et bibliothèque personnelle. PHP, MySQL, JavaScript.">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Baptiste Nuytten">
+    <link rel="canonical" href="https://baptistenuytten.fr/portfolio/projets/streaming.html">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "FilmShop",
+      "description": "Plateforme de streaming full-stack avec catalogue TMDB, panier, paiement et bibliothèque personnelle.",
+      "applicationCategory": "WebApplication",
+      "operatingSystem": "Web",
+      "programmingLanguage": ["PHP", "JavaScript", "MySQL"],
+      "author": {
+        "@type": "Person",
+        "name": "Baptiste Nuytten",
+        "url": "https://baptistenuytten.fr"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://baptistenuytten.fr/"},
+        {"@type": "ListItem", "position": 2, "name": "Portfolio", "item": "https://baptistenuytten.fr/portfolio/Portfolio.html"},
+        {"@type": "ListItem", "position": 3, "name": "FilmShop", "item": "https://baptistenuytten.fr/portfolio/projets/streaming.html"}
+      ]
+    }
+    </script>
     <link rel="stylesheet" href="../../assets/css/style.css">
     <link rel="stylesheet" href="../../assets/css/project-pages.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -159,7 +190,7 @@
                 <div class="screenshot-container">
                     <!-- Ligne 1 : Flux de démarrage -->
                     <div class="screenshot-card">
-                        <img src="../../assets/img/streaming/Acceuil.png" alt="Page d'accueil FilmShop" class="screenshot-img">
+                        <img src="../../assets/img/streaming/Acceuil.png" alt="Page d'accueil FilmShop" loading="lazy" class="screenshot-img">
                         <div class="screenshot-content">
                             <h3 class="screenshot-title">Catalogue de films</h3>
                             <p class="screenshot-desc">La page d'accueil présente un catalogue des films populaires disponibles à l'achat. Chaque film affiche son titre, son affiche et son prix. Les utilisateurs peuvent filtrer les films par catégorie et utiliser la barre de recherche pour trouver des films spécifiques par titre ou réalisateur.</p>
@@ -167,7 +198,7 @@
                     </div>
                     
                     <div class="screenshot-card">
-                        <img src="../../assets/img/streaming/register.png" alt="Création de compte" class="screenshot-img">
+                        <img src="../../assets/img/streaming/register.png" alt="Création de compte" loading="lazy" class="screenshot-img">
                         <div class="screenshot-content">
                             <h3 class="screenshot-title">Création de compte</h3>
                             <p class="screenshot-desc">Interface d'inscription permettant aux nouveaux utilisateurs de créer un compte en fournissant un nom d'utilisateur, une adresse e-mail et un mot de passe sécurisé. Le système vérifie l'unicité des identifiants et la conformité des mots de passe.</p>
@@ -175,7 +206,7 @@
                     </div>
                     
                     <div class="screenshot-card">
-                        <img src="../../assets/img/streaming/login.png" alt="Page de connexion" class="screenshot-img">
+                        <img src="../../assets/img/streaming/login.png" alt="Page de connexion" loading="lazy" class="screenshot-img">
                         <div class="screenshot-content">
                             <h3 class="screenshot-title">Système d'authentification</h3>
                             <p class="screenshot-desc">Les utilisateurs peuvent se connecter à leur compte existant. L'authentification sécurisée permet d'accéder à la bibliothèque personnelle de films achetés et aux fonctionnalités de gestion du profil.</p>
@@ -184,7 +215,7 @@
                     
                     <!-- Ligne 2 : Flux d'achat -->
                     <div class="screenshot-card">
-                        <img src="../../assets/img/streaming/Panier.png" alt="Panier d'achat" class="screenshot-img">
+                        <img src="../../assets/img/streaming/Panier.png" alt="Panier d'achat" loading="lazy" class="screenshot-img">
                         <div class="screenshot-content">
                             <h3 class="screenshot-title">Panier d'achat</h3>
                             <p class="screenshot-desc">Interface du panier permettant de gérer les films sélectionnés avant l'achat. Les utilisateurs peuvent ajuster les quantités, supprimer des articles ou continuer leurs achats avant de passer à la caisse pour finaliser leur commande.</p>
@@ -192,7 +223,7 @@
                     </div>
                     
                     <div class="screenshot-card">
-                        <img src="../../assets/img/streaming/Finishorder.png" alt="Page de paiement" class="screenshot-img">
+                        <img src="../../assets/img/streaming/Finishorder.png" alt="Page de paiement" loading="lazy" class="screenshot-img">
                         <div class="screenshot-content">
                             <h3 class="screenshot-title">Système de paiement</h3>
                             <p class="screenshot-desc">Interface de paiement pour finaliser l'achat des films sélectionnés. Le système calcule automatiquement le total avec TVA et accepte différents moyens de paiement (cartes de crédit, PayPal). Cette simulation de paiement permet d'ajouter les films achetés à la bibliothèque de l'utilisateur.</p>
@@ -200,7 +231,7 @@
                     </div>
                     
                     <div class="screenshot-card">
-                        <img src="../../assets/img/streaming/Myorder.png" alt="Historique des commandes" class="screenshot-img">
+                        <img src="../../assets/img/streaming/Myorder.png" alt="Historique des commandes" loading="lazy" class="screenshot-img">
                         <div class="screenshot-content">
                             <h3 class="screenshot-title">Gestion des commandes</h3>
                             <p class="screenshot-desc">Les utilisateurs peuvent consulter l'historique de leurs commandes avec les détails de chaque achat : date, nombre d'articles, montant total. Le système inclut un programme de fidélité qui offre des avantages comme l'accès à des offres spéciales et des notifications personnalisées de nouveautés.</p>
@@ -209,7 +240,7 @@
                     
                     <!-- Ligne 3 : Bibliothèque et admin -->
                     <div class="screenshot-card">
-                        <img src="../../assets/img/streaming/library.png" alt="Bibliothèque de films" class="screenshot-img">
+                        <img src="../../assets/img/streaming/library.png" alt="Bibliothèque de films" loading="lazy" class="screenshot-img">
                         <div class="screenshot-content">
                             <h3 class="screenshot-title">Bibliothèque personnelle</h3>
                             <p class="screenshot-desc">Après l'achat, les films sont ajoutés à la bibliothèque personnelle de l'utilisateur. La bibliothèque affiche tous les films achetés avec des options pour les regarder directement en ligne ou accéder aux détails complets. Les films peuvent être filtrés par genre ou triés par titre.</p>
@@ -217,7 +248,7 @@
                     </div>
                     
                     <div class="screenshot-card">
-                        <img src="../../assets/img/streaming/showfilm.png" alt="Lecteur vidéo" class="screenshot-img">
+                        <img src="../../assets/img/streaming/showfilm.png" alt="Lecteur vidéo" loading="lazy" class="screenshot-img">
                         <div class="screenshot-content">
                             <h3 class="screenshot-title">Lecture de films</h3>
                             <p class="screenshot-desc">Lecteur vidéo intégré permettant de visionner les films achetés directement dans le navigateur. L'interface de lecture affiche une bande-annonce ou un extrait du film avec des sous-titres. Dans une version complète, le lecteur inclurait des fonctionnalités de lecture en streaming avec différentes qualités vidéo.</p>
@@ -225,7 +256,7 @@
                     </div>
                     
                     <div class="screenshot-card">
-                        <img src="../../assets/img/streaming/Addfilmtodb.png" alt="Importation de films depuis TMDB" class="screenshot-img">
+                        <img src="../../assets/img/streaming/Addfilmtodb.png" alt="Importation de films depuis TMDB" loading="lazy" class="screenshot-img">
                         <div class="screenshot-content">
                             <h3 class="screenshot-title">Importation de films (Admin)</h3>
                             <p class="screenshot-desc">Interface d'administration permettant d'importer automatiquement les films récents depuis l'API TMDB. Le système récupère le titre, la date de sortie, le synopsis, l'affiche, le réalisateur et les acteurs principaux. L'importation se fait en arrière-plan, permettant à l'administrateur de continuer à utiliser le site pendant ce temps.</p>

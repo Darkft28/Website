@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/portfolio",
+      "destination": "/portfolio/Portfolio.html",
+      "permanent": true
+    }
+  ]
+}

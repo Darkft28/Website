@@ -1,0 +1,22 @@
+# Baptiste Nuytten — Développeur Web Freelance
+
+Baptiste Nuytten est un développeur web freelance basé à Caen (Normandie), France.
+SIREN : 991 703 851
+
+## Services
+- Création de sites vitrines : à partir de 700€
+- Sites complets avec blog et paiement : à partir de 1 400€
+- Applications web sur mesure : sur devis
+- Hébergement : 20€/mois
+- Maintenance et support : 50€/mois
+
+## Technologies
+React, JavaScript, PHP, Python, MySQL, Arduino, C++
+
+## Contact
+Site web : https://baptistenuytten.fr
+LinkedIn : https://www.linkedin.com/in/baptiste-nuytten-dhdi/
+GitHub : https://github.com/Darkft28
+
+## Portfolio
+https://baptistenuytten.fr/portfolio/Portfolio.html

@@ -5,6 +5,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jardin Automatique Arduino | Portfolio Baptiste Nuytten</title>
+    <meta name="description" content="Jardin automatique Arduino : système d'arrosage automatisé basé sur capteur d'humidité du sol, pompe à eau et logique Arduino/Micro:bit. Projet IoT.">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Baptiste Nuytten">
+    <link rel="canonical" href="https://baptistenuytten.fr/portfolio/projets/autoGarden.html">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CreativeWork",
+      "name": "Jardin Automatique Arduino",
+      "description": "Système d'arrosage automatique basé sur un capteur d'humidité du sol, une pompe à eau et un Arduino UNO ou Micro:bit.",
+      "keywords": ["Arduino", "Micro:bit", "C++", "IoT", "arrosage automatique", "capteur humidité"],
+      "author": {
+        "@type": "Person",
+        "name": "Baptiste Nuytten",
+        "url": "https://baptistenuytten.fr"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://baptistenuytten.fr/"},
+        {"@type": "ListItem", "position": 2, "name": "Portfolio", "item": "https://baptistenuytten.fr/portfolio/Portfolio.html"},
+        {"@type": "ListItem", "position": 3, "name": "Jardin Automatique Arduino", "item": "https://baptistenuytten.fr/portfolio/projets/autoGarden.html"}
+      ]
+    }
+    </script>
     <link rel="stylesheet" href="../../assets/css/style.css">
     <link rel="stylesheet" href="../../assets/css/project-pages.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -153,7 +182,7 @@
                 <div class="component-images">
                     <div class="component-card">
                         <img src="../../assets/img/autogarden/Watersensor.jpg" alt="Capteur d'humidité du sol"
-                            class="component-img">
+                            loading="lazy" class="component-img">
                         <div class="component-content">
                             <h3 class="component-title">Capteur d'humidité du sol</h3>
                             <p class="component-desc">Détecte le niveau d'humidité dans le sol. Lorsque le sol devient
@@ -162,7 +191,7 @@
                     </div>
 
                     <div class="component-card">
-                        <img src="../../assets/img/autogarden/pump.png" alt="Mini pompe à eau" class="component-img">
+                        <img src="../../assets/img/autogarden/pump.png" alt="Mini pompe à eau" loading="lazy" class="component-img">
                         <div class="component-content">
                             <h3 class="component-title">Mini pompe à eau</h3>
                             <p class="component-desc">Pompe submersible qui permet d'acheminer l'eau du réservoir vers
@@ -172,7 +201,7 @@
                     </div>
 
                     <div class="component-card">
-                        <img src="../../assets/img/arduino/arduinoUno.png" alt="Arduino UNO" class="component-img">
+                        <img src="../../assets/img/arduino/arduinoUno.png" alt="Arduino UNO" loading="lazy" class="component-img">
                         <div class="component-content">
                             <h3 class="component-title">Arduino UNO</h3>
                             <p class="component-desc">Microcontrôleur qui traite les données des capteurs et contrôle
@@ -181,7 +210,7 @@
                     </div>
 
                     <div class="component-card">
-                        <img src="../../assets/img/autogarden/relay.png" alt="Module relais" class="component-img">
+                        <img src="../../assets/img/autogarden/relay.png" alt="Module relais" loading="lazy" class="component-img">
                         <div class="component-content">
                             <h3 class="component-title">Module relais</h3>
                             <p class="component-desc">Permet à l'Arduino de contrôler des appareils nécessitant plus de
@@ -199,22 +228,22 @@
                 <div class="project-images">
                     <div class="project-img-container">
                         <img src="../../assets/img/autogarden/cablage.jpg" alt="Schéma de connexion du système d'arrosage"
-                            class="project-img-full">
+                            loading="lazy" class="project-img-full">
                     </div>
 
                     <div class="project-img-container">
                         <img src="../../assets/img/autogarden/Versionmaison.jpg" alt="Prototype fonctionnel"
-                            class="project-img-full">
+                            loading="lazy" class="project-img-full">
                     </div>
 
                     <div class="project-img-container">
                         <img src="../../assets/img/autogarden/allcomponent.jpg" alt="Composants du système"
-                            class="project-img-full">
+                            loading="lazy" class="project-img-full">
                     </div>
 
                     <div class="project-img-container">
                         <img src="../../assets/img/autogarden/Microbit.png" alt="Version avec Micro:bit"
-                            class="project-img-full">
+                            loading="lazy" class="project-img-full">
                     </div>
                 </div>
 
@@ -275,7 +304,7 @@
                 <p class="section-subtitle">Organigramme illustrant le fonctionnement de l'arrosage automatique</p>
 
                 <img src="../../assets/img/autogarden/algo.png" alt="Organigramme du système d'arrosage"
-                    class="flowchart-img">
+                    loading="lazy" class="flowchart-img">
 
                 <div class="project-overview" style="margin-top: 2rem;">
                     <h3>Avantages du système</h3>
@@ -319,10 +348,12 @@
 
 
 
-            <div class="credits">
-                <p>Projet développé par Baptiste Nuytten | 2023</p>
-            </div>
         </div>
+
+        <div class="credits">
+            <p>Projet développé par Baptiste Nuytten | 2023</p>
+        </div>
+    </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {

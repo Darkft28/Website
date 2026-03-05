@@ -16,3 +16,8 @@ Thumbs.db
 *.tmp
 *.swp
 *~
+
+# Audit & documentation SEO (fichiers de travail internes)
+FULL-AUDIT-REPORT.md
+ACTION-PLAN.md
+todoSEO.md
