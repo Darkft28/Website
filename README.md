@@ -6,8 +6,6 @@ Portfolio professionnel de Baptiste Nuytten, développeur web freelance spécial
 
 Développeur web passionné basé en Normandie, je crée des sites web sur mesure, e-commerce et applications web pour les entreprises et particuliers.
 
-**SIREN :** 991 703 851
-**Contact :** contact@baptistenuytten.fr
 **Site :** [baptistenuytten.fr](https://baptistenuytten.fr)
 
 ## Technologies utilisées
@@ -53,6 +51,3 @@ portfolio/
 ## Mentions légales
 
 © 2025 Baptiste Nuytten. Tous droits réservés.
-
-Entrepreneur individuel - Micro-entreprise
-SIREN : 991 703 851 | SIRET : 991 703 851 00014 | N° TVA : FR24991703851
