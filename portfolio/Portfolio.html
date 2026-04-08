@@ -184,11 +184,7 @@
             </nav>
         </div>
     </header>
-    <section class="hero" id="hero-section">
-        <div class="hero-cursor-spotlight"></div>
-        <div class="hero-orb hero-orb-1"></div>
-        <div class="hero-orb hero-orb-2"></div>
-        <div class="hero-orb hero-orb-3"></div>
+    <section class="hero">
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
@@ -203,7 +199,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="hero-image" id="hero-image-tilt">
+                <div class="hero-image">
                     <img src="../assets/img/baptiste.jpg" alt="Photo de profil développeur web freelance" class="avatar">
                 </div>
             </div>
@@ -944,57 +940,6 @@
                     }
                 });
             });
-
-            // ── Effets souris hero ──────────────────────────────────────────
-            const heroSection  = document.getElementById('hero-section');
-            const spotlight    = heroSection.querySelector('.hero-cursor-spotlight');
-            const orb1         = heroSection.querySelector('.hero-orb-1');
-            const orb2         = heroSection.querySelector('.hero-orb-2');
-            const orb3         = heroSection.querySelector('.hero-orb-3');
-            const imageTilt    = document.getElementById('hero-image-tilt');
-
-            // Valeurs courantes et cibles pour interpolation fluide
-            let mx = 0, my = 0;       // position souris normalisée [-1, 1]
-            let cx = 0, cy = 0;       // valeurs interpolées
-            let rafId = null;
-
-            heroSection.addEventListener('mousemove', (e) => {
-                const rect = heroSection.getBoundingClientRect();
-                mx = ((e.clientX - rect.left) / rect.width  - 0.5) * 2;
-                my = ((e.clientY - rect.top)  / rect.height - 0.5) * 2;
-
-                // Spotlight suit le curseur directement (pas d'interpolation)
-                spotlight.style.left = (e.clientX - rect.left) + 'px';
-                spotlight.style.top  = (e.clientY - rect.top)  + 'px';
-                spotlight.style.opacity = '1';
-
-                if (!rafId) rafId = requestAnimationFrame(animateHero);
-            });
-
-            heroSection.addEventListener('mouseleave', () => {
-                mx = 0; my = 0;
-                spotlight.style.opacity = '0';
-            });
-
-            function animateHero() {
-                // Interpolation douce
-                cx += (mx - cx) * 0.07;
-                cy += (my - cy) * 0.07;
-
-                // Orbes en parallaxe (vitesses différentes)
-                orb1.style.transform = `translate(${cx * 30}px, ${cy * 20}px)`;
-                orb2.style.transform = `translate(${cx * -18}px, ${cy * 25}px)`;
-                orb3.style.transform = `translate(${cx * 22}px, ${cy * -15}px)`;
-
-                // Tilt 3D sur l'image
-                if (imageTilt) {
-                    imageTilt.style.transform =
-                        `perspective(800px) rotateY(${cx * 8}deg) rotateX(${-cy * 6}deg) translateZ(10px)`;
-                }
-
-                const stillMoving = Math.abs(mx - cx) > 0.001 || Math.abs(my - cy) > 0.001;
-                rafId = stillMoving ? requestAnimationFrame(animateHero) : null;
-            }
         });
     </script>
     <script src="../assets/js/scroll-animations.js"></script>
