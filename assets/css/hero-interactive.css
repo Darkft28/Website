@@ -1,0 +1,202 @@
+/* ===================================================================
+   HERO INTERACTIF — Cursor, Particles, Tilt, Magnetic, Spotlight
+   Fichier dédié aux effets WAOUH du hero portfolio
+   ================================================================= */
+
+/* -------------------------------------------------------------------
+   1. CANVAS RÉSEAU DE PARTICULES
+------------------------------------------------------------------- */
+#hero-particle-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none; /* transparent aux clics (géré via heroSection) */
+    display: block;
+}
+
+/* Restaurer pointer-events sur le canvas pour la détection click/mousemove
+   — on passe par heroSection, donc le canvas reste none */
+
+/* -------------------------------------------------------------------
+   2. SPOTLIGHT RADIAL
+------------------------------------------------------------------- */
+.hero-spotlight {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    will-change: background;
+}
+
+/* -------------------------------------------------------------------
+   3. HERO CONTENT AU-DESSUS DU CANVAS
+------------------------------------------------------------------- */
+
+/* S'assurer que le contenu héro passe devant le canvas (z-index: 0)
+   et le spotlight (z-index: 1) */
+.hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* -------------------------------------------------------------------
+   4. TILT 3D AVATAR
+------------------------------------------------------------------- */
+#hero-image-tilt {
+    transition: transform 0.12s ease-out;
+    transform-style: preserve-3d;
+    will-change: transform;
+}
+
+/* Halo lumineux directionnel autour de l'avatar */
+.avatar-halo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 520px;
+    height: 520px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: radial-gradient(
+        circle at center,
+        rgba(var(--color-accent-rgb), 0.28) 0%,
+        rgba(var(--color-accent-rgb), 0.10) 40%,
+        transparent 70%
+    );
+    pointer-events: none;
+    opacity: 0.5;
+    transition: transform 0.18s ease-out, opacity 0.3s ease;
+    will-change: transform, opacity;
+    z-index: 0;
+}
+
+/* Positionner l'avatar au-dessus du halo */
+#hero-image-tilt .avatar {
+    position: relative;
+    z-index: 1;
+}
+
+/* -------------------------------------------------------------------
+   5. CURSOR PERSONNALISÉ
+------------------------------------------------------------------- */
+
+/* Masquer le curseur natif uniquement sur le hero */
+#hero-section,
+#hero-section * {
+    cursor: none !important;
+}
+
+/* Point central — suit directement la souris */
+.cursor-dot {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(var(--color-accent-rgb), 1);
+    box-shadow: 0 0 10px rgba(var(--color-accent-rgb), 0.8),
+                0 0 20px rgba(var(--color-accent-rgb), 0.4);
+    pointer-events: none;
+    z-index: 9999;
+    will-change: transform;
+    /* Positionnement via JS (transform: translate) */
+}
+
+/* Anneau extérieur — suit avec spring (délai) */
+.cursor-ring {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(var(--color-accent-rgb), 0.55);
+    background: rgba(var(--color-accent-rgb), 0.04);
+    backdrop-filter: blur(0px);
+    pointer-events: none;
+    z-index: 9998;
+    will-change: transform;
+    transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+/* Masquer par défaut — révélé par JS quand la souris entre */
+.cursor-dot,
+.cursor-ring {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+body.hero-hovered .cursor-dot,
+body.hero-hovered .cursor-ring {
+    opacity: 1;
+}
+
+/* -------------------------------------------------------------------
+   6. MAGNETIC BUTTONS — transition fluide au retour
+------------------------------------------------------------------- */
+.magnetic-btn {
+    transition: transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                /* Conserver les autres transitions existantes */
+                background 0.35s var(--ease-custom, ease),
+                box-shadow 0.35s var(--ease-custom, ease),
+                color 0.35s var(--ease-custom, ease) !important;
+    will-change: transform;
+}
+
+/* -------------------------------------------------------------------
+   7. REDUCED MOTION — désactiver tout ce qui bouge
+------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+    #hero-particle-canvas,
+    .hero-spotlight,
+    .avatar-halo,
+    .cursor-dot,
+    .cursor-ring {
+        display: none !important;
+    }
+
+    #hero-image-tilt {
+        transform: none !important;
+        transition: none !important;
+    }
+
+    .magnetic-btn {
+        transform: none !important;
+        transition: background 0.35s ease, box-shadow 0.35s ease !important;
+    }
+}
+
+/* -------------------------------------------------------------------
+   8. MOBILE < 768px — désactiver canvas, cursor, magnetic
+------------------------------------------------------------------- */
+@media (max-width: 767px) {
+    #hero-particle-canvas,
+    .cursor-dot,
+    .cursor-ring {
+        display: none !important;
+    }
+
+    /* Spotlight reste actif sur mobile (tactile) en version simplifiée */
+    .hero-spotlight {
+        display: none;
+    }
+
+    /* Tilt léger conservé en mobile — réinitialisé si JS détecte mobile */
+    #hero-image-tilt {
+        transition: transform 0.3s ease;
+    }
+
+    .avatar-halo {
+        width: 320px;
+        height: 320px;
+    }
+
+    .magnetic-btn {
+        transform: none !important;
+    }
+}

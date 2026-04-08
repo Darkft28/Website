@@ -121,6 +121,7 @@
     <link rel="stylesheet" href="../assets/css/scroll-animations.css">
     <link rel="stylesheet" href="../assets/css/carousel-3d.css">
     <link rel="stylesheet" href="../assets/css/timeline.css">
+    <link rel="stylesheet" href="../assets/css/hero-interactive.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" media="print" onload="this.media='all'">
     <noscript>
@@ -184,7 +185,11 @@
             </nav>
         </div>
     </header>
-    <section class="hero">
+    <section class="hero" id="hero-section">
+        <!-- Canvas réseau de particules (z-index: 0, derrière le contenu) -->
+        <canvas id="hero-particle-canvas" aria-hidden="true"></canvas>
+        <!-- Spotlight radial qui suit le curseur -->
+        <div class="hero-spotlight" id="hero-spotlight" aria-hidden="true"></div>
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
@@ -192,14 +197,16 @@
                     <p class="subtitle">Étudiant en deuxième année à Supinfo Caen - Freelance</p>
                     <p class="tagline">Passionné par le développement et l'innovation technologique</p>
                     <div class="hero-buttons">
-                        <a href="#projects" class="btn">Voir mes projets</a>
-                        <a href="#contact" class="btn btn-secondary">Me contacter</a>
-                        <a href="../download/CV_Nuytten_Baptiste.pdf" download class="btn btn-outline">
+                        <a href="#projects" class="btn magnetic-btn">Voir mes projets</a>
+                        <a href="#contact" class="btn btn-secondary magnetic-btn">Me contacter</a>
+                        <a href="../download/CV_Nuytten_Baptiste.pdf" download class="btn btn-outline magnetic-btn">
                             <i class="fas fa-download"></i> Télécharger mon CV
                         </a>
                     </div>
                 </div>
-                <div class="hero-image">
+                <div class="hero-image" id="hero-image-tilt">
+                    <!-- Halo lumineux directionnel -->
+                    <div class="avatar-halo" id="avatar-halo" aria-hidden="true"></div>
                     <img src="../assets/img/baptiste.jpg" alt="Photo de profil développeur web freelance" class="avatar">
                 </div>
             </div>
@@ -946,5 +953,470 @@
     <script src="../assets/js/carousel-3d.js"></script>
     <script src="../assets/js/timeline.js"></script>
     <script defer src="/_vercel/insights/script.js"></script>
+
+    <!-- ================================================================
+         HERO INTERACTIF — Cursor custom, particles, tilt, magnetic, burst
+         ================================================================ -->
+
+    <!-- Cursor custom : point central + anneau extérieur -->
+    <div class="cursor-dot"  id="cursor-dot"  aria-hidden="true"></div>
+    <div class="cursor-ring" id="cursor-ring" aria-hidden="true"></div>
+
+    <script>
+    /* ================================================================
+       HERO WAOUH — Vanilla JS, aucune dépendance externe
+       Désactivé automatiquement si prefers-reduced-motion est actif
+       ou si l'écran est < 768 px (mobile).
+    ================================================================ */
+    (function () {
+        'use strict';
+
+        /* ----------------------------------------------------------
+           0. GUARDS : reduced-motion & mobile
+        ---------------------------------------------------------- */
+        const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const isMobile       = window.matchMedia('(max-width: 767px)').matches;
+
+        /* État partagé : souris sur le hero ou non */
+        let isHeroHovered = false;
+
+        /* ----------------------------------------------------------
+           1. UTILITAIRES
+        ---------------------------------------------------------- */
+        /** Récupère les valeurs RGB de la variable CSS accent en live */
+        function getAccentRGB() {
+            const raw = getComputedStyle(document.documentElement)
+                            .getPropertyValue('--color-accent-rgb').trim();
+            return raw || '16, 185, 129';
+        }
+
+        /** Lerp (interpolation linéaire) */
+        function lerp(a, b, t) { return a + (b - a) * t; }
+
+        /* ----------------------------------------------------------
+           2. CURSOR PERSONNALISÉ (desktop seulement, motion ok)
+        ---------------------------------------------------------- */
+        const cursorDot  = document.getElementById('cursor-dot');
+        const cursorRing = document.getElementById('cursor-ring');
+
+        if (!prefersReduced && !isMobile && cursorDot && cursorRing) {
+            /* Activation uniquement sur le hero */
+            const heroEl = document.getElementById('hero-section');
+            if (heroEl) {
+                heroEl.addEventListener('mouseenter', () => {
+                    isHeroHovered = true;
+                    document.body.classList.add('hero-hovered');
+                });
+                heroEl.addEventListener('mouseleave', () => {
+                    isHeroHovered = false;
+                    document.body.classList.remove('hero-hovered');
+                });
+            }
+
+            let mouseX = -200, mouseY = -200;   // position réelle
+            let ringX  = -200, ringY  = -200;   // position anneau (spring)
+            let ringScale = 1;                   // échelle anneau (hover)
+            let rafCursor;
+
+            /* Suivi souris */
+            document.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+            });
+
+            /* Agrandissement anneau sur éléments interactifs */
+            const interactiveSelector = 'a, button, .btn, .magnetic-btn, [role="button"], input, textarea, select, label';
+            document.querySelectorAll(interactiveSelector).forEach(el => {
+                el.addEventListener('mouseenter', () => { ringScale = 2.4; });
+                el.addEventListener('mouseleave', () => { ringScale = 1; });
+            });
+
+            /* Boucle d'animation du curseur */
+            (function animateCursor() {
+                /* Point : suit la souris directement */
+                cursorDot.style.transform  = `translate(${mouseX}px, ${mouseY}px) translate(-50%, -50%)`;
+
+                /* Anneau : spring (délai fluide) */
+                ringX = lerp(ringX, mouseX, 0.12);
+                ringY = lerp(ringY, mouseY, 0.12);
+                const currentScale = parseFloat(cursorRing.dataset.scale || '1');
+                const newScale = lerp(currentScale, ringScale, 0.15);
+                cursorRing.dataset.scale = newScale;
+                cursorRing.style.transform =
+                    `translate(${ringX}px, ${ringY}px) translate(-50%, -50%) scale(${newScale})`;
+
+                rafCursor = requestAnimationFrame(animateCursor);
+            })();
+        }
+
+        /* ----------------------------------------------------------
+           3. CURSOR TRAIL — traînée lumineuse (20 points)
+        ---------------------------------------------------------- */
+        if (!prefersReduced && !isMobile) {
+            const TRAIL_LEN   = 20;
+            const trailPoints = [];
+            const trailEls    = [];
+
+            /* Créer les points de traînée */
+            for (let i = 0; i < TRAIL_LEN; i++) {
+                const el = document.createElement('div');
+                el.className = 'cursor-trail-point';
+                el.style.cssText = `
+                    position: fixed;
+                    pointer-events: none;
+                    border-radius: 50%;
+                    z-index: 9997;
+                    will-change: transform, opacity;
+                    transform: translate(-50%, -50%);
+                `;
+                document.body.appendChild(el);
+                trailEls.push(el);
+                trailPoints.push({ x: -200, y: -200 });
+            }
+
+            let trailMouseX = -200, trailMouseY = -200;
+            document.addEventListener('mousemove', (e) => {
+                trailMouseX = e.clientX;
+                trailMouseY = e.clientY;
+            });
+
+            (function animateTrail() {
+                if (!isHeroHovered) {
+                    /* Cacher tous les points quand on n'est pas sur le hero */
+                    trailEls.forEach(el => { el.style.opacity = '0'; });
+                    requestAnimationFrame(animateTrail);
+                    return;
+                }
+
+                /* Décaler le tableau — le 0 prend la position souris */
+                trailPoints.unshift({ x: trailMouseX, y: trailMouseY });
+                trailPoints.length = TRAIL_LEN;
+
+                const rgb = getAccentRGB();
+
+                trailPoints.forEach((pt, i) => {
+                    const progress = 1 - i / TRAIL_LEN;
+                    const size = Math.max(1, 6 * progress);
+                    const opacity = progress * 0.55;
+                    const el = trailEls[i];
+                    el.style.left    = pt.x + 'px';
+                    el.style.top     = pt.y + 'px';
+                    el.style.width   = size + 'px';
+                    el.style.height  = size + 'px';
+                    el.style.opacity = opacity;
+                    el.style.background = `rgba(${rgb}, ${opacity})`;
+                    el.style.boxShadow  = `0 0 ${size * 2}px rgba(${rgb}, ${opacity * 0.8})`;
+                });
+
+                requestAnimationFrame(animateTrail);
+            })();
+        }
+
+        /* ----------------------------------------------------------
+           4. CANVAS — Réseau de particules + répulsion curseur
+        ---------------------------------------------------------- */
+        const canvas = document.getElementById('hero-particle-canvas');
+        const heroSection = document.getElementById('hero-section');
+
+        if (!prefersReduced && !isMobile && canvas && heroSection) {
+            const ctx = canvas.getContext('2d');
+            const PARTICLE_COUNT   = 100;
+            const MAX_DIST         = 130;   // distance max pour tracer une ligne
+            const REPULSE_RADIUS   = 150;   // rayon de répulsion du curseur
+            const REPULSE_STRENGTH = 5;     // force de la répulsion
+
+            let canvasW, canvasH;
+            let particles = [];
+            let mouse = { x: -9999, y: -9999 };
+
+            /* Redimensionnement */
+            function resizeCanvas() {
+                const rect = heroSection.getBoundingClientRect();
+                canvasW = canvas.width  = heroSection.offsetWidth;
+                canvasH = canvas.height = heroSection.offsetHeight;
+            }
+            resizeCanvas();
+            window.addEventListener('resize', resizeCanvas);
+
+            /* Création des particules */
+            class Particle {
+                constructor() { this.reset(true); }
+
+                reset(random) {
+                    this.x  = random ? Math.random() * canvasW : this.x;
+                    this.y  = random ? Math.random() * canvasH : this.y;
+                    /* vitesse faible pour effet flottement */
+                    this.vx = (Math.random() - 0.5) * 0.6;
+                    this.vy = (Math.random() - 0.5) * 0.6;
+                    this.baseR = Math.random() * 2 + 1;  // rayon au repos
+                    this.r  = this.baseR;
+                    /* Opacité variable pour effet vivant */
+                    this.alpha    = Math.random() * 0.5 + 0.2;
+                    this.alphaDir = (Math.random() > 0.5 ? 1 : -1) * 0.003;
+                }
+
+                update() {
+                    /* Pulsation douce de l'opacité */
+                    this.alpha += this.alphaDir;
+                    if (this.alpha > 0.7 || this.alpha < 0.15) this.alphaDir *= -1;
+
+                    /* Répulsion du curseur */
+                    const dx = this.x - mouse.x;
+                    const dy = this.y - mouse.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+
+                    if (dist < REPULSE_RADIUS && dist > 0) {
+                        const force = (REPULSE_RADIUS - dist) / REPULSE_RADIUS;
+                        this.vx += (dx / dist) * force * REPULSE_STRENGTH * 0.1;
+                        this.vy += (dy / dist) * force * REPULSE_STRENGTH * 0.1;
+                    }
+
+                    /* Friction douce */
+                    this.vx *= 0.97;
+                    this.vy *= 0.97;
+
+                    /* Déplacement */
+                    this.x += this.vx;
+                    this.y += this.vy;
+
+                    /* Rebond sur les bords */
+                    if (this.x < 0)       { this.x = 0;       this.vx *= -1; }
+                    if (this.x > canvasW) { this.x = canvasW; this.vx *= -1; }
+                    if (this.y < 0)       { this.y = 0;       this.vy *= -1; }
+                    if (this.y > canvasH) { this.y = canvasH; this.vy *= -1; }
+                }
+
+                draw() {
+                    const rgb = getAccentRGB();
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(${rgb}, ${this.alpha})`;
+                    ctx.fill();
+                }
+            }
+
+            /* Initialisation */
+            for (let i = 0; i < PARTICLE_COUNT; i++) {
+                particles.push(new Particle());
+            }
+
+            /* Suivi souris relative au canvas */
+            heroSection.addEventListener('mousemove', (e) => {
+                const rect = canvas.getBoundingClientRect();
+                mouse.x = e.clientX - rect.left;
+                mouse.y = e.clientY - rect.top;
+            });
+            heroSection.addEventListener('mouseleave', () => {
+                mouse.x = -9999;
+                mouse.y = -9999;
+            });
+
+            /* Boucle principale */
+            (function drawFrame() {
+                ctx.clearRect(0, 0, canvasW, canvasH);
+
+                const rgb = getAccentRGB();
+
+                /* Connexions entre particules proches */
+                for (let i = 0; i < particles.length; i++) {
+                    for (let j = i + 1; j < particles.length; j++) {
+                        const dx = particles[i].x - particles[j].x;
+                        const dy = particles[i].y - particles[j].y;
+                        const d  = Math.sqrt(dx * dx + dy * dy);
+                        if (d < MAX_DIST) {
+                            const opacity = (1 - d / MAX_DIST) * 0.35;
+                            ctx.beginPath();
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.strokeStyle = `rgba(${rgb}, ${opacity})`;
+                            ctx.lineWidth   = 0.8;
+                            ctx.stroke();
+                        }
+                    }
+                }
+
+                /* Lignes vers le curseur */
+                particles.forEach(p => {
+                    const dx = p.x - mouse.x;
+                    const dy = p.y - mouse.y;
+                    const d  = Math.sqrt(dx * dx + dy * dy);
+                    if (d < MAX_DIST * 1.5) {
+                        const opacity = (1 - d / (MAX_DIST * 1.5)) * 0.6;
+                        ctx.beginPath();
+                        ctx.moveTo(p.x, p.y);
+                        ctx.lineTo(mouse.x, mouse.y);
+                        ctx.strokeStyle = `rgba(${rgb}, ${opacity})`;
+                        ctx.lineWidth   = 1;
+                        ctx.stroke();
+                    }
+                });
+
+                /* Mise à jour + dessin des particules */
+                particles.forEach(p => { p.update(); p.draw(); });
+
+                requestAnimationFrame(drawFrame);
+            })();
+
+            /* ----------------------------------------------------------
+               5. CLICK BURST — explosion de particules au clic
+            ---------------------------------------------------------- */
+            heroSection.addEventListener('click', (e) => {
+                const rect = canvas.getBoundingClientRect();
+                const bx = e.clientX - rect.left;
+                const by = e.clientY - rect.top;
+
+                const burst = [];
+                const BURST_COUNT = 18;
+
+                for (let i = 0; i < BURST_COUNT; i++) {
+                    const angle = (Math.PI * 2 / BURST_COUNT) * i + Math.random() * 0.4;
+                    const speed = Math.random() * 4 + 2;
+                    burst.push({
+                        x: bx, y: by,
+                        vx: Math.cos(angle) * speed,
+                        vy: Math.sin(angle) * speed,
+                        alpha: 1,
+                        r: Math.random() * 3 + 1.5,
+                        life: 1
+                    });
+                }
+
+                (function animateBurst() {
+                    if (burst.length === 0) return;
+
+                    const rgb = getAccentRGB();
+                    burst.forEach((p, idx) => {
+                        p.x     += p.vx;
+                        p.y     += p.vy;
+                        p.vx    *= 0.92;
+                        p.vy    *= 0.92;
+                        p.alpha -= 0.035;
+                        p.life   = p.alpha;
+
+                        if (p.alpha > 0) {
+                            ctx.beginPath();
+                            ctx.arc(p.x, p.y, p.r * p.alpha, 0, Math.PI * 2);
+                            ctx.fillStyle   = `rgba(${rgb}, ${p.alpha})`;
+                            ctx.shadowColor = `rgba(${rgb}, ${p.alpha * 0.8})`;
+                            ctx.shadowBlur  = 8;
+                            ctx.fill();
+                            ctx.shadowBlur  = 0;
+                        }
+                    });
+
+                    /* Supprimer les particules mortes */
+                    for (let i = burst.length - 1; i >= 0; i--) {
+                        if (burst[i].alpha <= 0) burst.splice(i, 1);
+                    }
+
+                    if (burst.length > 0) requestAnimationFrame(animateBurst);
+                })();
+            });
+        }
+
+        /* ----------------------------------------------------------
+           6. SPOTLIGHT RADIAL — halo qui suit le curseur
+        ---------------------------------------------------------- */
+        const spotlight = document.getElementById('hero-spotlight');
+
+        if (!prefersReduced && heroSection && spotlight) {
+            heroSection.addEventListener('mousemove', (e) => {
+                const rect = heroSection.getBoundingClientRect();
+                const x = ((e.clientX - rect.left) / rect.width)  * 100;
+                const y = ((e.clientY - rect.top)  / rect.height) * 100;
+                spotlight.style.opacity = '1';
+                spotlight.style.background =
+                    `radial-gradient(circle 500px at ${x}% ${y}%,
+                        rgba(var(--color-accent-rgb), 0.07) 0%,
+                        transparent 70%)`;
+            });
+            heroSection.addEventListener('mouseleave', () => {
+                spotlight.style.opacity = '0';
+            });
+        }
+
+        /* ----------------------------------------------------------
+           7. TILT 3D AVATAR + HALO DIRECTIONNEL
+        ---------------------------------------------------------- */
+        const tiltContainer = document.getElementById('hero-image-tilt');
+        const avatarHalo    = document.getElementById('avatar-halo');
+
+        if (!prefersReduced && tiltContainer) {
+            const MAX_TILT = 10; // degrés max
+
+            tiltContainer.addEventListener('mousemove', (e) => {
+                const rect  = tiltContainer.getBoundingClientRect();
+                const cx    = rect.left + rect.width  / 2;
+                const cy    = rect.top  + rect.height / 2;
+                const dx    = (e.clientX - cx) / (rect.width  / 2);   // -1 → +1
+                const dy    = (e.clientY - cy) / (rect.height / 2);   // -1 → +1
+                const rotY  =  dx * MAX_TILT;
+                const rotX  = -dy * MAX_TILT;
+
+                tiltContainer.style.transform =
+                    `perspective(800px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale3d(1.02, 1.02, 1.02)`;
+
+                /* Halo directionnel : déplacement dans la direction du curseur */
+                if (avatarHalo) {
+                    const haloX = dx * 30;
+                    const haloY = dy * 30;
+                    avatarHalo.style.transform =
+                        `translate(calc(-50% + ${haloX}px), calc(-50% + ${haloY}px))`;
+                    avatarHalo.style.opacity = '1';
+                }
+            });
+
+            tiltContainer.addEventListener('mouseleave', () => {
+                tiltContainer.style.transform =
+                    'perspective(800px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+                if (avatarHalo) {
+                    avatarHalo.style.transform = 'translate(-50%, -50%)';
+                    avatarHalo.style.opacity   = '0.5';
+                }
+            });
+
+            /* Sur mobile : désactiver le tilt, garder le conteneur statique */
+            if (isMobile) {
+                tiltContainer.style.transform = 'none';
+            }
+        }
+
+        /* ----------------------------------------------------------
+           8. MAGNETIC BUTTONS — attraction des boutons vers le curseur
+        ---------------------------------------------------------- */
+        if (!prefersReduced && !isMobile) {
+            const MAGNET_RADIUS   = 80;   // px — rayon d'activation
+            const MAGNET_STRENGTH = 0.35; // facteur de déplacement (0 → 1)
+            const MAX_OFFSET      = 12;   // px max de déplacement
+
+            document.querySelectorAll('.magnetic-btn').forEach(btn => {
+                let rafMagnet;
+
+                btn.addEventListener('mousemove', (e) => {
+                    const rect = btn.getBoundingClientRect();
+                    const cx   = rect.left + rect.width  / 2;
+                    const cy   = rect.top  + rect.height / 2;
+                    const dx   = e.clientX - cx;
+                    const dy   = e.clientY - cy;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+
+                    if (dist < MAGNET_RADIUS) {
+                        const factor = (1 - dist / MAGNET_RADIUS) * MAGNET_STRENGTH;
+                        const mx = Math.min(Math.abs(dx * factor), MAX_OFFSET) * Math.sign(dx);
+                        const my = Math.min(Math.abs(dy * factor), MAX_OFFSET) * Math.sign(dy);
+                        btn.style.transform = `translate(${mx}px, ${my}px)`;
+                    }
+                });
+
+                btn.addEventListener('mouseleave', () => {
+                    btn.style.transform = 'translate(0, 0)';
+                });
+            });
+        }
+
+    })(); // fin IIFE
+    </script>
+    <!-- FIN HERO WAOUH -->
+
 </body>
 </html>
