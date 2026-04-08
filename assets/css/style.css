@@ -901,6 +901,80 @@ nav {
         0 0 80px rgba(var(--color-accent-rgb), 0.3);
 }
 
+/* Spotlight curseur */
+.hero-cursor-spotlight {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle,
+        rgba(var(--color-accent-rgb), 0.12) 0%,
+        rgba(var(--color-accent-rgb-light), 0.06) 40%,
+        transparent 70%
+    );
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 1;
+}
+
+/* Orbes décoratifs flottants */
+.hero-orb {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    filter: blur(60px);
+    will-change: transform;
+    z-index: 0;
+}
+
+.hero-orb-1 {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(var(--color-accent-rgb), 0.18) 0%, transparent 70%);
+    top: 10%;
+    left: 5%;
+}
+
+.hero-orb-2 {
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(var(--color-accent-rgb-light), 0.15) 0%, transparent 70%);
+    bottom: 15%;
+    right: 10%;
+}
+
+.hero-orb-3 {
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(var(--color-accent-rgb), 0.1) 0%, transparent 70%);
+    top: 50%;
+    left: 50%;
+}
+
+/* Tilt 3D sur le bloc image */
+#hero-image-tilt {
+    will-change: transform;
+    transition: transform 0.1s ease-out;
+    transform-style: preserve-3d;
+}
+
+/* Désactiver tilt + orbes sur mobile */
+@media (max-width: 767px) {
+    .hero-cursor-spotlight,
+    .hero-orb { display: none; }
+    #hero-image-tilt { transform: none !important; transition: none; }
+}
+
+/* Respecter prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+    .hero-cursor-spotlight,
+    .hero-orb { display: none; }
+    #hero-image-tilt { transform: none !important; transition: none; }
+}
+
 /* ===================================================================
    SECTIONS ULTRA-MODERNES
    ================================================================= */
