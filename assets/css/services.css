@@ -56,6 +56,7 @@
 .services-hero-image {
     display: flex;
     justify-content: center;
+    position: relative;
     animation: fadeInScale 1s 0.4s var(--ease-custom) backwards;
 }
 

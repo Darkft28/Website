@@ -47,9 +47,9 @@
    4. TILT 3D AVATAR
 ------------------------------------------------------------------- */
 #hero-image-tilt {
-    transition: transform 0.12s ease-out;
     transform-style: preserve-3d;
     will-change: transform;
+    /* Pas de transition CSS — le lerp JS gère la fluidité */
 }
 
 /* Halo lumineux directionnel autour de l'avatar */

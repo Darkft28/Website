@@ -207,6 +207,7 @@
 
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/services.css">
+    <link rel="stylesheet" href="assets/css/hero-interactive.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
 </head>
@@ -268,7 +269,9 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="services-hero">
+    <section class="services-hero" id="hero-section">
+        <canvas id="hero-particle-canvas" aria-hidden="true"></canvas>
+        <div class="hero-spotlight" id="hero-spotlight" aria-hidden="true"></div>
         <div class="container">
             <div class="services-hero-wrapper">
                 <div class="services-hero-content">
@@ -276,11 +279,12 @@
                     <p class="services-hero-subtitle">Basé à Caen (Normandie) — transformez vos idées en solutions digitales performantes</p>
                     <p class="services-hero-tagline">Développement web moderne, applications desktop et solutions sur mesure pour propulser votre activité.</p>
                     <div class="services-hero-buttons">
-                        <a href="#tarifs" class="btn">Voir les tarifs</a>
-                        <a href="#contact" class="btn btn-secondary">Demander un devis</a>
+                        <a href="#tarifs" class="btn magnetic-btn">Voir les tarifs</a>
+                        <a href="#contact" class="btn btn-secondary magnetic-btn">Demander un devis</a>
                     </div>
                 </div>
-                <div class="services-hero-image">
+                <div class="services-hero-image" id="hero-image-tilt">
+                    <div class="avatar-halo" id="avatar-halo" aria-hidden="true"></div>
                     <img src="assets/img/baptiste.jpg" alt="Baptiste Nuytten - Développeur Web Freelance" class="services-avatar">
                 </div>
             </div>
@@ -1024,5 +1028,8 @@
         });
     </script>
     <script defer src="/_vercel/insights/script.js"></script>
+    <div class="cursor-dot"  id="cursor-dot"  aria-hidden="true"></div>
+    <div class="cursor-ring" id="cursor-ring" aria-hidden="true"></div>
+    <script src="assets/js/hero-interactive.js"></script>
 </body>
 </html>
