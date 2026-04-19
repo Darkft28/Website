@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoonWatch - Application Watchlist Cinéma & Séries | Portfolio Baptiste Nuytten</title>
+    <meta name="description" content="SoonWatch, application web full-stack de gestion de watchlist cinéma et séries avec découverte style Tinder. React 18, TypeScript, Node.js, MySQL, Docker.">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Baptiste Nuytten">
+    <link rel="canonical" href="https://baptistenuytten.fr/portfolio/projets/soonwatch.html">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "SoonWatch",
+      "description": "Application web de gestion de watchlist cinéma et séries avec découverte de contenu style Tinder, alimentée par l'API TMDB.",
+      "applicationCategory": "WebApplication",
+      "operatingSystem": "Web",
+      "programmingLanguage": ["TypeScript", "React", "Node.js", "MySQL"],
+      "author": {
+        "@type": "Person",
+        "name": "Baptiste Nuytten",
+        "url": "https://baptistenuytten.fr"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://baptistenuytten.fr/"},
+        {"@type": "ListItem", "position": 2, "name": "Portfolio", "item": "https://baptistenuytten.fr/portfolio/Portfolio.html"},
+        {"@type": "ListItem", "position": 3, "name": "SoonWatch", "item": "https://baptistenuytten.fr/portfolio/projets/soonwatch.html"}
+      ]
+    }
+    </script>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/project-pages.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Baptiste Nuytten – Étudiant & Freelance</div>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="../../index.html">Services Freelance</a></li>
+                    <li class="dropdown">
+                        <a href="../Portfolio.html">
+                            Portfolio
+                            <span class="dropdown-icon">▼</span>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a href="../Portfolio.html#about">À propos</a>
+                            <a href="../Portfolio.html#skills">Compétences</a>
+                            <a href="../Portfolio.html#projects">Projets</a>
+                            <a href="../Portfolio.html#testimonials">Recommandations</a>
+                            <a href="../Portfolio.html#experience">Expérience</a>
+                        </div>
+                    </li>
+                    <li><a href="../Portfolio.html#contact">Contact</a></li>
+                    <li>
+                        <div class="color-picker-wrapper">
+                            <button class="color-picker-toggle" id="colorPickerToggle" aria-label="Choisir la couleur">🎨</button>
+                            <div class="color-picker-menu" id="colorPickerMenu">
+                                <div class="color-option" data-color="emerald" title="Émeraude">
+                                    <span class="color-swatch" style="background: linear-gradient(135deg, #10B981, #34D399);"></span>
+                                </div>
+                                <div class="color-option" data-color="violet" title="Violet">
+                                    <span class="color-swatch" style="background: linear-gradient(135deg, #6366F1, #8B5CF6);"></span>
+                                </div>
+                                <div class="color-option" data-color="cyan" title="Cyan">
+                                    <span class="color-swatch" style="background: linear-gradient(135deg, #06B6D4, #22D3EE);"></span>
+                                </div>
+                                <div class="color-option" data-color="rose" title="Rose">
+                                    <span class="color-swatch" style="background: linear-gradient(135deg, #EC4899, #F472B6);"></span>
+                                </div>
+                                <div class="color-option" data-color="orange" title="Orange">
+                                    <span class="color-swatch" style="background: linear-gradient(135deg, #F97316, #FB923C);"></span>
+                                </div>
+                                <div class="color-option" data-color="red" title="Rouge">
+                                    <span class="color-swatch" style="background: linear-gradient(135deg, #EF4444, #F87171);"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li><button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌙</button></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="project-page">
+        <div class="project-header-banner">
+            <h1>SoonWatch</h1>
+            <p>Application web full-stack de gestion de watchlist cinéma & séries avec découverte style Tinder</p>
+        </div>
+
+        <div class="container">
+            <section class="project-intro" style="margin-top: 2rem;">
+                <h2>Présentation du projet</h2>
+                <p>SoonWatch est une application web complète de gestion de watchlist pour les films et séries. Elle offre une expérience de découverte de contenu inspirée des interfaces modernes : un mode de navigation classique par catégories (style Netflix) et un mode swipe à la Tinder pour découvrir de nouveaux films. L'ensemble est alimenté par l'API TMDB (The Movie Database) et repose sur une architecture full-stack découplée avec React côté client et Node.js/Express côté serveur.</p>
+
+                <div class="tech-stack">
+                    <div class="tech-stack-track">
+                        <!-- Premier set -->
+                        <div class="skill-tag">
+                            <i class="devicon-react-original colored"></i>
+                            <span class="skill-name">React 18</span>
+                        </div>
+                        <div class="skill-tag">
+                            <i class="devicon-typescript-plain colored"></i>
+                            <span class="skill-name">TypeScript</span>
+                        </div>
+                        <div class="skill-tag">
+                            <i class="devicon-vitejs-plain colored"></i>
+                            <span class="skill-name">Vite</span>
+                        </div>
+                        <div class="skill-tag">
+                            <i class="devicon-tailwindcss-plain colored"></i>
+                            <span class="skill-name">Tailwind CSS</span>
+                        </div>
+                        <div class="skill-tag">
+                            <i class="devicon-nodejs-plain colored"></i>
+                            <span class="skill-name">Node.js</span>
+                        </div>
+                        <div class="skill-tag">
+                            <i class="devicon-express-original colored"></i>
+                            <span class="skill-name">Express</span>
+                        </div>
+                        <div class="skill-tag">
+                            <i class="devicon-mysql-plain colored"></i>
+                            <span class="skill-name">MySQL 8</span>
+                        </div>
+                        <div class="skill-tag">
+                            <i class="devicon-prisma-original colored"></i>
+                            <span class="skill-name">Prisma ORM</span>
+                        </div>
+                        <div class="skill-tag">
+                            <i class="devicon-docker-plain colored"></i>
+                            <span class="skill-name">Docker</span>
+                        </div>
+                        <div class="skill-tag">
+                            <i class="fas fa-film" style="color: #01D277;"></i>
+                            <span class="skill-name">API TMDB</span>
+                        </div>
+                        <div class="skill-tag">
+                            <i class="fas fa-lock" style="color: #F59E0B;"></i>
+                            <span class="skill-name">JWT</span>
+                        </div>
+                        <!-- Duplication pour défilement infini -->
+                        <div class="skill-tag">
+                            <i class="devicon-react-original colored"></i>
+                            <span class="skill-name">React 18</span>
+                        </div>
+                        <div class="skill-tag">
+                            <i class="devicon-typescript-plain colored"></i>
+                            <span class="skill-name">TypeScript</span>
+                        </div>
+                        <div class="skill-tag">
+                            <i class="devicon-vitejs-plain colored"></i>
+                            <span class="skill-name">Vite</span>
+                        </div>
+                        <div class="skill-tag">
+                            <i class="devicon-tailwindcss-plain colored"></i>
+                            <span class="skill-name">Tailwind CSS</span>
+                        </div>
+                        <div class="skill-tag">
+                            <i class="devicon-nodejs-plain colored"></i>
+                            <span class="skill-name">Node.js</span>
+                        </div>
+                        <div class="skill-tag">
+                            <i class="devicon-express-original colored"></i>
+                            <span class="skill-name">Express</span>
+                        </div>
+                        <div class="skill-tag">
+                            <i class="devicon-mysql-plain colored"></i>
+                            <span class="skill-name">MySQL 8</span>
+                        </div>
+                        <div class="skill-tag">
+                            <i class="devicon-prisma-original colored"></i>
+                            <span class="skill-name">Prisma ORM</span>
+                        </div>
+                        <div class="skill-tag">
+                            <i class="devicon-docker-plain colored"></i>
+                            <span class="skill-name">Docker</span>
+                        </div>
+                        <div class="skill-tag">
+                            <i class="fas fa-film" style="color: #01D277;"></i>
+                            <span class="skill-name">API TMDB</span>
+                        </div>
+                        <div class="skill-tag">
+                            <i class="fas fa-lock" style="color: #F59E0B;"></i>
+                            <span class="skill-name">JWT</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-links" style="margin-top: 1.5rem;">
+                    <a href="https://github.com/Darkft28/SoonWatch" class="project-link" target="_blank" rel="noopener noreferrer">
+                        GitHub <i class="fab fa-github"></i>
+                    </a>
+                </div>
+            </section>
+
+            <section class="screenshots">
+                <h2>Aperçu de l'application</h2>
+                <div class="screenshot-container">
+
+                    <div class="screenshot-card">
+                        <img src="../../assets/img/soonwatch/login.png" alt="Page de connexion SoonWatch" loading="lazy" class="screenshot-img">
+                        <div class="screenshot-content">
+                            <h3 class="screenshot-title">Connexion</h3>
+                            <p class="screenshot-desc">Interface de connexion épurée. L'authentification repose sur des tokens JWT stockés dans des cookies HttpOnly, garantissant une sécurité maximale contre les attaques XSS. Chaque utilisateur possède un espace de données totalement isolé.</p>
+                        </div>
+                    </div>
+
+                    <div class="screenshot-card">
+                        <img src="../../assets/img/soonwatch/register.png" alt="Création de compte SoonWatch" loading="lazy" class="screenshot-img">
+                        <div class="screenshot-content">
+                            <h3 class="screenshot-title">Création de compte</h3>
+                            <p class="screenshot-desc">Formulaire d'inscription simple et rapide. À la création du compte, un espace personnel est instancié côté base de données : watchlist, dossiers et historique de swipes sont propres à chaque utilisateur.</p>
+                        </div>
+                    </div>
+
+                    <div class="screenshot-card">
+                        <img src="../../assets/img/soonwatch/watchlist-empty.png" alt="Ma liste SoonWatch - état vide" loading="lazy" class="screenshot-img">
+                        <div class="screenshot-content">
+                            <h3 class="screenshot-title">Ma Liste</h3>
+                            <p class="screenshot-desc">Tableau de bord principal avec la sidebar de navigation. La watchlist permet de gérer ses films et séries : drag & drop pour réordonner, filtres par statut (vu / à voir), notes personnelles, et organisation en dossiers hiérarchiques avec couleurs et icônes.</p>
+                        </div>
+                    </div>
+
+                    <div class="screenshot-card">
+                        <img src="../../assets/img/soonwatch/discover.png" alt="Page Découvrir SoonWatch - films et séries par catégories" loading="lazy" class="screenshot-img">
+                        <div class="screenshot-content">
+                            <h3 class="screenshot-title">Découvrir</h3>
+                            <p class="screenshot-desc">Page de découverte inspirée de Netflix : bannière héro avec un film mis en avant, puis des rangées thématiques (tendances, les mieux notés, nouveautés…). Toutes les données proviennent de l'API TMDB en temps réel, avec mise en cache côté serveur.</p>
+                        </div>
+                    </div>
+
+                    <div class="screenshot-card">
+                        <img src="../../assets/img/soonwatch/swipe.png" alt="Mode swipe Pour toi SoonWatch - style Tinder" loading="lazy" class="screenshot-img">
+                        <div class="screenshot-content">
+                            <h3 class="screenshot-title">Pour toi — mode Swipe</h3>
+                            <p class="screenshot-desc">Fonctionnalité phare de SoonWatch : un mode de découverte style Tinder. Chaque film est présenté en plein écran avec son affiche, sa note et ses genres. Un ❤️ l'ajoute directement à la liste, un ✗ le masque définitivement du feed. L'historique des passes est persisté en base de données.</p>
+                        </div>
+                    </div>
+
+                    <div class="screenshot-card">
+                        <img src="../../assets/img/soonwatch/search.png" alt="Recherche de films et séries SoonWatch" loading="lazy" class="screenshot-img">
+                        <div class="screenshot-content">
+                            <h3 class="screenshot-title">Recherche</h3>
+                            <p class="screenshot-desc">Modal de recherche accessible instantanément (raccourci clavier <kbd>/</kbd>). Les résultats sont récupérés en temps réel depuis l'API TMDB au fil de la frappe. Chaque résultat peut être ajouté en un clic à la watchlist sans quitter la recherche.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section class="features" style="margin-top: 3rem;">
+                <h2>Fonctionnalités principales</h2>
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <h3 class="feature-title">Watchlist personnelle</h3>
+                        <p class="feature-desc">Gestion complète avec drag & drop, filtres multi-critères, notes et statut vu/non vu pour chaque entrée.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3 class="feature-title">Dossiers hiérarchiques</h3>
+                        <p class="feature-desc">Organisation en dossiers personnalisables avec couleurs et icônes pour classer sa liste par genre, humeur ou priorité.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3 class="feature-title">Découverte style Netflix</h3>
+                        <p class="feature-desc">Navigation par catégories avec bannière héro et rangées thématiques alimentées en temps réel par l'API TMDB.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3 class="feature-title">Mode swipe Tinder</h3>
+                        <p class="feature-desc">Découverte gamifiée : like pour ajouter à la liste, pass pour masquer définitivement, avec historique persisté par utilisateur.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3 class="feature-title">Recherche temps réel</h3>
+                        <p class="feature-desc">Recherche TMDB instantanée déclenchée au clavier, avec ajout rapide depuis les résultats.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3 class="feature-title">Multi-compte isolé</h3>
+                        <p class="feature-desc">Architecture multi-utilisateur : chaque compte dispose d'un espace totalement isolé, aucune donnée partagée.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3 class="feature-title">Auth JWT sécurisée</h3>
+                        <p class="feature-desc">Authentification par tokens JWT dans des cookies HttpOnly, protégée contre XSS et CSRF.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3 class="feature-title">Déploiement Docker</h3>
+                        <p class="feature-desc">Stack complète orchestrée avec Docker Compose : frontend Vite, backend Express, MySQL 8 et phpMyAdmin intégrés.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="technical" style="margin-top: 3rem;">
+                <h2>Architecture technique</h2>
+                <p>SoonWatch repose sur une architecture moderne découplée :</p>
+                <ul>
+                    <li><strong>Frontend React 18 + TypeScript</strong> — Composants fonctionnels avec hooks, state global Zustand, data-fetching TanStack Query avec cache et revalidation automatique</li>
+                    <li><strong>Animations Framer Motion</strong> — Transitions fluides sur les cartes swipe et les changements de page</li>
+                    <li><strong>API REST Express</strong> — Routes protégées par middleware JWT, séparation claire controllers / routes / middleware</li>
+                    <li><strong>Prisma ORM</strong> — Schéma typé avec migrations, relation User → WatchlistItem → Folder, contraintes d'intégrité référentielle</li>
+                    <li><strong>MySQL 8</strong> — Base de données relationnelle avec schéma auto-appliqué au démarrage via <code>prisma db push</code></li>
+                    <li><strong>Docker Compose</strong> — Healthcheck MySQL avant démarrage du backend, volumes persistants, hot reload en développement</li>
+                </ul>
+            </section>
+
+            <section class="challenges" style="margin-top: 3rem;">
+                <h2>Défis techniques</h2>
+
+                <div class="feature-item" style="margin-top: 1rem;">
+                    <h3 class="feature-title">Gestion du feed swipe sans répétitions</h3>
+                    <p class="feature-desc">Le mode "Pour toi" devait exclure les films déjà vus (swipés ou dans la liste) sans pagination bancale. J'ai mis en place une table <code>SwipeHistory</code> qui stocke les TMDB IDs passés, utilisée côté backend pour filtrer les suggestions à chaque requête TMDB.</p>
+                </div>
+
+                <div class="feature-item" style="margin-top: 1rem;">
+                    <h3 class="feature-title">Synchronisation optimiste de la watchlist</h3>
+                    <p class="feature-desc">Pour éviter les lags perceptibles lors des ajouts/suppressions, j'ai implémenté des mutations optimistes avec TanStack Query : l'interface se met à jour immédiatement et revient en arrière en cas d'erreur serveur, offrant une fluidité proche d'une app native.</p>
+                </div>
+
+                <div class="feature-item" style="margin-top: 1rem;">
+                    <h3 class="feature-title">Isolation des données multi-utilisateur</h3>
+                    <p class="feature-desc">Toutes les queries Prisma sont scopées sur l'<code>userId</code> extrait du token JWT, empêchant tout accès croisé entre comptes, même sur des routes correctement authentifiées.</p>
+                </div>
+            </section>
+        </div>
+
+        <div class="credits">
+            <p>Développé par Baptiste Nuytten | Données fournies par l'API TMDB</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const header = document.querySelector('header');
+            window.addEventListener('scroll', () => {
+                header.classList.toggle('scrolled', window.scrollY > 50);
+            });
+
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+            if (hamburger && navLinks) {
+                hamburger.addEventListener('click', function() {
+                    navLinks.classList.toggle('active');
+                    hamburger.classList.toggle('active');
+                });
+                document.querySelectorAll('.nav-links li a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        navLinks.classList.remove('active');
+                        hamburger.classList.remove('active');
+                    });
+                });
+            }
+
+            const themeToggle = document.getElementById('themeToggle');
+            const htmlElement = document.documentElement;
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            htmlElement.setAttribute('data-theme', savedTheme);
+            themeToggle.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+            themeToggle.addEventListener('click', () => {
+                const newTheme = htmlElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+                htmlElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                themeToggle.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+            });
+        });
+    </script>
+    <script src="../../assets/js/color-picker.js"></script>
+    <script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
