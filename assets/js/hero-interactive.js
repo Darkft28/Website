@@ -57,7 +57,7 @@
         document.addEventListener('mousemove', (e) => {
             mouseX = e.clientX;
             mouseY = e.clientY;
-        });
+        }, { passive: true });
 
         const interactiveSelector = 'a, button, .btn, .magnetic-btn, [role="button"], input, textarea, select, label';
         document.querySelectorAll(interactiveSelector).forEach(el => {
@@ -108,7 +108,7 @@
         document.addEventListener('mousemove', (e) => {
             trailMouseX = e.clientX;
             trailMouseY = e.clientY;
-        });
+        }, { passive: true });
 
         (function animateTrail() {
             if (!isHeroHovered) {
@@ -151,8 +151,9 @@
 
     if (!prefersReduced && !isMobile && canvas && heroSection) {
         const ctx              = canvas.getContext('2d');
-        const PARTICLE_COUNT   = 200;
+        const PARTICLE_COUNT   = 80;
         const MAX_DIST         = 130;
+
         const MAX_DIST_SQ      = MAX_DIST * MAX_DIST;       // carré pré-calculé
         const CURSOR_DIST      = MAX_DIST * 1.5;
         const CURSOR_DIST_SQ   = CURSOR_DIST * CURSOR_DIST;
@@ -227,7 +228,7 @@
             mouse.y = -9999;
         });
 
-        (function drawFrame() {
+        function drawFrame() {
             frameNum++;
             ctx.clearRect(0, 0, canvasW, canvasH);
 
@@ -283,8 +284,18 @@
                 ctx.fill();
             }
 
-            requestAnimationFrame(drawFrame);
-        })();
+            canvasRafId = requestAnimationFrame(drawFrame);
+        }
+        let canvasRafId = requestAnimationFrame(drawFrame);
+
+        new IntersectionObserver(([entry]) => {
+            if (entry.isIntersecting) {
+                if (!canvasRafId) canvasRafId = requestAnimationFrame(drawFrame);
+            } else {
+                cancelAnimationFrame(canvasRafId);
+                canvasRafId = null;
+            }
+        }, { threshold: 0 }).observe(heroSection);
     }
 
     /* ----------------------------------------------------------

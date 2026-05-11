@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 heroContent.style.transform = 'scale(1)';
                 heroContent.style.filter = 'blur(0px)';
             }
-        });
+        }, { passive: true });
     }
 
     // ===== 2. CARROUSEL 3 CARTES AVEC PERSPECTIVE =====
@@ -250,7 +250,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const height = document.documentElement.scrollHeight - window.innerHeight;
             const progress = (scrolled / height) * 100;
             indicator.style.width = progress + '%';
-        });
+        }, { passive: true });
     }
 
     // ===== 6. BOUTON SCROLL TO TOP =====
@@ -267,7 +267,7 @@ document.addEventListener('DOMContentLoaded', function() {
             } else {
                 button.classList.remove('visible');
             }
-        });
+        }, { passive: true });
 
         button.addEventListener('click', () => {
             window.scrollTo({

@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- SEO Meta Tags -->
-    <title>Portfolio Développeur Web à Caen (Normandie) | Projets React, Python, Arduino</title>
-    <meta name="description" content="Portfolio de Baptiste Nuytten, développeur web freelance à Caen (Normandie) : applications React/Next.js, projets Python, systèmes Arduino, sites PHP/MySQL. Étudiant Supinfo. 6+ projets réalisés.">
+    <title>Portfolio Baptiste Nuytten – Développeur Web à Caen</title>
+    <meta name="description" content="Portfolio de Baptiste Nuytten, développeur web freelance à Caen (Normandie) : projets React/Next.js, Python, Arduino, PHP/MySQL. 6 réalisations présentées.">
     <meta name="keywords" content="portfolio développeur web Caen, développeur web Caen, développeur web Normandie, projets React, projets Next.js, projets Python, Arduino, développement web, applications web, étudiant informatique, Supinfo, développement frontend, backend PHP MySQL, systèmes embarqués">
     <meta name="author" content="Baptiste Nuytten">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
@@ -15,12 +15,14 @@
     <!-- Geo Tags -->
     <meta name="geo.region" content="FR-NOR">
     <meta name="geo.placename" content="Caen, Normandie, France">
+    <meta name="geo.position" content="49.1829;-0.3707">
+    <meta name="ICBM" content="49.1829, -0.3707">
 
     <!-- Language -->
     <meta http-equiv="content-language" content="fr-FR">
 
     <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
+    <meta property="og:type" content="profile">
     <meta property="og:url" content="https://baptistenuytten.fr/portfolio/Portfolio.html">
     <meta property="og:site_name" content="Portfolio Développeur Web">
     <meta property="og:title" content="Portfolio Développeur Web | Projets React, Python, Arduino">
@@ -46,6 +48,7 @@
       "@type": "ProfilePage",
       "mainEntity": {
         "@type": "Person",
+        "@id": "https://baptistenuytten.fr/#person",
         "name": "Baptiste Nuytten",
                 "description": "Développeur web freelance à Caen (Normandie) et étudiant en informatique spécialisé en React, Next.js, Python et systèmes embarqués",
         "url": "https://baptistenuytten.fr/portfolio/Portfolio.html",
@@ -117,6 +120,29 @@
     }
     </script>
 
+    <!-- ItemList Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Projets de Baptiste Nuytten",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Jardin Automatique Arduino", "url": "https://baptistenuytten.fr/portfolio/projets/autoGarden.html"},
+        {"@type": "ListItem", "position": 2, "name": "PIM 4Bus", "url": "https://baptistenuytten.fr/portfolio/projets/pim.html"},
+        {"@type": "ListItem", "position": 3, "name": "Tracker Solaire Arduino", "url": "https://baptistenuytten.fr/portfolio/projets/solartracker.html"},
+        {"@type": "ListItem", "position": 4, "name": "Strategium", "url": "https://baptistenuytten.fr/portfolio/projets/strategium-demo.html"},
+        {"@type": "ListItem", "position": 5, "name": "Application de Streaming", "url": "https://baptistenuytten.fr/portfolio/projets/streaming.html"},
+        {"@type": "ListItem", "position": 6, "name": "Supemon", "url": "https://baptistenuytten.fr/portfolio/projets/supemon.html"}
+      ]
+    }
+    </script>
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#6366F1">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.svg">
+    <link rel="preload" as="image" href="../assets/img/baptiste.webp" fetchpriority="high" type="image/webp">
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/scroll-animations.css">
     <link rel="stylesheet" href="../assets/css/carousel-3d.css">
@@ -150,7 +176,7 @@
                             <a href="#about">À propos</a>
                             <a href="#skills">Compétences</a>
                             <a href="#projects">Projets</a>
-                            <a href="#testimonials">Recommandations</a>
+                            <a href="#experience">Expérience</a>
                             <a href="#experience">Expérience</a>
                         </div>
                     </li>
@@ -193,7 +219,7 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1>Bonjour, je suis <span class="highlight typewriter">Baptiste Nuytten</span></h1>
+                    <h1>Baptiste Nuytten — <span class="highlight typewriter">Développeur Web Freelance à Caen</span></h1>
                     <p class="subtitle">Étudiant en deuxième année à Supinfo Caen - Freelance</p>
                     <p class="tagline">Passionné par le développement et l'innovation technologique</p>
                     <div class="hero-buttons">
@@ -207,13 +233,16 @@
                 <div class="hero-image" id="hero-image-tilt">
                     <!-- Halo lumineux directionnel -->
                     <div class="avatar-halo" id="avatar-halo" aria-hidden="true"></div>
-                    <img src="../assets/img/baptiste.jpg" alt="Photo de profil développeur web freelance" class="avatar">
+                    <picture>
+                        <source srcset="../assets/img/baptiste.webp" type="image/webp">
+                        <img src="../assets/img/baptiste.jpg" alt="Baptiste Nuytten - Développeur Web Freelance" class="avatar" width="320" height="320" fetchpriority="high">
+                    </picture>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="about">
+    <section id="about" class="reveal-section">
         <div class="container-full">
             <h2>À propos de moi</h2>
             <p class="section-subtitle">Étudiant passionné d'informatique avec un sens aigu du détail et une grande curiosité technique.</p>
@@ -240,7 +269,7 @@
         </div>
     </section>
 
-    <section id="skills">
+    <section id="skills" class="reveal-section">
         <div class="container">
             <h2>Mes compétences</h2>
             <p class="section-subtitle">Technologies et outils que je maîtrise pour créer des projets innovants.</p>
@@ -560,41 +589,7 @@
     </div>
 </section>
 
-    <section id="testimonials">
-        <div class="container">
-            <h2>Mes recommandations</h2>
-            <p class="section-subtitle">Retours et recommandations de personnes avec lesquelles j'ai collaboré.</p>
-
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-header">
-                        <img src="../assets/img/avis/Jean-Philippe_Casoni.png" alt="Jean-Philippe Casoni" class="testimonial-avatar" loading="lazy" width="80" height="80">
-                        <div class="testimonial-info">
-                            <h3 class="testimonial-name">
-                                Jean-Philippe Casoni
-                                <a href="https://www.linkedin.com/in/jean-philippe-casoni/" target="_blank" rel="noopener noreferrer" class="linkedin-badge" title="Voir le profil LinkedIn">
-                                    <i class="fab fa-linkedin"></i>
-                                </a>
-                            </h3>
-                            <p class="testimonial-role">Responsable applications</p>
-                            <p class="testimonial-company">Groupe Niort - Service Ndigital</p>
-                        </div>
-                    </div>
-                    <div class="testimonial-content">
-                        <div class="quote-icon">
-                            <i class="fas fa-quote-left"></i>
-                        </div>
-                        <p class="testimonial-text">J'ai eu la chance de travailler avec Baptiste pendant plusieurs mois, ce fût un réel plaisir, tant humainement que techniquement ! Très impliqué et très fiable.</p>
-                        <a href="https://www.linkedin.com/in/baptiste-nuytten-dhdi/details/recommendations/" target="_blank" rel="noopener noreferrer" class="testimonial-linkedin-link">
-                            <i class="fab fa-linkedin"></i> Voir la recommandation sur LinkedIn
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="experience">
+    <section id="experience" class="reveal-section">
         <div class="container">
             <h2>Mon parcours</h2>
             <p class="section-subtitle">Mon expérience professionnelle et académique.</p>
@@ -688,7 +683,7 @@
         </div>
     </section>
 
-    <section id="contact">
+    <section id="contact" class="reveal-section">
         <div class="container">
             <h2>Contactez-moi</h2>
             <p class="section-subtitle">N'hésitez pas à me contacter pour discuter de projets ou d'opportunités professionnelles.</p>
@@ -949,9 +944,9 @@
             });
         });
     </script>
-    <script src="../assets/js/scroll-animations.js"></script>
-    <script src="../assets/js/carousel-3d.js"></script>
-    <script src="../assets/js/timeline.js"></script>
+    <script defer src="../assets/js/scroll-animations.js"></script>
+    <script defer src="../assets/js/carousel-3d.js"></script>
+    <script defer src="../assets/js/timeline.js"></script>
     <script defer src="/_vercel/insights/script.js"></script>
 
     <!-- ================================================================
@@ -962,7 +957,7 @@
     <div class="cursor-dot"  id="cursor-dot"  aria-hidden="true"></div>
     <div class="cursor-ring" id="cursor-ring" aria-hidden="true"></div>
 
-    <script src="../assets/js/hero-interactive.js"></script>
+    <script defer src="../assets/js/hero-interactive.js"></script>
 
 </body>
 </html>

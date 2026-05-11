@@ -3,20 +3,66 @@
 Baptiste Nuytten est un développeur web freelance basé à Caen (Normandie), France.
 SIREN : 991 703 851
 
+## Zone géographique
+
+Caen, Normandie, France. Interventions à distance possibles sur toute la France.
+
 ## Services
+
 - Création de sites vitrines : à partir de 700€
 - Sites complets avec blog et paiement : à partir de 1 400€
 - Applications web sur mesure : sur devis
 - Hébergement : 20€/mois
 - Maintenance et support : 50€/mois
+- Taux horaire : 30€/h
 
 ## Technologies
-React, JavaScript, PHP, Python, MySQL, Arduino, C++
+
+React, Next.js, JavaScript, PHP, MySQL, Python, C, C++, Arduino, HTML5, CSS3
 
 ## Contact
+
 Site web : https://baptistenuytten.fr
 LinkedIn : https://www.linkedin.com/in/baptiste-nuytten-dhdi/
 GitHub : https://github.com/Darkft28
 
 ## Portfolio
-https://baptistenuytten.fr/portfolio/Portfolio.html
+
+Page principale : https://baptistenuytten.fr/portfolio/Portfolio.html
+
+### Projets
+
+**FilmShop — Plateforme de streaming**
+URL : https://baptistenuytten.fr/portfolio/projets/streaming.html
+Description : Plateforme de streaming full-stack avec catalogue TMDB, panier, paiement et bibliothèque personnelle.
+Technologies : PHP, MySQL, JavaScript, API TMDB
+
+**Système PIM — Product Information Management**
+URL : https://baptistenuytten.fr/portfolio/projets/pim.html
+Description : Gestion centralisée des informations produits avec import Excel, CRUD complet et statistiques en temps réel.
+Technologies : PHP, MySQL, JavaScript
+
+**Jardin Automatique Arduino**
+URL : https://baptistenuytten.fr/portfolio/projets/autoGarden.html
+Description : Système d'arrosage automatisé basé sur capteur d'humidité du sol, pompe à eau et logique Arduino/Micro:bit.
+Technologies : Arduino, Micro:bit, C++, IoT
+
+**Tracker Solaire Arduino**
+URL : https://baptistenuytten.fr/portfolio/projets/solartracker.html
+Description : Orientation automatique d'un panneau solaire via photorésistances et servomoteur piloté par Arduino UNO.
+Technologies : Arduino, C++, électronique embarquée
+
+**Strategium — Jeu de plateau stratégique**
+URL : https://baptistenuytten.fr/portfolio/projets/strategium-demo.html
+Description : Jeu de plateau stratégique développé en Python, disponible en version web jouable dans le navigateur.
+Technologies : Python, JavaScript, HTML5, CSS3
+
+**Supemon — Jeu Pokémon en CLI**
+URL : https://baptistenuytten.fr/portfolio/projets/supemon.html
+Description : Jeu Pokémon en ligne de commande avec combat au tour par tour, évolution, boutique et inventaire.
+Technologies : C
+
+## Pages légales
+
+- Conditions Générales de Vente : https://baptistenuytten.fr/legal/cgv.html
+- Mentions légales : https://baptistenuytten.fr/legal/mentions-legales.html

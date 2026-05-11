@@ -131,7 +131,7 @@ Website/
 ## Règles importantes
 
 ### Ce qu'il ne faut PAS modifier sans demander
-- Les prix et tarifs (800€, 1800€, 20€/mois, 50€/mois, 30€/h)
+- Les prix et tarifs (700€, 1400€, 20€/mois, 50€/mois, 30€/h)
 - Les informations légales (SIREN, SIRET, TVA)
 - L'API key Web3Forms
 - Les URLs canoniques et liens LinkedIn/GitHub

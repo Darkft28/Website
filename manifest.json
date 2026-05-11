@@ -1,0 +1,13 @@
+{
+  "name": "Baptiste Nuytten — Développeur Web Freelance",
+  "short_name": "Baptiste Nuytten",
+  "description": "Développeur web freelance à Caen, spécialisé en création de sites web professionnels.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#0F172A",
+  "theme_color": "#6366F1",
+  "lang": "fr",
+  "icons": [
+    {"src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml"}
+  ]
+}
