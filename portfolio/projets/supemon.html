@@ -56,6 +56,100 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon.svg">
     <link rel="stylesheet" href="../../assets/css/style.css">
     <link rel="stylesheet" href="../../assets/css/project-pages.css">
+    <style>
+        .supemon-game-section { margin: 3rem 0; }
+        .supemon-game-section > h2 { margin-bottom: 0.5rem; }
+        .supemon-game-intro { color: var(--text-secondary, #9CA3AF); margin-bottom: 1.5rem; font-size: 0.95rem; }
+
+        #supemon-terminal {
+            background: #0d1117;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 24px 64px rgba(0,0,0,0.6), 0 0 0 1px rgba(99,102,241,0.15);
+            max-width: 860px;
+            cursor: text;
+        }
+
+        .sm-titlebar {
+            background: #161b22;
+            padding: 11px 16px;
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            border-bottom: 1px solid #21262d;
+        }
+        .sm-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+        .sm-dot.r { background: #ff5f57; }
+        .sm-dot.y { background: #ffbd2e; }
+        .sm-dot.g { background: #28ca41; }
+        .sm-titlebar-label {
+            color: #484f58;
+            font-family: 'Courier New', monospace;
+            font-size: 0.8rem;
+            margin-left: 6px;
+        }
+
+        .sm-body {
+            padding: 16px 18px;
+            height: 460px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #supemon-output {
+            flex: 1;
+            overflow-y: auto;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 13px;
+            line-height: 1.65;
+            color: #cdd9e5;
+            padding-bottom: 6px;
+            scrollbar-width: thin;
+            scrollbar-color: #30363d transparent;
+        }
+        #supemon-output::-webkit-scrollbar { width: 5px; }
+        #supemon-output::-webkit-scrollbar-track { background: transparent; }
+        #supemon-output::-webkit-scrollbar-thumb { background: #30363d; border-radius: 3px; }
+
+        .sm-line { margin: 0; line-height: 1.65; min-height: 1.65em; }
+
+        .sm-inputrow {
+            display: flex;
+            align-items: center;
+            padding-top: 10px;
+            border-top: 1px solid #21262d;
+            margin-top: 6px;
+            gap: 0;
+        }
+        .sm-prompt {
+            color: #6366F1;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            font-weight: 700;
+            white-space: nowrap;
+            padding-right: 6px;
+            user-select: none;
+        }
+        #supemon-input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            outline: none;
+            color: #cdd9e5;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            caret-color: #6366F1;
+            padding: 0;
+        }
+        #supemon-input:disabled { opacity: 0.35; cursor: not-allowed; }
+
+        @media (max-width: 600px) {
+            .sm-body { height: 420px; padding: 12px 14px; }
+            #supemon-output { font-size: 11px; }
+            #supemon-input { font-size: 11px; }
+            .sm-prompt { font-size: 11px; }
+        }
+    </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" media="print" onload="this.media='all'">
     <noscript>
@@ -138,54 +232,22 @@
                 </div>
             </section>
             
-            <section class="screenshots">
-                <h2>Captures d'écran du jeu</h2>
-                <div class="screenshot-container">
-                    <div class="screenshot-card">
-                        <img src="../../assets/img/supemon/Starter.png" alt="Écran de démarrage Supemon" loading="lazy" width="800" height="600" class="screenshot-img">
-                        <div class="screenshot-content">
-                            <h3 class="screenshot-title">Écran de démarrage et sélection du starter</h3>
-                            <p class="screenshot-desc">Au lancement du jeu, le joueur peut choisir entre démarrer une nouvelle partie ou charger une sauvegarde existante. Après avoir saisi son nom d'utilisateur, il doit choisir son premier Supemon parmi trois options : Supmander (Feu), Supirtle (Eau) ou Supasaur (Plante).</p>
-                        </div>
+            <section class="supemon-game-section">
+                <h2>Jouer à Supemon</h2>
+                <p class="supemon-game-intro">Le jeu tourne directement dans votre navigateur — aucune installation requise. Tapez votre réponse et appuyez sur <strong>Entrée</strong>.</p>
+
+                <div id="supemon-terminal">
+                    <div class="sm-titlebar">
+                        <span class="sm-dot r"></span>
+                        <span class="sm-dot y"></span>
+                        <span class="sm-dot g"></span>
+                        <span class="sm-titlebar-label">supemon — terminal</span>
                     </div>
-                    
-                    <div class="screenshot-card">
-                        <img src="../../assets/img/supemon/Combat.png" alt="Combat contre un Supemon sauvage" loading="lazy" width="800" height="600" class="screenshot-img">
-                        <div class="screenshot-content">
-                            <h3 class="screenshot-title">Système de combat</h3>
-                            <p class="screenshot-desc">Les combats se déroulent au tour par tour contre des Supemons sauvages. L'interface affiche les statistiques des deux combattants, y compris leur niveau, points de vie (représentés graphiquement), et les différentes actions possibles (attaquer, changer de Supemon, utiliser un objet, capturer ou fuir).</p>
-                        </div>
-                    </div>
-                    
-                    <div class="screenshot-card">
-                        <img src="../../assets/img/supemon/Combat_result.png" alt="Défaite en combat" loading="lazy" width="800" height="600" class="screenshot-img">
-                        <div class="screenshot-content">
-                            <h3 class="screenshot-title">Résultats de combat</h3>
-                            <p class="screenshot-desc">À la fin d'un combat, le jeu affiche le résultat (victoire ou défaite). En cas de défaite, le Supemon perdant perd tous ses points de vie, mais peut être soigné au Centre Supemon. En cas de victoire, le Supemon gagne de l'expérience et peut augmenter son attaque.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="screenshot-card">
-                        <img src="../../assets/img/supemon/menu.png" alt="Menu principal" loading="lazy" width="800" height="600" class="screenshot-img">
-                        <div class="screenshot-content">
-                            <h3 class="screenshot-title">Menu principal</h3>
-                            <p class="screenshot-desc">Le menu principal permet d'accéder aux différentes fonctionnalités du jeu : explorer la nature pour rencontrer des Supemons sauvages, accéder à la boutique pour acheter des objets, consulter l'inventaire, voir la liste des Supemons capturés, soigner ses Supemons au Centre, ou quitter le jeu.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="screenshot-card">
-                        <img src="../../assets/img/supemon/Shop.png" alt="Boutique et inventaire" loading="lazy" width="800" height="600" class="screenshot-img">
-                        <div class="screenshot-content">
-                            <h3 class="screenshot-title">Boutique et inventaire</h3>
-                            <p class="screenshot-desc">Le joueur peut acheter différents objets dans la boutique, comme des Potions, Super Potions et Rare Candy, en utilisant la monnaie du jeu (Supcoins). L'inventaire permet de consulter les objets possédés et de les utiliser sur ses Supemons actifs.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="screenshot-card">
-                        <img src="../../assets/img/supemon/lvlup.png" alt="Gain de niveau" loading="lazy" width="800" height="600" class="screenshot-img">
-                        <div class="screenshot-content">
-                            <h3 class="screenshot-title">Système d'évolution</h3>
-                            <p class="screenshot-desc">Les Supemons peuvent gagner des niveaux en accumulant de l'expérience durant les combats ou en utilisant des objets spéciaux comme les Rare Candy. Lorsqu'un Supemon passe au niveau supérieur, ses statistiques augmentent, le rendant plus puissant pour les combats futurs.</p>
+                    <div class="sm-body">
+                        <div id="supemon-output"></div>
+                        <div class="sm-inputrow">
+                            <span class="sm-prompt">&gt;&nbsp;</span>
+                            <input type="text" id="supemon-input" autocomplete="off" spellcheck="false" placeholder="entrez votre choix…">
                         </div>
                     </div>
                 </div>
@@ -318,6 +380,7 @@
         });
     </script>
     <script src="../../assets/js/color-picker.js"></script>
+    <script src="../../assets/js/supemon-game.js"></script>
     <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
