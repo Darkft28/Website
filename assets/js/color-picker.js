@@ -6,54 +6,55 @@
 (function() {
     'use strict';
 
+    /* Starts assombris pour contraste texte blanc ≥ ~4,5:1 sur les CTA */
     const colorPalettes = {
         emerald: {
-            start: '#10B981',
-            end: '#34D399',
-            hoverStart: '#059669',
-            hoverEnd: '#10B981',
-            rgb: '16, 185, 129',
-            rgbLight: '52, 211, 153'
+            start: '#059669',
+            end: '#10B981',
+            hoverStart: '#047857',
+            hoverEnd: '#059669',
+            rgb: '5, 150, 105',
+            rgbLight: '16, 185, 129'
         },
         violet: {
-            start: '#6366F1',
-            end: '#8B5CF6',
-            hoverStart: '#4F46E5',
-            hoverEnd: '#7C3AED',
-            rgb: '99, 102, 241',
-            rgbLight: '139, 92, 246'
+            start: '#4F46E5',
+            end: '#7C3AED',
+            hoverStart: '#4338CA',
+            hoverEnd: '#6D28D9',
+            rgb: '79, 70, 229',
+            rgbLight: '124, 58, 237'
         },
         cyan: {
-            start: '#06B6D4',
-            end: '#22D3EE',
-            hoverStart: '#0891B2',
-            hoverEnd: '#06B6D4',
-            rgb: '6, 182, 212',
-            rgbLight: '34, 211, 238'
+            start: '#0E7490',
+            end: '#0891B2',
+            hoverStart: '#155E75',
+            hoverEnd: '#0E7490',
+            rgb: '14, 116, 144',
+            rgbLight: '8, 145, 178'
         },
         rose: {
-            start: '#EC4899',
-            end: '#F472B6',
-            hoverStart: '#DB2777',
-            hoverEnd: '#EC4899',
-            rgb: '236, 72, 153',
-            rgbLight: '244, 114, 182'
+            start: '#DB2777',
+            end: '#EC4899',
+            hoverStart: '#BE185D',
+            hoverEnd: '#DB2777',
+            rgb: '219, 39, 119',
+            rgbLight: '236, 72, 153'
         },
         orange: {
-            start: '#F97316',
-            end: '#FB923C',
-            hoverStart: '#EA580C',
-            hoverEnd: '#F97316',
-            rgb: '249, 115, 22',
-            rgbLight: '251, 146, 60'
+            start: '#EA580C',
+            end: '#F97316',
+            hoverStart: '#C2410C',
+            hoverEnd: '#EA580C',
+            rgb: '234, 88, 12',
+            rgbLight: '249, 115, 22'
         },
         red: {
-            start: '#EF4444',
-            end: '#F87171',
-            hoverStart: '#DC2626',
-            hoverEnd: '#EF4444',
-            rgb: '239, 68, 68',
-            rgbLight: '248, 113, 113'
+            start: '#DC2626',
+            end: '#EF4444',
+            hoverStart: '#B91C1C',
+            hoverEnd: '#DC2626',
+            rgb: '220, 38, 38',
+            rgbLight: '239, 68, 68'
         }
     };
 

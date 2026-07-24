@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SoonWatch - Application Watchlist Cinéma & Séries | Portfolio Baptiste Nuytten</title>
+    <title>SoonWatch – Watchlist Ciné & Séries | B. Nuytten</title>
     <meta name="description" content="SoonWatch, application web full-stack de gestion de watchlist cinéma et séries avec découverte style Tinder. React 18, TypeScript, Node.js, MySQL, Docker.">
     <meta name="robots" content="index, follow">
     <meta name="author" content="Baptiste Nuytten">
@@ -37,20 +37,23 @@
     </script>
     <link rel="stylesheet" href="../../assets/css/style.css">
     <link rel="stylesheet" href="../../assets/css/project-pages.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/devicon.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/devicon.min.css"></noscript>
 </head>
 <body>
+    <a class="skip-link" href="#main">Aller au contenu</a>
     <header>
         <div class="container">
-            <nav>
+            <nav aria-label="Navigation principale">
                 <div class="logo">Baptiste Nuytten – Étudiant & Freelance</div>
-                <div class="hamburger">
+                <button type="button" class="hamburger" aria-expanded="false" aria-controls="nav-menu" aria-label="Ouvrir le menu">
                     <span></span>
                     <span></span>
                     <span></span>
-                </div>
-                <ul class="nav-links">
+                </button>
+                <ul class="nav-links" id="nav-menu">
                     <li><a href="../../index.html">Services Freelance</a></li>
                     <li class="dropdown">
                         <a href="../Portfolio.html">
@@ -70,34 +73,36 @@
                         <div class="color-picker-wrapper">
                             <button class="color-picker-toggle" id="colorPickerToggle" aria-label="Choisir la couleur">🎨</button>
                             <div class="color-picker-menu" id="colorPickerMenu">
-                                <div class="color-option" data-color="emerald" title="Émeraude">
+                                <button type="button" class="color-option" data-color="emerald" aria-label="Thème émeraude">
                                     <span class="color-swatch" style="background: linear-gradient(135deg, #10B981, #34D399);"></span>
-                                </div>
-                                <div class="color-option" data-color="violet" title="Violet">
+                                </button>
+                                <button type="button" class="color-option" data-color="violet" aria-label="Thème violet">
                                     <span class="color-swatch" style="background: linear-gradient(135deg, #6366F1, #8B5CF6);"></span>
-                                </div>
-                                <div class="color-option" data-color="cyan" title="Cyan">
+                                </button>
+                                <button type="button" class="color-option" data-color="cyan" aria-label="Thème cyan">
                                     <span class="color-swatch" style="background: linear-gradient(135deg, #06B6D4, #22D3EE);"></span>
-                                </div>
-                                <div class="color-option" data-color="rose" title="Rose">
+                                </button>
+                                <button type="button" class="color-option" data-color="rose" aria-label="Thème rose">
                                     <span class="color-swatch" style="background: linear-gradient(135deg, #EC4899, #F472B6);"></span>
-                                </div>
-                                <div class="color-option" data-color="orange" title="Orange">
+                                </button>
+                                <button type="button" class="color-option" data-color="orange" aria-label="Thème orange">
                                     <span class="color-swatch" style="background: linear-gradient(135deg, #F97316, #FB923C);"></span>
-                                </div>
-                                <div class="color-option" data-color="red" title="Rouge">
+                                </button>
+                                <button type="button" class="color-option" data-color="red" aria-label="Thème rouge">
                                     <span class="color-swatch" style="background: linear-gradient(135deg, #EF4444, #F87171);"></span>
-                                </div>
+                                </button>
                             </div>
                         </div>
                     </li>
-                    <li><button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌙</button></li>
+                    <li><button class="theme-toggle" id="themeToggle" aria-label="Changer de thème (clair/sombre)">🌙</button></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <div class="project-page">
+    
+    <main id="main">
+<div class="project-page">
         <div class="project-header-banner">
             <h1>SoonWatch</h1>
             <p>Application web full-stack de gestion de watchlist cinéma & séries avec découverte style Tinder</p>
@@ -215,7 +220,7 @@
                 <div class="screenshot-container">
 
                     <div class="screenshot-card">
-                        <img src="../../assets/img/soonwatch/login.png" alt="Page de connexion SoonWatch" loading="lazy" class="screenshot-img">
+                        <img src="../../assets/img/soonwatch/login.webp" alt="Page de connexion SoonWatch" loading="lazy" class="screenshot-img">
                         <div class="screenshot-content">
                             <h3 class="screenshot-title">Connexion</h3>
                             <p class="screenshot-desc">Interface de connexion épurée. L'authentification repose sur des tokens JWT stockés dans des cookies HttpOnly, garantissant une sécurité maximale contre les attaques XSS. Chaque utilisateur possède un espace de données totalement isolé.</p>
@@ -223,7 +228,7 @@
                     </div>
 
                     <div class="screenshot-card">
-                        <img src="../../assets/img/soonwatch/register.png" alt="Création de compte SoonWatch" loading="lazy" class="screenshot-img">
+                        <img src="../../assets/img/soonwatch/register.webp" alt="Création de compte SoonWatch" loading="lazy" class="screenshot-img">
                         <div class="screenshot-content">
                             <h3 class="screenshot-title">Création de compte</h3>
                             <p class="screenshot-desc">Formulaire d'inscription simple et rapide. À la création du compte, un espace personnel est instancié côté base de données : watchlist, dossiers et historique de swipes sont propres à chaque utilisateur.</p>
@@ -231,7 +236,7 @@
                     </div>
 
                     <div class="screenshot-card">
-                        <img src="../../assets/img/soonwatch/watchlist-empty.png" alt="Ma liste SoonWatch - état vide" loading="lazy" class="screenshot-img">
+                        <img src="../../assets/img/soonwatch/watchlist-empty.webp" alt="Ma liste SoonWatch - état vide" loading="lazy" class="screenshot-img">
                         <div class="screenshot-content">
                             <h3 class="screenshot-title">Ma Liste</h3>
                             <p class="screenshot-desc">Tableau de bord principal avec la sidebar de navigation. La watchlist permet de gérer ses films et séries : drag & drop pour réordonner, filtres par statut (vu / à voir), notes personnelles, et organisation en dossiers hiérarchiques avec couleurs et icônes.</p>
@@ -239,7 +244,7 @@
                     </div>
 
                     <div class="screenshot-card">
-                        <img src="../../assets/img/soonwatch/discover.png" alt="Page Découvrir SoonWatch - films et séries par catégories" loading="lazy" class="screenshot-img">
+                        <img src="../../assets/img/soonwatch/discover.webp" alt="Page Découvrir SoonWatch - films et séries par catégories" loading="lazy" class="screenshot-img">
                         <div class="screenshot-content">
                             <h3 class="screenshot-title">Découvrir</h3>
                             <p class="screenshot-desc">Page de découverte inspirée de Netflix : bannière héro avec un film mis en avant, puis des rangées thématiques (tendances, les mieux notés, nouveautés…). Toutes les données proviennent de l'API TMDB en temps réel, avec mise en cache côté serveur.</p>
@@ -247,7 +252,7 @@
                     </div>
 
                     <div class="screenshot-card">
-                        <img src="../../assets/img/soonwatch/swipe.png" alt="Mode swipe Pour toi SoonWatch - style Tinder" loading="lazy" class="screenshot-img">
+                        <img src="../../assets/img/soonwatch/swipe.webp" alt="Mode swipe Pour toi SoonWatch - style Tinder" loading="lazy" class="screenshot-img">
                         <div class="screenshot-content">
                             <h3 class="screenshot-title">Pour toi — mode Swipe</h3>
                             <p class="screenshot-desc">Fonctionnalité phare de SoonWatch : un mode de découverte style Tinder. Chaque film est présenté en plein écran avec son affiche, sa note et ses genres. Un ❤️ l'ajoute directement à la liste, un ✗ le masque définitivement du feed. L'historique des passes est persisté en base de données.</p>
@@ -255,7 +260,7 @@
                     </div>
 
                     <div class="screenshot-card">
-                        <img src="../../assets/img/soonwatch/search.png" alt="Recherche de films et séries SoonWatch" loading="lazy" class="screenshot-img">
+                        <img src="../../assets/img/soonwatch/search.webp" alt="Recherche de films et séries SoonWatch" loading="lazy" class="screenshot-img">
                         <div class="screenshot-content">
                             <h3 class="screenshot-title">Recherche</h3>
                             <p class="screenshot-desc">Modal de recherche accessible instantanément (raccourci clavier <kbd>/</kbd>). Les résultats sont récupérés en temps réel depuis l'API TMDB au fil de la frappe. Chaque résultat peut être ajouté en un clic à la watchlist sans quitter la recherche.</p>
@@ -340,6 +345,8 @@
             <p>Développé par Baptiste Nuytten | Données fournies par l'API TMDB</p>
         </div>
     </div>
+    </main>
+
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -352,13 +359,17 @@
             const navLinks = document.querySelector('.nav-links');
             if (hamburger && navLinks) {
                 hamburger.addEventListener('click', function() {
-                    navLinks.classList.toggle('active');
+                    const isOpen = navLinks.classList.toggle('active');
                     hamburger.classList.toggle('active');
+                    hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+                    hamburger.setAttribute('aria-label', isOpen ? 'Fermer le menu' : 'Ouvrir le menu');
                 });
                 document.querySelectorAll('.nav-links li a').forEach(link => {
                     link.addEventListener('click', () => {
                         navLinks.classList.remove('active');
                         hamburger.classList.remove('active');
+                        hamburger.setAttribute('aria-expanded', 'false');
+                        hamburger.setAttribute('aria-label', 'Ouvrir le menu');
                     });
                 });
             }

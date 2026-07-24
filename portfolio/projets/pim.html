@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Système PIM - Product Information Management | Portfolio Baptiste Nuytten</title>
+    <title>Système PIM PHP/MySQL | Portfolio Baptiste Nuytten</title>
     <meta name="description" content="PIM 4Bus par Baptiste Nuytten : gestion centralisée des données produits, import Excel, CRUD complet et statistiques en temps réel. Développé en PHP/MySQL.">
     <meta name="robots" content="index, follow">
     <meta name="author" content="Baptiste Nuytten">
@@ -13,13 +13,13 @@
     <meta property="og:title" content="Système PIM - Product Information Management | Portfolio Baptiste Nuytten">
     <meta property="og:description" content="Système PIM développé par Baptiste Nuytten : gestion centralisée des informations produits avec import Excel, CRUD complet et statistiques en temps réel. PHP/MySQL.">
     <meta property="og:url" content="https://baptistenuytten.fr/portfolio/projets/pim.html">
-    <meta property="og:image" content="https://baptistenuytten.fr/assets/images/og-portfolio.jpg">
+    <meta property="og:image" content="https://baptistenuytten.fr/assets/images/og-portfolio.webp">
     <meta property="og:site_name" content="Baptiste Nuytten">
     <meta property="og:locale" content="fr_FR">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Système PIM - Product Information Management | Portfolio Baptiste Nuytten">
     <meta name="twitter:description" content="Système PIM développé par Baptiste Nuytten : gestion centralisée des informations produits avec import Excel, CRUD complet et statistiques en temps réel. PHP/MySQL.">
-    <meta name="twitter:image" content="https://baptistenuytten.fr/assets/images/og-portfolio.jpg">
+    <meta name="twitter:image" content="https://baptistenuytten.fr/assets/images/og-portfolio.webp">
     <link rel="canonical" href="https://baptistenuytten.fr/portfolio/projets/pim.html">
     <script type="application/ld+json">
     {
@@ -28,7 +28,7 @@
       "name": "Système PIM",
       "description": "Application web de gestion centralisée des informations produits avec import Excel, CRUD complet et statistiques en temps réel.",
       "url": "https://baptistenuytten.fr/portfolio/projets/pim.html",
-      "image": "https://baptistenuytten.fr/assets/img/pim-4bus/pimWlcm.png",
+      "image": "https://baptistenuytten.fr/assets/img/pim-4bus/pimWlcm.webp",
       "dateCreated": "2024-01-01",
       "applicationCategory": "WebApplication",
       "operatingSystem": "Web",
@@ -52,28 +52,26 @@
     }
     </script>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon.svg">
     <link rel="stylesheet" href="../../assets/css/style.css">
     <link rel="stylesheet" href="../../assets/css/project-pages.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" media="print" onload="this.media='all'">
-    <noscript>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
-    </noscript>
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/devicon.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/devicon.min.css"></noscript>
 </head>
 <body>
+    <a class="skip-link" href="#main">Aller au contenu</a>
     <header>
         <div class="container">
-            <nav>
+            <nav aria-label="Navigation principale">
                 <div class="logo">Baptiste Nuytten – Étudiant & Freelance</div>
-                <div class="hamburger">
+                <button type="button" class="hamburger" aria-expanded="false" aria-controls="nav-menu" aria-label="Ouvrir le menu">
                     <span></span>
                     <span></span>
                     <span></span>
-                </div>
-                <ul class="nav-links">
+                </button>
+                <ul class="nav-links" id="nav-menu">
                     <li><a href="../../index.html">Services Freelance</a></li>
                     <li class="dropdown">
                         <a href="../Portfolio.html">
@@ -93,34 +91,36 @@
                         <div class="color-picker-wrapper">
                             <button class="color-picker-toggle" id="colorPickerToggle" aria-label="Choisir la couleur">🎨</button>
                             <div class="color-picker-menu" id="colorPickerMenu">
-                                <div class="color-option" data-color="emerald" title="Émeraude">
+                                <button type="button" class="color-option" data-color="emerald" aria-label="Thème émeraude">
                                     <span class="color-swatch" style="background: linear-gradient(135deg, #10B981, #34D399);"></span>
-                                </div>
-                                <div class="color-option" data-color="violet" title="Violet">
+                                </button>
+                                <button type="button" class="color-option" data-color="violet" aria-label="Thème violet">
                                     <span class="color-swatch" style="background: linear-gradient(135deg, #6366F1, #8B5CF6);"></span>
-                                </div>
-                                <div class="color-option" data-color="cyan" title="Cyan">
+                                </button>
+                                <button type="button" class="color-option" data-color="cyan" aria-label="Thème cyan">
                                     <span class="color-swatch" style="background: linear-gradient(135deg, #06B6D4, #22D3EE);"></span>
-                                </div>
-                                <div class="color-option" data-color="rose" title="Rose">
+                                </button>
+                                <button type="button" class="color-option" data-color="rose" aria-label="Thème rose">
                                     <span class="color-swatch" style="background: linear-gradient(135deg, #EC4899, #F472B6);"></span>
-                                </div>
-                                <div class="color-option" data-color="orange" title="Orange">
+                                </button>
+                                <button type="button" class="color-option" data-color="orange" aria-label="Thème orange">
                                     <span class="color-swatch" style="background: linear-gradient(135deg, #F97316, #FB923C);"></span>
-                                </div>
-                                <div class="color-option" data-color="red" title="Rouge">
+                                </button>
+                                <button type="button" class="color-option" data-color="red" aria-label="Thème rouge">
                                     <span class="color-swatch" style="background: linear-gradient(135deg, #EF4444, #F87171);"></span>
-                                </div>
+                                </button>
                             </div>
                         </div>
                     </li>
-                    <li><button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌙</button></li>
+                    <li><button class="theme-toggle" id="themeToggle" aria-label="Changer de thème (clair/sombre)">🌙</button></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <div class="project-page">
+    
+    <main id="main">
+<div class="project-page">
         <div class="project-header-banner">
             <h1>🚀 Système PIM - Product Information Management</h1>
             <p>Application web complète de gestion centralisée des informations produits</p>
@@ -211,7 +211,7 @@
                 <div class="screenshot-container">
                     <!-- Import Excel -->
                     <div class="screenshot-card">
-                        <img src="../../assets/img/pim-4bus/pimWlcm.png" alt="Import Excel dans le système PIM" loading="lazy" width="800" height="600" class="screenshot-img">
+                        <img src="../../assets/img/pim-4bus/pimWlcm.webp" alt="Import Excel dans le système PIM" loading="lazy" width="800" height="600" class="screenshot-img">
                         <div class="screenshot-content">
                             <h3 class="screenshot-title">Import de données Excel</h3>
                             <p class="screenshot-desc">Interface d'importation permettant de télécharger un template Excel standardisé et d'importer des données produits en masse. Le système effectue un mapping automatique des colonnes et valide les données avant insertion dans la base. L'export complet permet également de récupérer toutes les données au format Excel.</p>
@@ -220,7 +220,7 @@
                     
                     <!-- Consultation -->
                     <div class="screenshot-card">
-                        <img src="../../assets/img/pim-4bus/compteur.png" alt="Consultation des données PIM" loading="lazy" width="800" height="600" class="screenshot-img">
+                        <img src="../../assets/img/pim-4bus/compteur.webp" alt="Consultation des données PIM" loading="lazy" width="800" height="600" class="screenshot-img">
                         <div class="screenshot-content">
                             <h3 class="screenshot-title">Consultation simplifiée</h3>
                             <p class="screenshot-desc">Vue d'ensemble des statistiques clés du système : références actives/inactives, catégories, acteurs, contrats et équivalences. Cette interface offre des filtres de recherche avancés permettant de filtrer par référence active, catégorie, sous-catégorie, plateforme, qualité, trigramme, acteur, type d'acteur, contrat et client.</p>
@@ -229,7 +229,7 @@
                     
                     <!-- Tableau de données -->
                     <div class="screenshot-card">
-                        <img src="../../assets/img/pim-4bus/tab.png" alt="Tableau des produits" loading="lazy" width="800" height="600" class="screenshot-img">
+                        <img src="../../assets/img/pim-4bus/tab.webp" alt="Tableau des produits" loading="lazy" width="800" height="600" class="screenshot-img">
                         <div class="screenshot-content">
                             <h3 class="screenshot-title">Affichage des produits</h3>
                             <p class="screenshot-desc">Tableau détaillé présentant l'ensemble des références produits avec pagination. Chaque ligne affiche le code machine, la désignation, la marque, la catégorie, la qualité, le fournisseur avec trigramme, la référence externe, le prix unitaire net, la plateforme, le statut de la référence et le contrat associé. Des actions d'édition et de suppression sont disponibles pour chaque référence.</p>
@@ -238,7 +238,7 @@
                     
                     <!-- Administration -->
                     <div class="screenshot-card">
-                        <img src="../../assets/img/pim-4bus/adminref.png" alt="Administration des référentiels" loading="lazy" width="800" height="600" class="screenshot-img">
+                        <img src="../../assets/img/pim-4bus/adminref.webp" alt="Administration des référentiels" loading="lazy" width="800" height="600" class="screenshot-img">
                         <div class="screenshot-content">
                             <h3 class="screenshot-title">Administration des référentiels</h3>
                             <p class="screenshot-desc">Interface d'administration permettant de gérer les données de référence : catégories, plateformes, qualités, acteurs (274 actifs), contrats et fournisseurs (48 actifs). Chaque référentiel dispose d'un compteur et permet l'ajout, la modification et la suppression d'éléments avec gestion du statut actif/inactif.</p>
@@ -247,7 +247,7 @@
                     
                     <!-- Équivalences -->
                     <div class="screenshot-card">
-                        <img src="../../assets/img/pim-4bus/refequi.png" alt="Gestion des équivalences" loading="lazy" width="800" height="600" class="screenshot-img">
+                        <img src="../../assets/img/pim-4bus/refequi.webp" alt="Gestion des équivalences" loading="lazy" width="800" height="600" class="screenshot-img">
                         <div class="screenshot-content">
                             <h3 class="screenshot-title">Références équivalentes</h3>
                             <p class="screenshot-desc">Module de gestion des références équivalentes permettant d'associer plusieurs références d'acteurs différents pour un même produit. Le tableau affiche l'acteur, la désignation, la référence équivalente, la qualité, la marque, le statut et la référence de remplacement. Cette fonctionnalité est essentielle pour gérer les produits multi-fournisseurs.</p>
@@ -256,7 +256,7 @@
                     
                     <!-- Ajout de référence -->
                     <div class="screenshot-card">
-                        <img src="../../assets/img/pim-4bus/addref.png" alt="Ajout d'une nouvelle référence" loading="lazy" width="800" height="600" class="screenshot-img">
+                        <img src="../../assets/img/pim-4bus/addref.webp" alt="Ajout d'une nouvelle référence" loading="lazy" width="800" height="600" class="screenshot-img">
                         <div class="screenshot-content">
                             <h3 class="screenshot-title">Ajout de référence</h3>
                             <p class="screenshot-desc">Formulaire complet d'ajout de nouvelle référence produit avec tous les champs nécessaires : code machine, marque, désignation, catégorie, sous-catégorie, qualité, dimensions (poids, longueur, largeur, hauteur), statut, et URL des photos. L'interface intuitive guide l'utilisateur dans la saisie de toutes les informations produit.</p>
@@ -413,6 +413,8 @@
             <p>Développé par Baptiste Nuytten | Système PIM professionnel de gestion de données produits</p>
         </div>
     </div>
+    </main>
+
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -432,8 +434,10 @@
 
             if (hamburger && navLinks) {
                 hamburger.addEventListener('click', function() {
-                    navLinks.classList.toggle('active');
+                    const isOpen = navLinks.classList.toggle('active');
                     hamburger.classList.toggle('active');
+                    hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+                    hamburger.setAttribute('aria-label', isOpen ? 'Fermer le menu' : 'Ouvrir le menu');
                 });
 
                 // Fermer le menu en cliquant sur un lien
@@ -441,6 +445,8 @@
                     link.addEventListener('click', () => {
                         navLinks.classList.remove('active');
                         hamburger.classList.remove('active');
+                        hamburger.setAttribute('aria-expanded', 'false');
+                        hamburger.setAttribute('aria-label', 'Ouvrir le menu');
                     });
                 });
             }

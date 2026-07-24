@@ -4,12 +4,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CGV - Conditions Générales de Vente | Baptiste Nuytten Développeur Web</title>
+    <title>CGV | Baptiste Nuytten, Développeur Web Caen</title>
     <meta name="description" content="Conditions Générales de Vente des services de développement web freelance de Baptiste Nuytten, développeur indépendant à Caen (Normandie). SIREN 991 703 851.">
     <meta name="robots" content="index, follow">
     <meta name="geo.region" content="FR-NOR">
     <meta name="geo.placename" content="Caen, Normandie">
     <link rel="canonical" href="https://baptistenuytten.fr/legal/cgv.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://baptistenuytten.fr/legal/cgv.html">
+    <meta property="og:site_name" content="Baptiste Nuytten">
+    <meta property="og:title" content="CGV | Baptiste Nuytten, Développeur Web Caen">
+    <meta property="og:description" content="Conditions Générales de Vente des services de développement web freelance de Baptiste Nuytten, développeur indépendant à Caen (Normandie).">
+    <meta property="og:image" content="https://baptistenuytten.fr/assets/images/og-services.webp">
+    <meta property="og:image:alt" content="Conditions Générales de Vente - Baptiste Nuytten">
+    <meta property="og:locale" content="fr_FR">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://baptistenuytten.fr/legal/cgv.html">
+    <meta name="twitter:title" content="CGV | Baptiste Nuytten, Développeur Web Caen">
+    <meta name="twitter:description" content="Conditions Générales de Vente des services de développement web freelance de Baptiste Nuytten à Caen.">
+    <meta name="twitter:image" content="https://baptistenuytten.fr/assets/images/og-services.webp">
+    <meta name="twitter:image:alt" content="Conditions Générales de Vente - Baptiste Nuytten">
 
     <!-- Structured Data / Schema.org -->
     <script type="application/ld+json">
@@ -24,23 +42,23 @@
     </script>
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon.svg">
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
 </head>
 <body>
+    <a class="skip-link" href="#main">Aller au contenu</a>
     <header>
         <div class="container">
-            <nav>
+            <nav aria-label="Navigation principale">
                 <a href="../index.html" class="logo" aria-label="Baptiste Nuytten - Développeur Web Freelance">Baptiste Nuytten</a>
-                <div class="hamburger">
+                <button type="button" class="hamburger" aria-expanded="false" aria-controls="nav-menu" aria-label="Ouvrir le menu">
                     <span></span>
                     <span></span>
                     <span></span>
-                </div>
-                <ul class="nav-links">
+                </button>
+                <ul class="nav-links" id="nav-menu">
                     <li><a href="../index.html">Accueil</a></li>
                     <li><a href="../portfolio/Portfolio.html">Portfolio</a></li>
                     <li><a href="../index.html#contact">Contact</a></li>
@@ -48,34 +66,36 @@
                         <div class="color-picker-wrapper">
                             <button class="color-picker-toggle" id="colorPickerToggle" aria-label="Choisir la couleur">🎨</button>
                             <div class="color-picker-menu" id="colorPickerMenu">
-                                <div class="color-option" data-color="emerald" title="Émeraude">
+                                <button type="button" class="color-option" data-color="emerald" aria-label="Thème émeraude">
                                     <span class="color-swatch" style="background: linear-gradient(135deg, #10B981, #34D399);"></span>
-                                </div>
-                                <div class="color-option" data-color="violet" title="Violet">
+                                </button>
+                                <button type="button" class="color-option" data-color="violet" aria-label="Thème violet">
                                     <span class="color-swatch" style="background: linear-gradient(135deg, #6366F1, #8B5CF6);"></span>
-                                </div>
-                                <div class="color-option" data-color="cyan" title="Cyan">
+                                </button>
+                                <button type="button" class="color-option" data-color="cyan" aria-label="Thème cyan">
                                     <span class="color-swatch" style="background: linear-gradient(135deg, #06B6D4, #22D3EE);"></span>
-                                </div>
-                                <div class="color-option" data-color="rose" title="Rose">
+                                </button>
+                                <button type="button" class="color-option" data-color="rose" aria-label="Thème rose">
                                     <span class="color-swatch" style="background: linear-gradient(135deg, #EC4899, #F472B6);"></span>
-                                </div>
-                                <div class="color-option" data-color="orange" title="Orange">
+                                </button>
+                                <button type="button" class="color-option" data-color="orange" aria-label="Thème orange">
                                     <span class="color-swatch" style="background: linear-gradient(135deg, #F97316, #FB923C);"></span>
-                                </div>
-                                <div class="color-option" data-color="red" title="Rouge">
+                                </button>
+                                <button type="button" class="color-option" data-color="red" aria-label="Thème rouge">
                                     <span class="color-swatch" style="background: linear-gradient(135deg, #EF4444, #F87171);"></span>
-                                </div>
+                                </button>
                             </div>
                         </div>
                     </li>
-                    <li><button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">☀️</button></li>
+                    <li><button class="theme-toggle" id="themeToggle" aria-label="Changer de thème (clair/sombre)">☀️</button></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <section class="legal-section" style="padding: 120px 0 80px;">
+    
+    <main id="main">
+<section class="legal-section" style="padding: 120px 0 80px;">
         <div class="container">
             <h1 style="font-size: 3rem; margin-bottom: 1.5rem;">Conditions Générales de Vente</h1>
             <p class="section-subtitle" style="margin-bottom: 3rem;">En vigueur au 01/12/2025</p>
@@ -84,41 +104,45 @@
 
                 <h2>1. Prestataire</h2>
                 <p><strong>Baptiste Nuytten</strong><br>
-                Micro-entreprise<br>
+                Entrepreneur individuel (EI) — micro-entreprise<br>
                 SIRET : 991 703 851 00014<br>
                 Email : contact@baptistenuytten.fr</p>
 
-                <h2>2. Tarifs</h2>
-                <p>Les prix sont indiqués en euros TTC.<br>
-                Franchise en base de TVA (article 293 B du CGI).</p>
+                <h2>2. Champ d'application — clientèle professionnelle</h2>
+                <p>Les présentes Conditions Générales de Vente s'appliquent exclusivement aux clients professionnels agissant dans le cadre de leur activité (entreprises, artisans, professions libérales, associations à but lucratif ou assimilés). Elles ne s'adressent pas aux consommateurs au sens du Code de la consommation.</p>
 
-                <h2>3. Modalités de paiement</h2>
+                <h2>3. Tarifs</h2>
+                <p>Les prix sont indiqués en euros. TVA non applicable, art. 293 B du CGI.</p>
+
+                <h2>4. Modalités de paiement</h2>
                 <p>Le paiement est dû sous 7 jours maximum après la livraison du projet.</p>
 
-                <h2>4. Livraison</h2>
+                <h2>5. Livraison</h2>
                 <p>Les délais de livraison sont indiqués dans le devis et restent indicatifs.<br>
                 Le client s'engage à fournir tous les contenus nécessaires dans les délais convenus.</p>
 
-                <h2>5. Propriété intellectuelle</h2>
+                <h2>6. Propriété intellectuelle</h2>
                 <p>Après paiement intégral, le client dispose de tous les droits d'exploitation du site développé.<br>
                 Le prestataire se réserve le droit d'utiliser le projet réalisé dans son portfolio.</p>
 
-                <h2>6. Responsabilité</h2>
+                <h2>7. Responsabilité</h2>
                 <p>Le prestataire s'engage à développer le site conformément aux spécifications du devis.<br>
                 La responsabilité du prestataire est limitée au montant du projet.<br>
                 Le prestataire ne peut être tenu responsable des contenus fournis par le client.</p>
 
-                <h2>7. Données personnelles</h2>
+                <h2>8. Données personnelles</h2>
                 <p>Les données collectées (nom, email, message) servent uniquement à l'exécution du contrat.<br>
                 Droits d'accès, de rectification et de suppression : contact@baptistenuytten.fr</p>
 
-                <h2>8. Litiges</h2>
+                <h2>9. Litiges</h2>
                 <p>Ces CGV sont régies par le droit français.<br>
                 En cas de litige, une solution amiable sera recherchée en priorité.</p>
 
             </div>
         </div>
     </section>
+    </main>
+
 
     <footer>
         <div class="container">
@@ -140,14 +164,18 @@
 
             if (hamburger && navLinks) {
                 hamburger.addEventListener('click', function() {
-                    navLinks.classList.toggle('active');
+                    const isOpen = navLinks.classList.toggle('active');
                     hamburger.classList.toggle('active');
+                    hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+                    hamburger.setAttribute('aria-label', isOpen ? 'Fermer le menu' : 'Ouvrir le menu');
                 });
 
                 document.querySelectorAll('.nav-links li a').forEach(link => {
                     link.addEventListener('click', () => {
                         navLinks.classList.remove('active');
                         hamburger.classList.remove('active');
+                        hamburger.setAttribute('aria-expanded', 'false');
+                        hamburger.setAttribute('aria-label', 'Ouvrir le menu');
                     });
                 });
             }

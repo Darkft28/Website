@@ -17,17 +17,13 @@
     <meta name="geo.placename" content="Caen, Normandie, France">
     <meta name="geo.position" content="49.1829;-0.3707">
     <meta name="ICBM" content="49.1829, -0.3707">
-
-    <!-- Language -->
-    <meta http-equiv="content-language" content="fr-FR">
-
-    <!-- Open Graph / Facebook -->
+<!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://baptistenuytten.fr/">
     <meta property="og:site_name" content="Développeur Web Freelance">
     <meta property="og:title" content="Développeur Web Freelance | Sites Vitrine, E-commerce & Applications Web">
     <meta property="og:description" content="Création de sites web professionnels dès 700€. Sites vitrine, e-commerce, applications sur mesure. React, Next.js, PHP. Hébergement inclus. Devis gratuit sous 48h.">
-    <meta property="og:image" content="https://baptistenuytten.fr/assets/images/og-services.jpg">
+    <meta property="og:image" content="https://baptistenuytten.fr/assets/images/og-services.webp">
     <meta property="og:image:alt" content="Services de développement web freelance">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -38,7 +34,7 @@
     <meta name="twitter:url" content="https://baptistenuytten.fr/">
     <meta name="twitter:title" content="Développeur Web Freelance | Création Sites Web Professionnels">
     <meta name="twitter:description" content="Sites web professionnels dès 700€. Vitrine, e-commerce, applications. React, Next.js. Hébergement inclus.">
-    <meta name="twitter:image" content="https://baptistenuytten.fr/assets/images/og-services.jpg">
+    <meta name="twitter:image" content="https://baptistenuytten.fr/assets/images/og-services.webp">
     <meta name="twitter:image:alt" content="Services de développement web freelance">
 
     <!-- Structured Data / Schema.org -->
@@ -68,12 +64,13 @@
       "alternateName": "Développeur Web Freelance à Caen",
       "description": "Services de développement web freelance à Caen (Normandie) : création de sites vitrine, sites e-commerce et applications web sur mesure avec React, Next.js et PHP",
       "url": "https://baptistenuytten.fr/",
-      "image": "https://baptistenuytten.fr/assets/images/og-services.jpg",
+      "image": "https://baptistenuytten.fr/assets/images/og-services.webp",
       "priceRange": "€€",
       "address": {
         "@type": "PostalAddress",
                 "addressLocality": "Caen",
                 "addressRegion": "Normandie",
+                "postalCode": "14000",
                 "addressCountry": "FR"
       },
       "geo": {
@@ -202,7 +199,6 @@
     </script>
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="manifest" href="/manifest.json">
     <meta name="theme-color" content="#6366F1">
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon.svg">
@@ -214,16 +210,17 @@
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
 </head>
 <body>
+    <a class="skip-link" href="#main">Aller au contenu</a>
     <header>
         <div class="container">
-            <nav>
+            <nav aria-label="Navigation principale">
                 <a href="index.html" class="logo" aria-label="Développeur Web Freelance - Retour à l'accueil">Développeur Web Freelance</a>
-                <div class="hamburger">
+                <button type="button" class="hamburger" aria-expanded="false" aria-controls="nav-menu" aria-label="Ouvrir le menu">
                     <span></span>
                     <span></span>
                     <span></span>
-                </div>
-                <ul class="nav-links">
+                </button>
+                <ul class="nav-links" id="nav-menu">
                     <li class="dropdown">
                         <a href="index.html">
                             Services
@@ -254,34 +251,36 @@
                         <div class="color-picker-wrapper">
                             <button class="color-picker-toggle" id="colorPickerToggle" aria-label="Choisir la couleur">🎨</button>
                             <div class="color-picker-menu" id="colorPickerMenu">
-                                <div class="color-option" data-color="emerald" title="Émeraude">
+                                <button type="button" class="color-option" data-color="emerald" aria-label="Thème émeraude">
                                     <span class="color-swatch" style="background: linear-gradient(135deg, #10B981, #34D399);"></span>
-                                </div>
-                                <div class="color-option" data-color="violet" title="Violet">
+                                </button>
+                                <button type="button" class="color-option" data-color="violet" aria-label="Thème violet">
                                     <span class="color-swatch" style="background: linear-gradient(135deg, #6366F1, #8B5CF6);"></span>
-                                </div>
-                                <div class="color-option" data-color="cyan" title="Cyan">
+                                </button>
+                                <button type="button" class="color-option" data-color="cyan" aria-label="Thème cyan">
                                     <span class="color-swatch" style="background: linear-gradient(135deg, #06B6D4, #22D3EE);"></span>
-                                </div>
-                                <div class="color-option" data-color="rose" title="Rose">
+                                </button>
+                                <button type="button" class="color-option" data-color="rose" aria-label="Thème rose">
                                     <span class="color-swatch" style="background: linear-gradient(135deg, #EC4899, #F472B6);"></span>
-                                </div>
-                                <div class="color-option" data-color="orange" title="Orange">
+                                </button>
+                                <button type="button" class="color-option" data-color="orange" aria-label="Thème orange">
                                     <span class="color-swatch" style="background: linear-gradient(135deg, #F97316, #FB923C);"></span>
-                                </div>
-                                <div class="color-option" data-color="red" title="Rouge">
+                                </button>
+                                <button type="button" class="color-option" data-color="red" aria-label="Thème rouge">
                                     <span class="color-swatch" style="background: linear-gradient(135deg, #EF4444, #F87171);"></span>
-                                </div>
+                                </button>
                             </div>
                         </div>
                     </li>
-                    <li><button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌙</button></li>
+                    <li><button class="theme-toggle" id="themeToggle" aria-label="Changer de thème (clair/sombre)">🌙</button></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Hero Section -->
+    
+    <main id="main">
+<!-- Hero Section -->
     <section class="services-hero" id="hero-section">
         <canvas id="hero-particle-canvas" aria-hidden="true"></canvas>
         <div class="hero-spotlight" id="hero-spotlight" aria-hidden="true"></div>
@@ -678,7 +677,7 @@
             <div class="testimonials-grid">
                 <div class="testimonial-card">
                     <div class="testimonial-header">
-                        <img src="assets/img/avis/Jean-Philippe_Casoni.png" alt="Jean-Philippe Casoni - Responsable applications Groupe Niort" class="testimonial-avatar" loading="lazy" width="80" height="80">
+                        <img src="assets/img/avis/Jean-Philippe_Casoni.webp" alt="Jean-Philippe Casoni - Responsable applications Groupe Niort" class="testimonial-avatar" loading="lazy" width="80" height="80">
                         <div class="testimonial-info">
                             <h3 class="testimonial-name">
                                 Jean-Philippe Casoni
@@ -703,7 +702,7 @@
 
                 <div class="testimonial-card">
                     <div class="testimonial-header">
-                        <img src="assets/img/avis/Andrew_Mahe.png" alt="Andrew Mahé - Développeur Fullstack CTO Formateur" class="testimonial-avatar" loading="lazy" width="80" height="80">
+                        <img src="assets/img/avis/Andrew_Mahe.webp" alt="Andrew Mahé - Développeur Fullstack CTO Formateur" class="testimonial-avatar" loading="lazy" width="80" height="80">
                         <div class="testimonial-info">
                             <h3 class="testimonial-name">
                                 Andrew Mahé
@@ -776,15 +775,20 @@
                     <textarea id="message" name="message" required placeholder="Parlez-moi de votre projet, vos besoins, vos objectifs..."></textarea>
                 </div>
 
+                <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
+
                 <button type="submit" class="btn">Envoyer ma demande</button>
+                <p class="form-notice">Vos données sont utilisées uniquement pour traiter votre demande et ne sont pas cédées. <a href="legal/mentions-legales.html#donnees">Politique de confidentialité</a>.</p>
             </form>
 
             <div class="social">
-                <a href="https://github.com/Darkft28" title="GitHub"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/baptiste-nuytten-dhdi/" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/Darkft28" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
+                <a href="https://www.linkedin.com/in/baptiste-nuytten-dhdi/" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
             </div>
         </div>
     </section>
+    </main>
+
 
     <footer>
         <div class="container">
@@ -801,8 +805,8 @@
                     <a href="legal/cgv.html">CGV</a>
                 </div>
                 <div class="footer-social">
-                    <a href="https://github.com/Darkft28" title="GitHub" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/baptiste-nuytten-dhdi/" title="LinkedIn" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/Darkft28" aria-label="GitHub" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i></a>
+                    <a href="https://www.linkedin.com/in/baptiste-nuytten-dhdi/" aria-label="LinkedIn" target="_blank" rel="noopener"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
                 </div>
                 <p class="footer-copyright">&copy; 2026 Baptiste Nuytten. Tous droits réservés. SIREN 991 703 851</p>
             </div>
@@ -835,8 +839,10 @@
 
             if (hamburger && navLinks) {
                 hamburger.addEventListener('click', function() {
-                    navLinks.classList.toggle('active');
+                    const isOpen = navLinks.classList.toggle('active');
                     hamburger.classList.toggle('active');
+                    hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+                    hamburger.setAttribute('aria-label', isOpen ? 'Fermer le menu' : 'Ouvrir le menu');
                 });
 
                 // Fermer le menu en cliquant sur un lien
@@ -844,6 +850,8 @@
                     link.addEventListener('click', () => {
                         navLinks.classList.remove('active');
                         hamburger.classList.remove('active');
+                        hamburger.setAttribute('aria-expanded', 'false');
+                        hamburger.setAttribute('aria-label', 'Ouvrir le menu');
                     });
                 });
             }

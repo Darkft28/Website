@@ -14,13 +14,13 @@
     <meta property="og:title" content="Tracker Solaire Arduino | Portfolio Baptiste Nuytten">
     <meta property="og:description" content="Tracker solaire automatique basé sur Arduino UNO : orientation automatique d'un panneau solaire via photorésistances et servomoteur. Projet embarqué C++.">
     <meta property="og:url" content="https://baptistenuytten.fr/portfolio/projets/solartracker.html">
-    <meta property="og:image" content="https://baptistenuytten.fr/assets/images/og-portfolio.jpg">
+    <meta property="og:image" content="https://baptistenuytten.fr/assets/images/og-portfolio.webp">
     <meta property="og:site_name" content="Baptiste Nuytten">
     <meta property="og:locale" content="fr_FR">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Tracker Solaire Arduino | Portfolio Baptiste Nuytten">
     <meta name="twitter:description" content="Tracker solaire automatique basé sur Arduino UNO : orientation automatique d'un panneau solaire via photorésistances et servomoteur. Projet embarqué C++.">
-    <meta name="twitter:image" content="https://baptistenuytten.fr/assets/images/og-portfolio.jpg">
+    <meta name="twitter:image" content="https://baptistenuytten.fr/assets/images/og-portfolio.webp">
     <link rel="canonical" href="https://baptistenuytten.fr/portfolio/projets/solartracker.html">
     <script type="application/ld+json">
     {
@@ -29,7 +29,7 @@
       "name": "Tracker Solaire Arduino",
       "description": "Système de tracker solaire automatique basé sur Arduino UNO, utilisant des photorésistances et un servomoteur pour orienter un panneau solaire.",
       "url": "https://baptistenuytten.fr/portfolio/projets/solartracker.html",
-      "image": "https://baptistenuytten.fr/assets/img/arduino/photores.png",
+      "image": "https://baptistenuytten.fr/assets/img/arduino/photores.webp",
       "dateCreated": "2024-01-01",
       "keywords": "Arduino, C++, IoT, énergie solaire, servomoteur, photorésistance",
       "author": {
@@ -51,29 +51,27 @@
     }
     </script>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon.svg">
     <link rel="stylesheet" href="../../assets/css/style.css">
     <link rel="stylesheet" href="../../assets/css/project-pages.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" media="print" onload="this.media='all'">
-    <noscript>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
-    </noscript>
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/devicon.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/devicon.min.css"></noscript>
 </head>
 
 <body>
+    <a class="skip-link" href="#main">Aller au contenu</a>
     <header>
         <div class="container">
-            <nav>
+            <nav aria-label="Navigation principale">
                 <div class="logo">Baptiste Nuytten – Étudiant & Freelance</div>
-                <div class="hamburger">
+                <button type="button" class="hamburger" aria-expanded="false" aria-controls="nav-menu" aria-label="Ouvrir le menu">
                     <span></span>
                     <span></span>
                     <span></span>
-                </div>
-                <ul class="nav-links">
+                </button>
+                <ul class="nav-links" id="nav-menu">
                     <li><a href="../../index.html">Services Freelance</a></li>
                     <li class="dropdown">
                         <a href="../Portfolio.html">
@@ -93,34 +91,36 @@
                         <div class="color-picker-wrapper">
                             <button class="color-picker-toggle" id="colorPickerToggle" aria-label="Choisir la couleur">🎨</button>
                             <div class="color-picker-menu" id="colorPickerMenu">
-                                <div class="color-option" data-color="emerald" title="Émeraude">
+                                <button type="button" class="color-option" data-color="emerald" aria-label="Thème émeraude">
                                     <span class="color-swatch" style="background: linear-gradient(135deg, #10B981, #34D399);"></span>
-                                </div>
-                                <div class="color-option" data-color="violet" title="Violet">
+                                </button>
+                                <button type="button" class="color-option" data-color="violet" aria-label="Thème violet">
                                     <span class="color-swatch" style="background: linear-gradient(135deg, #6366F1, #8B5CF6);"></span>
-                                </div>
-                                <div class="color-option" data-color="cyan" title="Cyan">
+                                </button>
+                                <button type="button" class="color-option" data-color="cyan" aria-label="Thème cyan">
                                     <span class="color-swatch" style="background: linear-gradient(135deg, #06B6D4, #22D3EE);"></span>
-                                </div>
-                                <div class="color-option" data-color="rose" title="Rose">
+                                </button>
+                                <button type="button" class="color-option" data-color="rose" aria-label="Thème rose">
                                     <span class="color-swatch" style="background: linear-gradient(135deg, #EC4899, #F472B6);"></span>
-                                </div>
-                                <div class="color-option" data-color="orange" title="Orange">
+                                </button>
+                                <button type="button" class="color-option" data-color="orange" aria-label="Thème orange">
                                     <span class="color-swatch" style="background: linear-gradient(135deg, #F97316, #FB923C);"></span>
-                                </div>
-                                <div class="color-option" data-color="red" title="Rouge">
+                                </button>
+                                <button type="button" class="color-option" data-color="red" aria-label="Thème rouge">
                                     <span class="color-swatch" style="background: linear-gradient(135deg, #EF4444, #F87171);"></span>
-                                </div>
+                                </button>
                             </div>
                         </div>
                     </li>
-                    <li><button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌙</button></li>
+                    <li><button class="theme-toggle" id="themeToggle" aria-label="Changer de thème (clair/sombre)">🌙</button></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <div class="project-page">
+    
+    <main id="main">
+<div class="project-page">
         <div class="project-header-banner">
             <h1>Tracker Solaire Arduino</h1>
             <p>Un système automatisé qui suit la position du soleil pour optimiser la collecte d'énergie solaire</p>
@@ -205,7 +205,7 @@
 
                 <div class="component-images">
                     <div class="component-card">
-                        <img src="../../assets/img/arduino/photores.png" alt="Photorésistance LDR pour tracker solaire Arduino" loading="lazy" width="400" height="300" class="component-img">
+                        <img src="../../assets/img/arduino/photores.webp" alt="Photorésistance LDR pour tracker solaire Arduino" loading="lazy" width="400" height="300" class="component-img">
                         <div class="component-content">
                             <h3 class="component-title">Photorésistance (LDR)</h3>
                             <p class="component-desc">Capteur qui change de résistance selon la luminosité. Utilisé pour
@@ -215,7 +215,7 @@
                     </div>
 
                     <div class="component-card">
-                        <img src="../../assets/img/arduino/servo.png" alt="Servomoteur SG90 pour orientation du panneau solaire" loading="lazy" width="400" height="300" class="component-img">
+                        <img src="../../assets/img/arduino/servo.webp" alt="Servomoteur SG90 pour orientation du panneau solaire" loading="lazy" width="400" height="300" class="component-img">
                         <div class="component-content">
                             <h3 class="component-title">Micro Servomoteur SG90</h3>
                             <p class="component-desc">Moteur de précision qui permet d'orienter le panneau solaire avec
@@ -224,7 +224,7 @@
                     </div>
 
                     <div class="component-card">
-                        <img src="../../assets/img/arduino/arduinoUno.png" alt="Arduino UNO carte microcontrôleur tracker solaire" loading="lazy" width="400" height="300" class="component-img">
+                        <img src="../../assets/img/arduino/arduinoUno.webp" alt="Arduino UNO carte microcontrôleur tracker solaire" loading="lazy" width="400" height="300" class="component-img">
                         <div class="component-content">
                             <h3 class="component-title">Arduino UNO</h3>
                             <p class="component-desc">Microcontrôleur qui sert de cerveau au système. Il traite les
@@ -234,7 +234,7 @@
                     </div>
 
                     <div class="component-card">
-                        <img src="../../assets/img/arduino/solarpanel.png" alt="Panneau solaire miniature projet électronique Arduino" loading="lazy" width="400" height="300" class="component-img">
+                        <img src="../../assets/img/arduino/solarpanel.webp" alt="Panneau solaire miniature projet électronique Arduino" loading="lazy" width="400" height="300" class="component-img">
                         <div class="component-content">
                             <h3 class="component-title">Panneau solaire</h3>
                             <p class="component-desc">Convertit l'énergie solaire en électricité. L'efficacité est
@@ -251,21 +251,21 @@
 
                 <div class="project-images">
                     <div class="project-img-container">
-                        <img src="../../assets/img/arduino/ShémaNum1photo.png" alt="Schéma de montage tracker solaire avec photorésistances"
+                        <img src="../../assets/img/arduino/ShémaNum1photo.webp" alt="Schéma de montage tracker solaire avec photorésistances"
                             loading="lazy" width="800" height="600" class="project-img-full">
                     </div>
 
                     <div class="project-img-container">
-                        <img src="../../assets/img/arduino/ShémaNumérique.png" alt="Schéma de connexion numérique tracker solaire Arduino"
+                        <img src="../../assets/img/arduino/ShémaNumérique.webp" alt="Schéma de connexion numérique tracker solaire Arduino"
                             loading="lazy" width="800" height="600" class="project-img-full">
                     </div>
 
                     <div class="project-img-container">
-                        <img src="../../assets/img/arduino/shéma.png" alt="Circuit électronique complet tracker solaire Arduino UNO" loading="lazy" width="800" height="600" class="project-img-full">
+                        <img src="../../assets/img/arduino/shéma.webp" alt="Circuit électronique complet tracker solaire Arduino UNO" loading="lazy" width="800" height="600" class="project-img-full">
                     </div>
 
                     <div class="project-img-container">
-                        <img src="../../assets/img/arduino/finalProject.jpg" alt="Prototype fonctionnel tracker solaire monté sur breadboard"
+                        <img src="../../assets/img/arduino/finalProject.webp" alt="Prototype fonctionnel tracker solaire monté sur breadboard"
                             loading="lazy" width="800" height="600" class="project-img-full">
                     </div>
 
@@ -318,7 +318,7 @@
                 <p class="section-subtitle">Organigramme montrant la prise de décision pour le positionnement du panneau
                 </p>
 
-                <img src="../../assets/img/arduino/Algosolar.png" alt="Organigramme du tracker solaire" loading="lazy" width="800" height="600" class="flowchart-img">
+                <img src="../../assets/img/arduino/Algosolar.webp" alt="Organigramme du tracker solaire" loading="lazy" width="800" height="600" class="flowchart-img">
 
                 <div class="project-overview" style="margin-top: 2rem;">
                     <h3>Avantages du système</h3>
@@ -384,6 +384,8 @@
             <p>Projet développé par Baptiste Nuytten | 2023</p>
         </div>
     </div>
+    </main>
+
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -403,8 +405,10 @@
 
             if (hamburger && navLinks) {
                 hamburger.addEventListener('click', function() {
-                    navLinks.classList.toggle('active');
+                    const isOpen = navLinks.classList.toggle('active');
                     hamburger.classList.toggle('active');
+                    hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+                    hamburger.setAttribute('aria-label', isOpen ? 'Fermer le menu' : 'Ouvrir le menu');
                 });
 
                 // Fermer le menu en cliquant sur un lien
@@ -412,6 +416,8 @@
                     link.addEventListener('click', () => {
                         navLinks.classList.remove('active');
                         hamburger.classList.remove('active');
+                        hamburger.setAttribute('aria-expanded', 'false');
+                        hamburger.setAttribute('aria-label', 'Ouvrir le menu');
                     });
                 });
             }

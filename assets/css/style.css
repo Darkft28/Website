@@ -12,13 +12,13 @@
     --color-primary: #0A0A0A;
     --color-secondary: #1A1A1A;
 
-    /* Gradient moderne émeraude */
-    --color-accent-start: #10B981;
-    --color-accent-end: #34D399;
-    --color-accent-rgb: 16, 185, 129;
-    --color-accent-rgb-light: 52, 211, 153;
+    /* Gradient émeraude assombri pour contraste CTA ≥ 4,5:1 (texte blanc) */
+    --color-accent-start: #059669;
+    --color-accent-end: #10B981;
+    --color-accent-rgb: 5, 150, 105;
+    --color-accent-rgb-light: 16, 185, 129;
     --gradient-accent: linear-gradient(135deg, var(--color-accent-start) 0%, var(--color-accent-end) 100%);
-    --gradient-accent-hover: linear-gradient(135deg, #059669 0%, #10B981 100%);
+    --gradient-accent-hover: linear-gradient(135deg, #047857 0%, #059669 100%);
 
     /* Backgrounds */
     --color-bg-primary: #FFFFFF;
@@ -28,7 +28,7 @@
     /* Texte - Plus de bleu clair ! */
     --color-text-primary: #0A0A0A;
     --color-text-secondary: #6B7280;
-    --color-text-tertiary: #9CA3AF;
+    --color-text-tertiary: #6B7280;
 
     /* Borders modernes */
     --color-border: #E5E7EB;
@@ -463,7 +463,8 @@ nav {
     transition: transform var(--transition-base);
 }
 
-.nav-links .dropdown:hover .dropdown-icon {
+.nav-links .dropdown:hover .dropdown-icon,
+.nav-links .dropdown:focus-within .dropdown-icon {
     transform: rotate(180deg);
 }
 
@@ -489,7 +490,8 @@ nav {
     border-color: rgba(255, 255, 255, 0.1);
 }
 
-.nav-links .dropdown:hover .dropdown-menu {
+.nav-links .dropdown:hover .dropdown-menu,
+.nav-links .dropdown:focus-within .dropdown-menu {
     opacity: 1;
     visibility: visible;
     transform: translateX(-50%) translateY(0);
@@ -613,6 +615,8 @@ nav {
 .color-option {
     cursor: pointer;
     padding: var(--spacing-1);
+    border: none;
+    background: transparent;
     border-radius: var(--radius-lg);
     transition: all var(--transition-fast) var(--ease-out);
 }
@@ -645,6 +649,8 @@ nav {
     cursor: pointer;
     z-index: calc(var(--z-fixed) + 10);
     padding: var(--spacing-2);
+    border: none;
+    background: transparent;
 }
 
 .hamburger span {
@@ -2330,7 +2336,18 @@ footer {
    ACCESSIBILITE MODERNE
    ================================================================= */
 
-/* Skip link */
+.form-notice {
+    margin-top: var(--spacing-4);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-tertiary);
+    line-height: var(--line-height-relaxed);
+}
+
+.form-notice a {
+    color: var(--color-accent-start);
+    text-decoration: underline;
+}
+
 .skip-link {
     position: absolute;
     top: -40px;

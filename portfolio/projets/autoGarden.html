@@ -14,13 +14,13 @@
     <meta property="og:title" content="Jardin Automatique Arduino | Portfolio Baptiste Nuytten">
     <meta property="og:description" content="Jardin automatique Arduino : système d'arrosage automatisé basé sur capteur d'humidité du sol, pompe à eau et logique Arduino/Micro:bit. Projet IoT.">
     <meta property="og:url" content="https://baptistenuytten.fr/portfolio/projets/autoGarden.html">
-    <meta property="og:image" content="https://baptistenuytten.fr/assets/images/og-portfolio.jpg">
+    <meta property="og:image" content="https://baptistenuytten.fr/assets/images/og-portfolio.webp">
     <meta property="og:site_name" content="Baptiste Nuytten">
     <meta property="og:locale" content="fr_FR">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Jardin Automatique Arduino | Portfolio Baptiste Nuytten">
     <meta name="twitter:description" content="Jardin automatique Arduino : système d'arrosage automatisé basé sur capteur d'humidité du sol, pompe à eau et logique Arduino/Micro:bit. Projet IoT.">
-    <meta name="twitter:image" content="https://baptistenuytten.fr/assets/images/og-portfolio.jpg">
+    <meta name="twitter:image" content="https://baptistenuytten.fr/assets/images/og-portfolio.webp">
     <link rel="canonical" href="https://baptistenuytten.fr/portfolio/projets/autoGarden.html">
     <script type="application/ld+json">
     {
@@ -29,7 +29,7 @@
       "name": "Jardin Automatique Arduino",
       "description": "Système d'arrosage automatique basé sur un capteur d'humidité du sol, une pompe à eau et un Arduino UNO ou Micro:bit.",
       "url": "https://baptistenuytten.fr/portfolio/projets/autoGarden.html",
-      "image": "https://baptistenuytten.fr/assets/img/autoGarden/Watersensor.jpg",
+      "image": "https://baptistenuytten.fr/assets/img/autoGarden/Watersensor.webp",
       "dateCreated": "2024-01-01",
       "keywords": "Arduino, Micro:bit, C++, IoT, arrosage automatique, capteur humidité",
       "author": {
@@ -51,29 +51,27 @@
     }
     </script>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon.svg">
     <link rel="stylesheet" href="../../assets/css/style.css">
     <link rel="stylesheet" href="../../assets/css/project-pages.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" media="print" onload="this.media='all'">
-    <noscript>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
-    </noscript>
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/devicon.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/devicon.min.css"></noscript>
 </head>
 
 <body>
+    <a class="skip-link" href="#main">Aller au contenu</a>
     <header>
         <div class="container">
-            <nav>
+            <nav aria-label="Navigation principale">
                 <div class="logo">Baptiste Nuytten – Étudiant & Freelance</div>
-                <div class="hamburger">
+                <button type="button" class="hamburger" aria-expanded="false" aria-controls="nav-menu" aria-label="Ouvrir le menu">
                     <span></span>
                     <span></span>
                     <span></span>
-                </div>
-                <ul class="nav-links">
+                </button>
+                <ul class="nav-links" id="nav-menu">
                     <li><a href="../../index.html">Services Freelance</a></li>
                     <li class="dropdown">
                         <a href="../Portfolio.html">
@@ -93,34 +91,36 @@
                         <div class="color-picker-wrapper">
                             <button class="color-picker-toggle" id="colorPickerToggle" aria-label="Choisir la couleur">🎨</button>
                             <div class="color-picker-menu" id="colorPickerMenu">
-                                <div class="color-option" data-color="emerald" title="Émeraude">
+                                <button type="button" class="color-option" data-color="emerald" aria-label="Thème émeraude">
                                     <span class="color-swatch" style="background: linear-gradient(135deg, #10B981, #34D399);"></span>
-                                </div>
-                                <div class="color-option" data-color="violet" title="Violet">
+                                </button>
+                                <button type="button" class="color-option" data-color="violet" aria-label="Thème violet">
                                     <span class="color-swatch" style="background: linear-gradient(135deg, #6366F1, #8B5CF6);"></span>
-                                </div>
-                                <div class="color-option" data-color="cyan" title="Cyan">
+                                </button>
+                                <button type="button" class="color-option" data-color="cyan" aria-label="Thème cyan">
                                     <span class="color-swatch" style="background: linear-gradient(135deg, #06B6D4, #22D3EE);"></span>
-                                </div>
-                                <div class="color-option" data-color="rose" title="Rose">
+                                </button>
+                                <button type="button" class="color-option" data-color="rose" aria-label="Thème rose">
                                     <span class="color-swatch" style="background: linear-gradient(135deg, #EC4899, #F472B6);"></span>
-                                </div>
-                                <div class="color-option" data-color="orange" title="Orange">
+                                </button>
+                                <button type="button" class="color-option" data-color="orange" aria-label="Thème orange">
                                     <span class="color-swatch" style="background: linear-gradient(135deg, #F97316, #FB923C);"></span>
-                                </div>
-                                <div class="color-option" data-color="red" title="Rouge">
+                                </button>
+                                <button type="button" class="color-option" data-color="red" aria-label="Thème rouge">
                                     <span class="color-swatch" style="background: linear-gradient(135deg, #EF4444, #F87171);"></span>
-                                </div>
+                                </button>
                             </div>
                         </div>
                     </li>
-                    <li><button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌙</button></li>
+                    <li><button class="theme-toggle" id="themeToggle" aria-label="Changer de thème (clair/sombre)">🌙</button></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <div class="project-page">
+    
+    <main id="main">
+<div class="project-page">
         <div class="project-header-banner">
             <h1>Jardin Automatique Arduino</h1>
             <p>Un système intelligent d'arrosage automatique basé sur la détection d'humidité du sol</p>
@@ -204,7 +204,7 @@
 
                 <div class="component-images">
                     <div class="component-card">
-                        <img src="../../assets/img/autoGarden/Watersensor.jpg" alt="Capteur d'humidité du sol"
+                        <img src="../../assets/img/autoGarden/Watersensor.webp" alt="Capteur d'humidité du sol"
                             loading="lazy" width="400" height="300" class="component-img">
                         <div class="component-content">
                             <h3 class="component-title">Capteur d'humidité du sol</h3>
@@ -214,7 +214,7 @@
                     </div>
 
                     <div class="component-card">
-                        <img src="../../assets/img/autoGarden/pump.png" alt="Mini pompe à eau" loading="lazy" width="400" height="300" class="component-img">
+                        <img src="../../assets/img/autoGarden/pump.webp" alt="Mini pompe à eau" loading="lazy" width="400" height="300" class="component-img">
                         <div class="component-content">
                             <h3 class="component-title">Mini pompe à eau</h3>
                             <p class="component-desc">Pompe submersible qui permet d'acheminer l'eau du réservoir vers
@@ -224,7 +224,7 @@
                     </div>
 
                     <div class="component-card">
-                        <img src="../../assets/img/arduino/arduinoUno.png" alt="Arduino UNO" loading="lazy" width="400" height="300" class="component-img">
+                        <img src="../../assets/img/arduino/arduinoUno.webp" alt="Arduino UNO" loading="lazy" width="400" height="300" class="component-img">
                         <div class="component-content">
                             <h3 class="component-title">Arduino UNO</h3>
                             <p class="component-desc">Microcontrôleur qui traite les données des capteurs et contrôle
@@ -233,7 +233,7 @@
                     </div>
 
                     <div class="component-card">
-                        <img src="../../assets/img/autoGarden/relay.png" alt="Module relais" loading="lazy" width="400" height="300" class="component-img">
+                        <img src="../../assets/img/autoGarden/relay.webp" alt="Module relais" loading="lazy" width="400" height="300" class="component-img">
                         <div class="component-content">
                             <h3 class="component-title">Module relais</h3>
                             <p class="component-desc">Permet à l'Arduino de contrôler des appareils nécessitant plus de
@@ -250,22 +250,22 @@
 
                 <div class="project-images">
                     <div class="project-img-container">
-                        <img src="../../assets/img/autoGarden/cablage.jpg" alt="Schéma de connexion du système d'arrosage"
+                        <img src="../../assets/img/autoGarden/cablage.webp" alt="Schéma de connexion du système d'arrosage"
                             loading="lazy" width="800" height="600" class="project-img-full">
                     </div>
 
                     <div class="project-img-container">
-                        <img src="../../assets/img/autoGarden/Versionmaison.jpg" alt="Prototype fonctionnel"
+                        <img src="../../assets/img/autoGarden/Versionmaison.webp" alt="Prototype fonctionnel"
                             loading="lazy" width="800" height="600" class="project-img-full">
                     </div>
 
                     <div class="project-img-container">
-                        <img src="../../assets/img/autoGarden/allcomponent.jpg" alt="Composants du système"
+                        <img src="../../assets/img/autoGarden/allcomponent.webp" alt="Composants du système"
                             loading="lazy" width="800" height="600" class="project-img-full">
                     </div>
 
                     <div class="project-img-container">
-                        <img src="../../assets/img/autoGarden/Microbit.png" alt="Version avec Micro:bit"
+                        <img src="../../assets/img/autoGarden/Microbit.webp" alt="Version avec Micro:bit"
                             loading="lazy" width="800" height="600" class="project-img-full">
                     </div>
                 </div>
@@ -326,7 +326,7 @@
                 <h2>Logique du système</h2>
                 <p class="section-subtitle">Organigramme illustrant le fonctionnement de l'arrosage automatique</p>
 
-                <img src="../../assets/img/autoGarden/algo.png" alt="Organigramme du système d'arrosage"
+                <img src="../../assets/img/autoGarden/algo.webp" alt="Organigramme du système d'arrosage"
                     loading="lazy" width="800" height="600" class="flowchart-img">
 
                 <div class="project-overview" style="margin-top: 2rem;">
@@ -395,6 +395,8 @@
             <p>Projet développé par Baptiste Nuytten | 2023</p>
         </div>
     </div>
+    </main>
+
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -414,8 +416,10 @@
 
             if (hamburger && navLinks) {
                 hamburger.addEventListener('click', function() {
-                    navLinks.classList.toggle('active');
+                    const isOpen = navLinks.classList.toggle('active');
                     hamburger.classList.toggle('active');
+                    hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+                    hamburger.setAttribute('aria-label', isOpen ? 'Fermer le menu' : 'Ouvrir le menu');
                 });
 
                 // Fermer le menu en cliquant sur un lien
@@ -423,6 +427,8 @@
                     link.addEventListener('click', () => {
                         navLinks.classList.remove('active');
                         hamburger.classList.remove('active');
+                        hamburger.setAttribute('aria-expanded', 'false');
+                        hamburger.setAttribute('aria-label', 'Ouvrir le menu');
                     });
                 });
             }

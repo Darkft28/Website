@@ -17,17 +17,13 @@
     <meta name="geo.placename" content="Caen, Normandie, France">
     <meta name="geo.position" content="49.1829;-0.3707">
     <meta name="ICBM" content="49.1829, -0.3707">
-
-    <!-- Language -->
-    <meta http-equiv="content-language" content="fr-FR">
-
-    <!-- Open Graph / Facebook -->
+<!-- Open Graph / Facebook -->
     <meta property="og:type" content="profile">
     <meta property="og:url" content="https://baptistenuytten.fr/portfolio/Portfolio.html">
     <meta property="og:site_name" content="Portfolio Développeur Web">
     <meta property="og:title" content="Portfolio Développeur Web | Projets React, Python, Arduino">
     <meta property="og:description" content="Découvrez mes projets de développement web : applications React/Next.js, sites e-commerce, systèmes embarqués Arduino, jeux Python. Étudiant développeur passionné.">
-    <meta property="og:image" content="https://baptistenuytten.fr/assets/images/og-portfolio.jpg">
+    <meta property="og:image" content="https://baptistenuytten.fr/assets/images/og-portfolio.webp">
     <meta property="og:image:alt" content="Portfolio de projets de développement web">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -38,7 +34,7 @@
     <meta name="twitter:url" content="https://baptistenuytten.fr/portfolio/Portfolio.html">
     <meta name="twitter:title" content="Portfolio Développeur Web | Projets & Réalisations">
     <meta name="twitter:description" content="Portfolio : applications React, sites e-commerce PHP, systèmes Arduino, jeux Python. 6+ projets réalisés.">
-    <meta name="twitter:image" content="https://baptistenuytten.fr/assets/images/og-portfolio.jpg">
+    <meta name="twitter:image" content="https://baptistenuytten.fr/assets/images/og-portfolio.webp">
     <meta name="twitter:image:alt" content="Portfolio de projets web">
 
     <!-- Structured Data / Schema.org - Person -->
@@ -52,7 +48,7 @@
         "name": "Baptiste Nuytten",
                 "description": "Développeur web freelance à Caen (Normandie) et étudiant en informatique spécialisé en React, Next.js, Python et systèmes embarqués",
         "url": "https://baptistenuytten.fr/portfolio/Portfolio.html",
-        "image": "https://baptistenuytten.fr/assets/img/baptiste.jpg",
+        "image": "https://baptistenuytten.fr/assets/img/baptiste.webp",
         "jobTitle": "Développeur Web Freelance",
                 "homeLocation": {
                     "@type": "Place",
@@ -138,7 +134,6 @@
     </script>
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="manifest" href="/manifest.json">
     <meta name="theme-color" content="#6366F1">
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon.svg">
@@ -149,23 +144,22 @@
     <link rel="stylesheet" href="../assets/css/timeline.css">
     <link rel="stylesheet" href="../assets/css/hero-interactive.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" media="print" onload="this.media='all'">
-    <noscript>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
-    </noscript>
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/devicon.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/devicon.min.css"></noscript>
 </head>
 <body>
+    <a class="skip-link" href="#main">Aller au contenu</a>
     <header>
         <div class="container">
-            <nav>
+            <nav aria-label="Navigation principale">
                 <a href="../index.html" class="logo" aria-label="Portfolio Développeur Web - Retour à l'accueil">Portfolio Développeur Web</a>
-                <div class="hamburger">
+                <button type="button" class="hamburger" aria-expanded="false" aria-controls="nav-menu" aria-label="Ouvrir le menu">
                     <span></span>
                     <span></span>
                     <span></span>
-                </div>
-                <ul class="nav-links">
+                </button>
+                <ul class="nav-links" id="nav-menu">
                     <li><a href="../index.html">Services Freelance</a></li>
                     <li class="dropdown">
                         <a href="Portfolio.html">
@@ -185,33 +179,35 @@
                         <div class="color-picker-wrapper">
                             <button class="color-picker-toggle" id="colorPickerToggle" aria-label="Choisir la couleur">🎨</button>
                             <div class="color-picker-menu" id="colorPickerMenu">
-                                <div class="color-option" data-color="emerald" title="Émeraude">
+                                <button type="button" class="color-option" data-color="emerald" aria-label="Thème émeraude">
                                     <span class="color-swatch" style="background: linear-gradient(135deg, #10B981, #34D399);"></span>
-                                </div>
-                                <div class="color-option" data-color="violet" title="Violet">
+                                </button>
+                                <button type="button" class="color-option" data-color="violet" aria-label="Thème violet">
                                     <span class="color-swatch" style="background: linear-gradient(135deg, #6366F1, #8B5CF6);"></span>
-                                </div>
-                                <div class="color-option" data-color="cyan" title="Cyan">
+                                </button>
+                                <button type="button" class="color-option" data-color="cyan" aria-label="Thème cyan">
                                     <span class="color-swatch" style="background: linear-gradient(135deg, #06B6D4, #22D3EE);"></span>
-                                </div>
-                                <div class="color-option" data-color="rose" title="Rose">
+                                </button>
+                                <button type="button" class="color-option" data-color="rose" aria-label="Thème rose">
                                     <span class="color-swatch" style="background: linear-gradient(135deg, #EC4899, #F472B6);"></span>
-                                </div>
-                                <div class="color-option" data-color="orange" title="Orange">
+                                </button>
+                                <button type="button" class="color-option" data-color="orange" aria-label="Thème orange">
                                     <span class="color-swatch" style="background: linear-gradient(135deg, #F97316, #FB923C);"></span>
-                                </div>
-                                <div class="color-option" data-color="red" title="Rouge">
+                                </button>
+                                <button type="button" class="color-option" data-color="red" aria-label="Thème rouge">
                                     <span class="color-swatch" style="background: linear-gradient(135deg, #EF4444, #F87171);"></span>
-                                </div>
+                                </button>
                             </div>
                         </div>
                     </li>
-                    <li><button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌙</button></li>
+                    <li><button class="theme-toggle" id="themeToggle" aria-label="Changer de thème (clair/sombre)">🌙</button></li>
                 </ul>
             </nav>
         </div>
     </header>
-    <section class="hero" id="hero-section">
+    
+    <main id="main">
+<section class="hero" id="hero-section">
         <!-- Canvas réseau de particules (z-index: 0, derrière le contenu) -->
         <canvas id="hero-particle-canvas" aria-hidden="true"></canvas>
         <!-- Spotlight radial qui suit le curseur -->
@@ -457,7 +453,7 @@
             <div class="carousel-wrapper">
                 <div class="carousel-track">
                 <div class="project-card" data-project-index="0">
-                    <img src="../assets/img/pim-4bus/pimWlcm.png" alt="Application web PIM - Product Information Management PHP MySQL" class="project-img" loading="lazy" width="400" height="225">
+                    <img src="../assets/img/pim-4bus/pimWlcm.webp" alt="Application web PIM - Product Information Management PHP MySQL" class="project-img" loading="lazy" width="400" height="225">
                     <div class="project-content">
                         <h3 class="project-title">Système PIM</h3>
                         <p>Application web professionnelle de gestion centralisée des informations produits. Import Excel, filtres avancés, gestion des équivalences et administration complète des référentiels pour optimiser la gestion de catalogues produits.</p>
@@ -470,13 +466,13 @@
                             <span class="project-tag">Bootstrap</span>
                         </div>
                         <div class="project-links">
-                            <a href="projets/pim.html" class="project-link">Demo <i class="fa-solid fa-play"></i></a>
+                            <a href="projets/pim.html" class="project-link">Voir le projet <i class="fa-solid fa-play"></i></a>
                         </div>
                     </div>
                 </div>
 
                 <div class="project-card" data-project-index="1">
-                    <img src="../assets/img/FilmShop.png" alt="Site de streaming films PHP MySQL avec API TMDB" class="project-img" loading="lazy" width="400" height="225">
+                    <img src="../assets/img/FilmShop.webp" alt="Site de streaming films PHP MySQL avec API TMDB" class="project-img" loading="lazy" width="400" height="225">
                     <div class="project-content">
                         <h3 class="project-title">Site de streaming</h3>
                         <p>Un site de streaming permettant l'inscription, la connexion, l'ajout au panier et la récupération des films depuis l'API TMDB pour les stocker dans une base de données MySQL, gérée via phpMyAdmin.</p>
@@ -490,13 +486,13 @@
                             <span class="project-tag">Docker</span>
                         </div>
                         <div class="project-links">
-                            <a href="projets/streaming.html" class="project-link">Demo <i class="fa-solid fa-play"></i></a>
+                            <a href="projets/streaming.html" class="project-link">Voir le projet <i class="fa-solid fa-play"></i></a>
                         </div>
                     </div>
                 </div>
 
                 <div class="project-card" data-project-index="2">
-                    <img src="../assets/img/Strategium.png" alt="Jeu de plateau Strategium développé en Python Tkinter" class="project-img" loading="lazy" width="400" height="225">
+                    <img src="../assets/img/Strategium.webp" alt="Jeu de plateau Strategium développé en Python Tkinter" class="project-img" loading="lazy" width="400" height="225">
                     <div class="project-content">
                         <h3 class="project-title">Jeu de plateau Strategium</h3>
                         <p>Deux joueurs s'affrontent pour capturer les pièces adverses sur un plateau dynamique. Le jeu mélange des règles inspirées des échecs ♟️ avec une mécanique unique de capture.</p>
@@ -507,14 +503,14 @@
                             <span class="project-tag">Git</span>
                         </div>
                         <div class="project-links">
-                            <a href="projets/strategium-demo.html" class="project-link">Demo <i class="fa-solid fa-play"></i></a>
+                            <a href="projets/strategium-demo.html" class="project-link">Voir le projet <i class="fa-solid fa-play"></i></a>
                             <a href="https://github.com/Darkft28/Strategium" class="project-link" target="_blank" rel="noopener noreferrer">GitHub <i class="fab fa-github"></i> </a>
                         </div>
                     </div>
                 </div>
 
                 <div class="project-card" data-project-index="3">
-                    <img src="../assets/img/arduino/finalProject.jpg" alt="Tracker solaire automatique Arduino C++ avec photorésistances" class="project-img" loading="lazy" width="400" height="225">
+                    <img src="../assets/img/arduino/finalProject.webp" alt="Tracker solaire automatique Arduino C++ avec photorésistances" class="project-img" loading="lazy" width="400" height="225">
                     <div class="project-content">
                         <h3 class="project-title">Tracker Solaire</h3>
                         <p>Un projet Arduino conçu pour suivre la position du soleil et maximiser l'exposition solaire. Ce tracker solaire utilise des photoresistances pour ajuster automatiquement l'orientation d'un panneau solaire, optimisant ainsi la collecte d'énergie.</p>
@@ -526,13 +522,13 @@
                             <span class="project-tag">Git</span>
                         </div>
                         <div class="project-links">
-                            <a href="projets/solartracker.html" class="project-link">Demo <i class="fa-solid fa-play"></i></a>
+                            <a href="projets/solartracker.html" class="project-link">Voir le projet <i class="fa-solid fa-play"></i></a>
                         </div>
                     </div>
                 </div>
 
                 <div class="project-card" data-project-index="4">
-                    <img src="../assets/img/Supemon.png" alt="Jeu Pokémon en ligne de commande développé en langage C" class="project-img" loading="lazy" width="400" height="225">
+                    <img src="../assets/img/Supemon.webp" alt="Jeu Pokémon en ligne de commande développé en langage C" class="project-img" loading="lazy" width="400" height="225">
                     <div class="project-content">
                         <h3 class="project-title">Jeu Pokémon en CLI</h3>
                         <p>Un jeu Pokémon fonctionnel développé en C, intégrant un système de sauvegarde, de capture, de gain d'expérience et de gestion des attaques. Ce projet met en œuvre des mécaniques de jeu captivantes pour une expérience immersive.</p>
@@ -543,14 +539,14 @@
                             <span class="project-tag">CLI</span>
                         </div>
                         <div class="project-links">
-                            <a href="projets/supemon.html" class="project-link">Demo <i class="fa-solid fa-play"></i></a>
+                            <a href="projets/supemon.html" class="project-link">Voir le projet <i class="fa-solid fa-play"></i></a>
                             <a href="https://github.com/Darkft28/Supemon" class="project-link" target="_blank" rel="noopener noreferrer">GitHub <i class="fab fa-github"></i></a>
                         </div>
                     </div>
                 </div>
 
                 <div class="project-card" data-project-index="5">
-                    <img src="../assets/img/autoGarden/Microbit.png" alt="Système d'arrosage automatique jardin Arduino avec capteurs humidité sol" class="project-img" loading="lazy" width="400" height="225">
+                    <img src="../assets/img/autoGarden/Microbit.webp" alt="Système d'arrosage automatique jardin Arduino avec capteurs humidité sol" class="project-img" loading="lazy" width="400" height="225">
                     <div class="project-content">
                         <h3 class="project-title">Jardin Automatique</h3>
                         <p>Un système automatisé utilisant une carte Arduino pour arroser un jardin en fonction de l'humidité du sol. Le projet intègre une pompe à eau et des capteurs d'humidité placés directement dans le sol pour un arrosage optimal.</p>
@@ -562,13 +558,13 @@
                             <span class="project-tag">Git</span>
                         </div>
                         <div class="project-links">
-                            <a href="projets/autoGarden.html" class="project-link">Demo <i class="fa-solid fa-play"></i></a>
+                            <a href="projets/autoGarden.html" class="project-link">Voir le projet <i class="fa-solid fa-play"></i></a>
                         </div>
                     </div>
                 </div>
 
                 <div class="project-card" data-project-index="6">
-                    <img src="../assets/img/soonwatch/discover.png" alt="SoonWatch - Application watchlist films et séries React TypeScript Node.js" class="project-img" loading="lazy" width="400" height="225">
+                    <img src="../assets/img/soonwatch/discover.webp" alt="SoonWatch - Application watchlist films et séries React TypeScript Node.js" class="project-img" loading="lazy" width="400" height="225">
                     <div class="project-content">
                         <h3 class="project-title">SoonWatch</h3>
                         <p>Application web full-stack de gestion de watchlist films & séries. Découverte de contenu style Netflix, mode swipe à la Tinder pour trouver quoi regarder, dossiers personnalisés et recherche TMDB en temps réel.</p>
@@ -582,7 +578,7 @@
                             <span class="project-tag">API TMDB</span>
                         </div>
                         <div class="project-links">
-                            <a href="projets/soonwatch.html" class="project-link">Demo <i class="fa-solid fa-play"></i></a>
+                            <a href="projets/soonwatch.html" class="project-link">Voir le projet <i class="fa-solid fa-play"></i></a>
                             <a href="https://github.com/Darkft28/SoonWatch" class="project-link" target="_blank" rel="noopener noreferrer">GitHub <i class="fab fa-github"></i></a>
                         </div>
                     </div>
@@ -714,7 +710,7 @@
             <div class="testimonials-grid">
                 <div class="testimonial-card">
                     <div class="testimonial-header">
-                        <img src="../assets/img/avis/Jean-Philippe_Casoni.png" alt="Jean-Philippe Casoni - Responsable applications Groupe Niort" class="testimonial-avatar" loading="lazy" width="80" height="80">
+                        <img src="../assets/img/avis/Jean-Philippe_Casoni.webp" alt="Jean-Philippe Casoni - Responsable applications Groupe Niort" class="testimonial-avatar" loading="lazy" width="80" height="80">
                         <div class="testimonial-info">
                             <h3 class="testimonial-name">
                                 Jean-Philippe Casoni
@@ -739,7 +735,7 @@
 
                 <div class="testimonial-card">
                     <div class="testimonial-header">
-                        <img src="../assets/img/avis/Andrew_Mahe.png" alt="Andrew Mahé - Développeur Fullstack CTO Formateur" class="testimonial-avatar" loading="lazy" width="80" height="80">
+                        <img src="../assets/img/avis/Andrew_Mahe.webp" alt="Andrew Mahé - Développeur Fullstack CTO Formateur" class="testimonial-avatar" loading="lazy" width="80" height="80">
                         <div class="testimonial-info">
                             <h3 class="testimonial-name">
                                 Andrew Mahé
@@ -794,11 +790,13 @@
             
             
             <div class="social">
-                <a href="https://github.com/Darkft28" title="GitHub"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/baptiste-nuytten-dhdi/" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/Darkft28" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
+                <a href="https://www.linkedin.com/in/baptiste-nuytten-dhdi/" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
             </div>
         </div>
     </section>
+    </main>
+
 
     <footer>
         <div class="container">
@@ -815,8 +813,8 @@
                     <a href="../legal/cgv.html">CGV</a>
                 </div>
                 <div class="footer-social">
-                    <a href="https://github.com/Darkft28" title="GitHub" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/baptiste-nuytten-dhdi/" title="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/Darkft28" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i></a>
+                    <a href="https://www.linkedin.com/in/baptiste-nuytten-dhdi/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
                 </div>
                 <p class="footer-copyright">&copy; 2026 Baptiste Nuytten. Tous droits réservés. SIREN 991 703 851</p>
             </div>
@@ -849,8 +847,10 @@
 
             if (hamburger && navLinks) {
                 hamburger.addEventListener('click', function() {
-                    navLinks.classList.toggle('active');
+                    const isOpen = navLinks.classList.toggle('active');
                     hamburger.classList.toggle('active');
+                    hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+                    hamburger.setAttribute('aria-label', isOpen ? 'Fermer le menu' : 'Ouvrir le menu');
                 });
 
                 // Fermer le menu en cliquant sur un lien
@@ -858,6 +858,8 @@
                     link.addEventListener('click', () => {
                         navLinks.classList.remove('active');
                         hamburger.classList.remove('active');
+                        hamburger.setAttribute('aria-expanded', 'false');
+                        hamburger.setAttribute('aria-label', 'Ouvrir le menu');
                     });
                 });
             }
