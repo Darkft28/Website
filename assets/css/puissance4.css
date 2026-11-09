@@ -1,0 +1,219 @@
+/* ===================================================================
+   PUISSANCE 4 - Plateau et interface de jeu
+   (boutons, modales et conteneurs réutilisent strategium.css)
+   ================================================================= */
+
+.size-selection.p4-options {
+    gap: var(--spacing-5);
+}
+
+.p4-options .p4-field {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-2);
+}
+
+.p4-options select {
+    width: 260px;
+    max-width: 100%;
+    padding: var(--spacing-3) var(--spacing-4);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-medium);
+    font-family: var(--font-family);
+    color: var(--color-text-primary);
+    background: var(--color-bg-secondary);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    cursor: pointer;
+}
+
+.p4-options select:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.p4-options select:focus-visible {
+    outline: none;
+    border-color: var(--color-accent-start);
+    box-shadow: 0 0 0 4px rgba(var(--color-accent-rgb), 0.15);
+}
+
+.p4-options label {
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-primary);
+}
+
+/* ---------- Barre d'état ---------- */
+.p4-topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-4);
+    max-width: 640px;
+    margin: 0 auto var(--spacing-6);
+}
+
+.p4-status {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-primary);
+    text-align: center;
+    margin-bottom: var(--spacing-2);
+    min-height: 2em;
+}
+
+.p4-status.thinking { color: var(--color-text-secondary); }
+.p4-status.win { color: #16A34A; }
+.p4-status.lose { color: #DC2626; }
+.p4-status.draw { color: var(--color-text-secondary); }
+
+.p4-meta {
+    text-align: center;
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-sm);
+    min-height: 1.5em;
+    margin-bottom: var(--spacing-6);
+}
+
+.p4-legend {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-6);
+    margin-bottom: var(--spacing-4);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+}
+
+.p4-legend span {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-2);
+}
+
+.p4-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+/* ---------- Plateau ---------- */
+.p4-board-wrap {
+    display: flex;
+    justify-content: center;
+}
+
+.p4-board {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0;
+    width: min(100%, 640px);
+    padding: 12px;
+    background: #1D4ED8;
+    border-radius: var(--radius-2xl);
+    box-shadow: var(--shadow-xl), inset 0 -6px 0 rgba(0, 0, 0, 0.25);
+}
+
+.p4-column {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 4px;
+    background: transparent;
+    border: none;
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    transition: background var(--transition-base) var(--ease-out);
+}
+
+.p4-column {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+}
+
+@media (hover: hover) {
+    .p4-column:hover:not(:disabled) {
+        background: rgba(255, 255, 255, 0.16);
+    }
+}
+
+.p4-column:focus-visible {
+    background: rgba(255, 255, 255, 0.16);
+    outline: none;
+}
+
+.p4-column:disabled {
+    cursor: default;
+}
+
+.p4-cell {
+    display: block;
+    aspect-ratio: 1;
+    width: 100%;
+    border-radius: 50%;
+    background: var(--color-bg-primary);
+    box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.p4-cell.p4-human {
+    background: radial-gradient(circle at 35% 30%, #F87171, #DC2626 70%);
+}
+
+.p4-cell.p4-ai {
+    background: radial-gradient(circle at 35% 30%, #FDE68A, #EAB308 70%);
+}
+
+.p4-cell.p4-drop {
+    animation: p4-drop 0.45s cubic-bezier(0.34, 1.2, 0.64, 1);
+}
+
+.p4-cell.p4-win {
+    box-shadow: 0 0 0 4px #fff, 0 0 18px 6px rgba(255, 255, 255, 0.8);
+    animation: p4-pulse 0.9s ease-in-out infinite alternate;
+}
+
+@keyframes p4-drop {
+    from { transform: translateY(-420%); }
+    to { transform: translateY(0); }
+}
+
+@keyframes p4-pulse {
+    from { transform: scale(1); }
+    to { transform: scale(1.08); }
+}
+
+.p4-actions {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-4);
+    flex-wrap: wrap;
+    margin-top: var(--spacing-8);
+}
+
+.p4-score {
+    text-align: center;
+    margin-top: var(--spacing-6);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-primary);
+}
+
+.p4-hint {
+    text-align: center;
+    margin-top: var(--spacing-2);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+}
+
+@media (max-width: 575px) {
+    .p4-board { padding: 6px; }
+    .p4-column { gap: 4px; padding: 2px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .p4-cell.p4-drop,
+    .p4-cell.p4-win {
+        animation: none;
+    }
+}

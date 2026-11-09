@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puissance 4 contre l'IA - Démonstration | Portfolio Baptiste Nuytten</title>
+    <meta name="description" content="Jouez à Puissance 4 contre une IA (MinMax alpha-bêta ou MCTS) dans votre navigateur — projet Python de Baptiste Nuytten, adapté en JavaScript.">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Baptiste Nuytten">
+    <meta name="geo.region" content="FR-NOR">
+    <meta name="geo.placename" content="Caen, Normandie">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Puissance 4 contre l'IA - Démonstration | Portfolio Baptiste Nuytten">
+    <meta property="og:description" content="Affrontez une IA au Puissance 4 : bot aléatoire, MinMax avec élagage alpha-bêta ou Monte-Carlo Tree Search.">
+    <meta property="og:url" content="https://baptistenuytten.fr/portfolio/projets/puissance4.html">
+    <meta property="og:image" content="https://baptistenuytten.fr/assets/images/og-portfolio.webp">
+    <meta property="og:site_name" content="Baptiste Nuytten">
+    <meta property="og:locale" content="fr_FR">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Puissance 4 contre l'IA - Démonstration | Portfolio Baptiste Nuytten">
+    <meta name="twitter:description" content="Affrontez une IA au Puissance 4 : bot aléatoire, MinMax avec élagage alpha-bêta ou Monte-Carlo Tree Search.">
+    <meta name="twitter:image" content="https://baptistenuytten.fr/assets/images/og-portfolio.webp">
+    <link rel="canonical" href="https://baptistenuytten.fr/portfolio/projets/puissance4.html">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Puissance 4 contre l'IA",
+      "description": "Jeu de Puissance 4 jouable contre une IA (MinMax avec élagage alpha-bêta, Monte-Carlo Tree Search), développé en Python et adapté en JavaScript.",
+      "url": "https://baptistenuytten.fr/portfolio/projets/puissance4.html",
+      "image": "https://baptistenuytten.fr/assets/images/og-portfolio.webp",
+      "applicationCategory": "Game",
+      "operatingSystem": "Web",
+      "programmingLanguage": ["Python", "JavaScript"],
+      "author": {
+        "@type": "Person",
+        "name": "Baptiste Nuytten",
+        "url": "https://baptistenuytten.fr"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://baptistenuytten.fr/"},
+        {"@type": "ListItem", "position": 2, "name": "Portfolio", "item": "https://baptistenuytten.fr/portfolio/Portfolio.html"},
+        {"@type": "ListItem", "position": 3, "name": "Puissance 4", "item": "https://baptistenuytten.fr/portfolio/projets/puissance4.html"}
+      ]
+    }
+    </script>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.svg">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/project-pages.css">
+    <link rel="stylesheet" href="../../assets/css/strategium.css">
+    <link rel="stylesheet" href="../../assets/css/puissance4.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+</head>
+<body>
+    <a class="skip-link" href="#main">Aller au contenu</a>
+    <header>
+        <div class="container">
+            <nav aria-label="Navigation principale">
+                <div class="logo">Baptiste Nuytten – Étudiant & Freelance</div>
+                <button type="button" class="hamburger" aria-expanded="false" aria-controls="nav-menu" aria-label="Ouvrir le menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-links" id="nav-menu">
+                    <li><a href="../../index.html">Services Freelance</a></li>
+                    <li class="dropdown">
+                        <a href="../Portfolio.html">
+                            Portfolio
+                            <span class="dropdown-icon">▼</span>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a href="../Portfolio.html#about">À propos</a>
+                            <a href="../Portfolio.html#skills">Compétences</a>
+                            <a href="../Portfolio.html#projects">Projets</a>
+                            <a href="../Portfolio.html#testimonials">Recommandations</a>
+                            <a href="../Portfolio.html#experience">Expérience</a>
+                        </div>
+                    </li>
+                    <li><a href="../Portfolio.html#contact">Contact</a></li>
+                    <li>
+                        <div class="color-picker-wrapper">
+                            <button class="color-picker-toggle" id="colorPickerToggle" aria-label="Choisir la couleur">🎨</button>
+                            <div class="color-picker-menu" id="colorPickerMenu">
+                                <button type="button" class="color-option" data-color="emerald" aria-label="Thème émeraude">
+                                    <span class="color-swatch" style="background: linear-gradient(135deg, #10B981, #34D399);"></span>
+                                </button>
+                                <button type="button" class="color-option" data-color="violet" aria-label="Thème violet">
+                                    <span class="color-swatch" style="background: linear-gradient(135deg, #6366F1, #8B5CF6);"></span>
+                                </button>
+                                <button type="button" class="color-option" data-color="cyan" aria-label="Thème cyan">
+                                    <span class="color-swatch" style="background: linear-gradient(135deg, #06B6D4, #22D3EE);"></span>
+                                </button>
+                                <button type="button" class="color-option" data-color="rose" aria-label="Thème rose">
+                                    <span class="color-swatch" style="background: linear-gradient(135deg, #EC4899, #F472B6);"></span>
+                                </button>
+                                <button type="button" class="color-option" data-color="orange" aria-label="Thème orange">
+                                    <span class="color-swatch" style="background: linear-gradient(135deg, #F97316, #FB923C);"></span>
+                                </button>
+                                <button type="button" class="color-option" data-color="red" aria-label="Thème rouge">
+                                    <span class="color-swatch" style="background: linear-gradient(135deg, #EF4444, #F87171);"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </li>
+                    <li><button class="theme-toggle" id="themeToggle" aria-label="Changer de thème (clair/sombre)">🌙</button></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main">
+<div class="project-page">
+        <div class="project-header-banner">
+            <h1>Puissance 4 contre l'IA</h1>
+            <p>Un Puissance 4 développé en Python avec trois adversaires : bot aléatoire, MinMax alpha-bêta et Monte-Carlo Tree Search</p>
+        </div>
+
+        <div class="container">
+            <div id="p4Game" class="game-container active">
+                <div class="p4-topbar">
+                    <div class="player-info">Adversaire : <span id="p4Opponent">IA experte (MCTS)</span></div>
+                    <button type="button" id="p4RulesBtn" class="button secondary-button">Règles du jeu</button>
+                </div>
+
+                <div id="p4Status" class="p4-status" role="status" aria-live="polite"></div>
+                <div id="p4Info" class="p4-meta"></div>
+
+                <div class="p4-legend">
+                    <span><i class="p4-dot" style="background:#DC2626"></i> Vous</span>
+                    <span><i class="p4-dot" style="background:#EAB308"></i> IA</span>
+                </div>
+
+                <div class="p4-board-wrap">
+                    <div id="p4Board" class="p4-board" role="group" aria-label="Plateau de Puissance 4"></div>
+                </div>
+
+                <div class="p4-score" id="p4Score"></div>
+                <p class="p4-hint">Cliquez sur une colonne ou utilisez les touches 1 à 7.</p>
+
+                <div class="p4-actions">
+                    <button type="button" id="p4Replay" class="button primary-button">Nouvelle partie</button>
+                </div>
+            </div>
+
+            <div id="p4RulesModal" class="modal">
+                <div class="modal-content">
+                    <button type="button" id="p4CloseRules" class="close-button" aria-label="Fermer">&times;</button>
+                    <h2 class="modal-title">Règles du Puissance 4</h2>
+                    <ul class="rules-list">
+                        <li><strong>Plateau :</strong> 6 lignes et 7 colonnes.</li>
+                        <li><strong>Tour par tour :</strong> chaque joueur dépose un pion dans une colonne ; il tombe jusqu'à la case libre la plus basse.</li>
+                        <li><strong>Victoire :</strong> le premier à aligner 4 pions (horizontalement, verticalement ou en diagonale) gagne.</li>
+                        <li><strong>Match nul :</strong> si le plateau est plein sans alignement.</li>
+                        <li><strong>Les IA :</strong>
+                            <ul>
+                                <li><em>Bot aléatoire</em> : joue une colonne au hasard.</li>
+                                <li><em>MinMax alpha-bêta</em> : explore l'arbre des coups à une profondeur donnée et évalue les positions avec une heuristique.</li>
+                                <li><em>MCTS</em> : simule de nombreuses parties aléatoires et joue le coup le plus prometteur.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="project-code-link" style="text-align: center; margin-top: 2rem;">
+                <a href="https://github.com/Darkft28" class="btn" target="_blank" rel="noopener noreferrer">Voir mon GitHub</a>
+            </div>
+
+            <div class="game-details" style="margin-top: 3rem; max-width: 800px; margin-left: auto; margin-right: auto;">
+                <h3>À propos du projet</h3>
+                <p>Ce Puissance 4 a été écrit en Python en programmation orientée objet, avec une classe de jeu et plusieurs joueurs interchangeables (humain, bot aléatoire, MinMax, MCTS) pour comparer leurs performances.</p>
+
+                <h3>Algorithmes</h3>
+                <ul>
+                    <li><strong>MinMax avec élagage alpha-bêta</strong> et heuristique d'évaluation des blocs de 4 cases</li>
+                    <li><strong>Monte-Carlo Tree Search</strong> : sélection UCT, expansion, simulation, rétropropagation</li>
+                    <li><strong>Bot aléatoire</strong> comme référence pour mesurer le taux de victoire</li>
+                </ul>
+
+                <h3>Version web</h3>
+                <p>Cette démo est un portage en JavaScript de la logique Python : les IA tournent directement dans votre navigateur, sans serveur.</p>
+            </div>
+        </div>
+
+        <section style="padding: 40px 0; border-top: 1px solid var(--border-color, rgba(255,255,255,0.1));">
+            <div class="container">
+                <h3 style="font-size: 1.2rem; margin-bottom: 1.5rem; color: var(--text-secondary, #9CA3AF);">Voir aussi</h3>
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <a href="./strategium-demo.html" style="padding: 0.5rem 1.25rem; border: 1px solid var(--border-color, rgba(255,255,255,0.2)); border-radius: 0.5rem; text-decoration: none; color: inherit;">Strategium</a>
+                    <a href="./supemon.html" style="padding: 0.5rem 1.25rem; border: 1px solid var(--border-color, rgba(255,255,255,0.2)); border-radius: 0.5rem; text-decoration: none; color: inherit;">Supemon</a>
+                </div>
+            </div>
+        </section>
+
+        <section style="padding: 60px 0; text-align: center; border-top: 1px solid var(--border-color, rgba(255,255,255,0.1));">
+            <div class="container">
+                <h2 style="font-size: 1.8rem; margin-bottom: 1rem;">Vous avez un projet similaire ?</h2>
+                <p style="color: var(--text-secondary, #9CA3AF); margin-bottom: 2rem;">Discutons de votre projet et voyons comment je peux vous aider.</p>
+                <a href="../../index.html#contact" class="btn btn-primary" style="display: inline-block; padding: 0.875rem 2rem; background: var(--gradient-accent, linear-gradient(135deg, #6366F1, #8B5CF6)); color: white; border-radius: 0.5rem; text-decoration: none; font-weight: 600;">Voir mes services &amp; tarifs</a>
+            </div>
+        </section>
+
+        <div class="credits">
+            <p>Développé par Baptiste Nuytten | Version web adaptée en JavaScript à partir du code Python original</p>
+        </div>
+    </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Header scroll effect
+            const header = document.querySelector('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // Menu hamburger
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+
+            if (hamburger && navLinks) {
+                hamburger.addEventListener('click', function() {
+                    const isOpen = navLinks.classList.toggle('active');
+                    hamburger.classList.toggle('active');
+                    hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+                    hamburger.setAttribute('aria-label', isOpen ? 'Fermer le menu' : 'Ouvrir le menu');
+                });
+
+                // Fermer le menu en cliquant sur un lien
+                document.querySelectorAll('.nav-links li a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        navLinks.classList.remove('active');
+                        hamburger.classList.remove('active');
+                        hamburger.setAttribute('aria-expanded', 'false');
+                        hamburger.setAttribute('aria-label', 'Ouvrir le menu');
+                    });
+                });
+            }
+
+            // Theme Toggle avec persistance
+            const themeToggle = document.getElementById('themeToggle');
+            const htmlElement = document.documentElement;
+
+            // Charger le thème sauvegardé (dark par défaut)
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            htmlElement.setAttribute('data-theme', savedTheme);
+            themeToggle.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+
+            themeToggle.addEventListener('click', () => {
+                const currentTheme = htmlElement.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+                htmlElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                themeToggle.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+            });
+        });
+    </script>
+    <script src="../../assets/js/puissance4.js"></script>
+    <script src="../../assets/js/color-picker.js"></script>
+    <script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
